@@ -1,0 +1,5 @@
+
+	1. IDE - Intelij
+	2. Spring Boot
+	3. DI-IOC-Bean-Autowired-AOP in accordance with Spring Official Doc (spring.io)
+	4. Spring Initializer custom url: https://start-scs.cfaps.io
