@@ -1,5 +1,31 @@
 
-	1. IDE - Intelij
-	2. Spring Boot
-	3. DI-IOC-Bean-Autowired-AOP in accordance with Spring Official Doc (spring.io)
-	4. Spring Initializer custom url: https://start-scs.cfaps.io
+1. IDE - Intelij
+
+2. Spring Boot
+
+3. DI-IOC-Bean-Autowired-AOP in accordance with Spring Official Doc (spring.io)
+
+4. Spring Initializer custom url: https://start-scs.cfaps.io
+
+5. Run from cmd/git bash:
+	- mvn clean install
+	- server.port=8008
+	- mvn spring-boot:run
+
+6. Stopping project in cmd: ctrl + c / y
+
+7. Maven is Project Management Tool. It has 3 types of packaging:
+	- war
+	- jar
+	- pom (project object model)
+
+9. Dependency is different types of library or jar. It has 2 types of ID:
+	- group ID
+	- artifact ID
+
+10. Metadata means extra information
+
+11. New Project:
+	package ->java object class
+	resources -> applicationContext.xml
+	package -> Test class
