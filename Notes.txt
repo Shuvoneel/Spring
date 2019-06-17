@@ -29,3 +29,15 @@
 	package ->java object class
 	resources -> applicationContext.xml
 	package -> Test class
+
+12. Spring Project Samples: search spring samples and go to spring-boot in github.com
+
+13. spring core maven repository
+
+14. maven core repository
+
+15. Object mainly two types:
+	- muteable obj: use when you want to change the value frequently
+	- immuteable obj
+
+16. 
