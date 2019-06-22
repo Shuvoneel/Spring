@@ -1,0 +1,17 @@
+package com.dawntechbd.springbootactuator
+
+
+@RestController
+public class TestController{
+
+	@GetMapping(value = "/")
+	public String index(){
+	return "Hello Spring Rest API";
+	}
+
+	@GetMapping(value = "/test")
+	public String indexTest(){
+	return "Hello Spring Rest Test API";
+	}
+
+}

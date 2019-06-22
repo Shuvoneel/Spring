@@ -40,4 +40,29 @@
 	- muteable obj: use when you want to change the value frequently
 	- immuteable obj
 
-16. 
+16. Cache: It's a one type of memory that remembers the users information.
+
+17. Example of proxy cum cache: Varnish & Spring Ribon
+
+18. Thymeleaf: It is a template engine that is mostly used in java. Some other template engines are: Freemarker, Velocity, Groovy.
+
+19. Spring Boot Actuator: Actuator endpoints used to monitor & interact with the application.
+
+20. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
