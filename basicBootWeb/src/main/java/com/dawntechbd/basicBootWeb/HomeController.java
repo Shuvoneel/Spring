@@ -59,7 +59,8 @@ public class HomeController {
     }
 
     @GetMapping(value = "/student")
-    public String displayStudentById(Model model, @RequestParam(name="id", required = false, defaultValue = "1") Long id){
+    public String displayStudentById(Model model, @RequestParam(name="id",
+            required = false, defaultValue = "1") Long id){
         Student s = this.repository.getOne(id);
         model.addAttribute("student", s);
 

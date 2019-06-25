@@ -48,8 +48,10 @@
 
 19. Spring Boot Actuator: Actuator endpoints used to monitor & interact with the application.
 
-20. 
-
+20.  Template Building Steps with Thymeleaf:
+	- thymeleaf-layout-dialect
+	- copy the folder matching with the link
+	-
 
 
 
