@@ -2,14 +2,12 @@
 <html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>About</title>
     <link rel="stylesheet" href="/bootstrap.css" th:href="@{/bootstrap.css}"/>
 </head>
 <body>
-<h1>This is HOME page !!!</h1>
-<form th:object="${student}" th:action="@{/}" th:method="post">
-    <input type="text" th:field="*{name}"/>
-    <button type="submit">Send</button>
-</form>
+<h1>This is Student Info page !!!</h1>
+
+<h2 th:text="${student.name}"></h2>
 </body>
 </html>
