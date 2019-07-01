@@ -53,7 +53,7 @@
 	- copy the folder matching with the link
 	-
 
-
+21. QueryDSL is a very powerfull language.
 
 
 
