@@ -1,0 +1,5 @@
+1. JPA- Java Persistance API is mainly known as specification
+2. Hibernate- is the implementation of JPA
+3. Name of Hibernate own language is - HSQL
+4. Name="" in @Table - is not required if class name & table name is same
+5. 
