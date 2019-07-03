@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<h1>Add Country</h1>
+<span style="color: red" th:text="${errMsg}"></span>
+<span style="color: green" th:text="${successMsg}"></span>
+
+<form th:object="${country}" th:action="@{/ct}" , th:method="POST">
+    <input type="text" th:field="*{name}" required/>
+    <button type="submit">Save</button>
+</form>
+
+<br/>
+<h1>Country List</h1>
+<table style="width: 100%; background: aquamarine">
+    <tr>
+        <th style="font-size: 25px; font-weight: bold">ID</th>
+        <th style="font-size: 25px; font-weight: bold">Country</th>
+    </tr>
+    <tr th:each="c : ${list}">
+        <td th:text="${c.id}" style="text-align: center"></td>
+        <td th:text="${c.name}" style="text-align: center"></td>
+    </tr>
+</table>
+</body>
+</html>

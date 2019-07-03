@@ -3,7 +3,7 @@ package com.dawntechbd.SpringHibernate.entity;
 import javax.persistence.*;
 
 @Entity
-public class Student {
+public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,11 +13,7 @@ public class Student {
     @JoinColumn(name = "dep_id", nullable = false)
     private Department department;
 
-    @ManyToOne
-    @JoinColumn(name="country_id", nullable = false)
-    private Country country;
-
-    public Student() {
+    public Division() {
     }
 
     public Long getId() {
@@ -50,13 +46,5 @@ public class Student {
 
     public void setDepartment(Department department) {
         this.department = department;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
     }
 }
