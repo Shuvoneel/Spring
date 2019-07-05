@@ -9,14 +9,25 @@
 <span style="color:red;" th:text="${errMsg}"></span>
 <span style="color:green;" th:text="${successMsg}"></span>
 <form th:object="${student}" th:action="@{/student}" , th:method="POST">
-    <input type="text" th:field="*{name}">
-    <input type="email" th:field="*{email}">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}"><br/>
+    <label>Age:</label>
+    <input type="number" th:field="*{age}"><br/>
+    <label>Gender:</label>
+    <input type="radio" th:field="*{gender}" th:value="Male">
+    <label>Male</label>
+    <input type="radio" th:field="*{gender}" th:value="Female">
+    <label>Female</label><br/>
+    <label>Email:</label>
+    <input type="email" th:field="*{email}"><br/>
+    <label>Department:</label>
     <select th:field="*{department}">
         <option th:each="dep : ${deplist}" th:value="${dep.id}"><span th:text="${dep.name}"></span></option>
-    </select>
+    </select><br/>
+    <label>Country:</label>
     <select th:field="*{country}">
         <option th:each="ct : ${countrylist}" th:value="${ct.id}"><span th:text="${ct.name}"></span></option>
-    </select>
+    </select><br/>
     <button type="submit">Save</button>
 </form>
 
@@ -26,6 +37,8 @@
     <tr>
         <th style="font-size: 25px; font-weight: bold">ID</th>
         <th style="font-size: 25px; font-weight: bold">Student Name</th>
+        <th style="font-size: 25px; font-weight: bold">Student Age</th>
+        <th style="font-size: 25px; font-weight: bold">Gender</th>
         <th style="font-size: 25px; font-weight: bold">Student Email</th>
         <th style="font-size: 25px; font-weight: bold">Department</th>
         <th style="font-size: 25px; font-weight: bold">Country</th>
@@ -33,6 +46,8 @@
     <tr th:each="s : ${list}">
         <td th:text="${s.id}" style="text-align: center"></td>
         <td th:text="${s.name}" style="text-align: center"></td>
+        <td th:text="${s.age}" style="text-align: center"></td>
+        <td th:text="${s.gender}" style="text-align: center"></td>
         <td th:text="${s.email}" style="text-align: center"></td>
         <td th:text="${s.department.name}" style="text-align: center"></td>
         <td th:text="${s.country.name}" style="text-align: center"></td>

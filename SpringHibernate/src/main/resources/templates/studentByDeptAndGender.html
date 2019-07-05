@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Student List by Department ID and Gender</h1>
+<form th:action="@{/sbda}" , th:method="GET">
+    <label>Department</label>
+    <select name="depId">
+        <option th:each="d : ${depList}" th:value="${d.id}">
+            <span th:text="${d.name}"></span>
+        </option>
+    </select>
+    <label>Gender</label>
+    <select name="gender">
+        <option th:value="Male">Male</option>
+        <option th:value="Female">Female</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+<table style="width: 100%; background: aquamarine">
+    <tr>
+        <th style="font-size: 25px; font-weight: bold">ID</th>
+        <th style="font-size: 25px; font-weight: bold">Department</th>
+        <th style="font-size: 25px; font-weight: bold">Name</th>
+        <th style="font-size: 25px; font-weight: bold">Age</th>
+        <th style="font-size: 25px; font-weight: bold">Gender</th>
+        <th style="font-size: 25px; font-weight: bold">Email</th>
+        <th style="font-size: 25px; font-weight: bold">Country</th>
+    </tr>
+    <tr th:each="s : ${listByDeptAndGen}">
+        <td th:text="${s.id}" style="text-align: center"></td>
+        <td th:text="${s.department.name}" style="text-align: center"></td>
+        <td th:text="${s.name}" style="text-align: center"></td>
+        <td th:text="${s.age}" style="text-align: center"></td>
+        <td th:text="${s.gender}" style="text-align: center"></td>
+        <td th:text="${s.email}" style="text-align: center"></td>
+        <td th:text="${s.country.name}" style="text-align: center"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -9,12 +9,31 @@ public class Student {
     private Long id;
     private String name;
     private String email;
+    private int age;
+    private String gender;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     @ManyToOne
     @JoinColumn(name = "dep_id", nullable = false)
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name="country_id", nullable = false)
+    @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
     public Student() {
