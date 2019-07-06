@@ -18,7 +18,7 @@ import java.nio.file.Paths;
 @Controller
 public class UploadController {
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "F:/1246913/Spring/FileUpload/src/main/resources/static/images/";
+    private static String UPLOADED_FOLDER = "E:/Spring/ImageUpload/src/main/resources/static/images/";
 
 
     @Autowired
