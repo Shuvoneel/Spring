@@ -1,0 +1,46 @@
+
+
+mysql> create database ajax;
+
+mysql> use ajax;
+
+mysql> show tables;
+
+mysql> desc city;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| city       | varchar(255) | YES  |     | NULL    |                |
+| country_id | bigint(20)   | YES  | MUL | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+
+
+mysql> desc country;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| id      | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| country | varchar(255) | YES  |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+
+
+mysql> insert into country(country) values("Bangladesh");
+
+mysql> insert into country(country) values("India");
+
+mysql> select * from country;
++----+------------+
+| id | country    |
++----+------------+
+|  1 | Bangladesh |
+|  2 | India      |
++----+------------+
+
+mysql> insert into city(city, country_id) values("Rangpur",1);
+
+mysql> insert into city(city, country_id) values("Dhaka",1);
+
+mysql> insert into city(city, country_id) values("Mumbai",2);
+
+mysql> insert into city(city, country_id) values("Delhi",2);

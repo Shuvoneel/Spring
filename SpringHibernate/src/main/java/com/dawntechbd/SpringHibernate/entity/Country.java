@@ -3,6 +3,8 @@ package com.dawntechbd.SpringHibernate.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+import java.util.Objects;
+
 @Entity
 public class Country {
     @Id
@@ -11,9 +13,13 @@ public class Country {
 
     @Column(nullable = false, unique = true)
     @Size(min = 3, max = 20)
-    private String name;
+    private String country;
 
     public Country() {
+    }
+
+    public Country(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
@@ -24,11 +30,35 @@ public class Country {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCountry() {
+        return country;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Country(Long id, String country) {
+        this.id = id;
+        this.country = country;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Country country1 = (Country) o;
+        return Objects.equals(getId(), country1.getId()) &&
+                Objects.equals(getCountry(), country1.getCountry());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getCountry());
+    }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

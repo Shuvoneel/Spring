@@ -7,7 +7,7 @@ public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String division;
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
@@ -23,12 +23,19 @@ public class Division {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDivision() {
+        return division;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDivision(String division) {
+        this.division = division;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }

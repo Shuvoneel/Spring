@@ -25,9 +25,13 @@
         <option th:each="dep : ${deplist}" th:value="${dep.id}"><span th:text="${dep.name}"></span></option>
     </select><br/>
     <label>Country:</label>
-    <select th:field="*{country}">
-        <option th:each="ct : ${countrylist}" th:value="${ct.id}"><span th:text="${ct.name}"></span></option>
+    <select onchange="showCountry(this.value)">
+        <option value="">Select a Country:</option>
+        <option th:each="c : ${countrylist}" th:value="${c.id}" th:text="${c.name}"></option>
     </select><br/>
+    <select id="division-dropdown" name="division">
+        <option value="0">Select a Division</option>
+    </select><b/>
     <button type="submit">Save</button>
 </form>
 
@@ -53,6 +57,39 @@
         <td th:text="${s.country.name}" style="text-align: center"></td>
     </tr>
 </table>
+<div id="txtHint">Country info will be listed here...</div>
+<script>
+    function showCountry(id) {
+        var dropdown = document.getElementById('division-dropdown');
+        dropdown.length = 0;
 
+        var defaultOption = document.createElement('option');
+        defaultOption.text = 'Select A Division';
+        dropdown.add(defaultOption);
+        dropdown.selectedIndex = 0;
+
+        var xhttp;
+        if (id == "") {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+                var data = JSON.parse(this.responseText);
+                var option;
+                for (var i = 0; i < data.length; i++) {
+                    option = document.createElement('option');
+                    option.text = data[i].division;
+                    option.value = data[i].id;
+                    dropdown.add(option);
+                }
+            }
+        };
+        xhttp.open("GET", "/div?id=" + id, true);
+        xhttp.send();
+    }
+</script>
 </body>
 </html>
