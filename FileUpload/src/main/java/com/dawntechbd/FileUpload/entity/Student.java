@@ -11,24 +11,11 @@ public class Student {
     private String name;
     private String gender;
     private int age;
-    private Date birthdate;
+    private Date birthDate;
     private String email;
-
-    private String fileName;
-    @Lob
-    private byte[] file;
+    private String filePath;
 
     public Student() {
-    }
-
-    public Student(String name, String gender, int age, Date birthdate, String email, String fileName, byte[] file) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.birthdate = birthdate;
-        this.email = email;
-        this.fileName = fileName;
-        this.file = file;
     }
 
     public Long getId() {
@@ -63,12 +50,12 @@ public class Student {
         this.age = age;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getEmail() {
@@ -79,19 +66,11 @@ public class Student {
         this.email = email;
     }
 
-    public String getFileName() {
-        return fileName;
+    public String getFilePath() {
+        return filePath;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public byte[] getFile() {
-        return file;
-    }
-
-    public void setFile(byte[] file) {
-        this.file = file;
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 }

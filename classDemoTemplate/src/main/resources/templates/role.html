@@ -4,11 +4,15 @@
       layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Role</title>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
-    <h2>This ia about page..........!</h2>
+    <h2>Add Role..........!</h2>
+    <form th:object="${role}" th:action="@{/role/create}" th:method="post">
+        <input type="text" required th:field="*{roleName}">
+        <button type="submit">Save</button>
+    </form>
 </div>div>
 </body>
 </html>

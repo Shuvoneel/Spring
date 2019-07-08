@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 
 @Controller
 public class StudentController {
-    private static String UPLOADED_FOLDER = "E:/Spring/ImageUpload/src/main/resources/static/images/";
+    private static String UPLOADED_FOLDER = "src/main/resources/static/images/";
 
     @Autowired
     private StudentRepo repo;
@@ -32,13 +32,14 @@ public class StudentController {
     public ModelAndView index() throws IOException {
         ModelAndView home = new ModelAndView();
         home.addObject("list", repo.findAll());
+        home.addObject("student", new Student());
         home.setViewName("index");
         return home;
     }
 
     @PostMapping("/upload")
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes, BindingResult Result) throws IOException {
+                                   RedirectAttributes redirectAttributes, Student student, BindingResult Result) throws IOException {
 
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
@@ -52,8 +53,8 @@ public class StudentController {
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
 
             Files.write(path, bytes);
-            Student student = new Student();
-            student.setFileName("new-" + file.getOriginalFilename());
+
+            student.setFilePath("/images/" + "new-" + file.getOriginalFilename());
             repo.save(student);
             System.out.println("=============== save success ============");
             redirectAttributes.addFlashAttribute("message",
