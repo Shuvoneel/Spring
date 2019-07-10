@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sc="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-<h1>Welcome to Hello Page</h1>
-<a th:href="@{/logout}">Logout</a><br/>
+<!--<h1>Welcome to Hello Page</h1>-->
+<!--<span sc:authorize="!isAuthenticated()">-->
+<!--    <a th:href="@{/login}">Login</a>-->
+<!--</span>-->
+
+<!--<span sc:authorize="isAuthenticated()">-->
+<!--    <a th:href="@{/logout}">Logout</a>-->
+<!--</span>-->
+
+<nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/}">Home</a>
+        </li>
+        <li class="nav-item" sc:authorize="!isAuthenticated()">
+            <a class="nav-link" th:href="@{/login}">Login</a>
+        </li>
+        <li class="nav-item" sc:authorize="isAuthenticated()">
+            <a class="nav-link" th:href="@{/logout}">Logout</a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>

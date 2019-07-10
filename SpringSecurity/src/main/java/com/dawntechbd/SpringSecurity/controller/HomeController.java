@@ -23,9 +23,14 @@ public class HomeController {
     }
 
     @GetMapping(value = "/")
+    public String displayIndex() {
+        return "index";
+    }
+
+    @GetMapping(value = "/home")
     public String displayHome(Model model) {
         model.addAttribute("list", this.repo.findAll());
-        return "index";
+        return "home";
     }
 
     @GetMapping(value = "/hello")
