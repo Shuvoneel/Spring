@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
-    <h2>Add Role..........!</h2>
+    <h2>Add User..........!</h2>
     <span th:text="${sucMsg}" style="color: green"></span>
     <span th:text="${errMsg}" style="color: red"></span>
     <form th:object="${user}" th:action="@{/signup}" th:method="post" enctype="multipart/form-data">

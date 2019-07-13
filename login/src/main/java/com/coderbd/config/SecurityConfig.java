@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
                 .antMatchers(
-                        "/public/**","/login","/","/user-save","/role-save"
+                        "/","/login","/user","/role"
                 ).permitAll()
                 .antMatchers(
                        "/sa/**"

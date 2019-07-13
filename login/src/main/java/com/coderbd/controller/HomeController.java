@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.xml.ws.Action;
-
 @Controller
 public class HomeController {
     @Autowired
@@ -18,12 +16,12 @@ public class HomeController {
 
     @GetMapping(value = "/adm")
     public String adminView() {
-        return "admin/admin";
+        return "admin";
     }
 
     @GetMapping(value = "/sa")
     public String superAdminView() {
-        return "sadmin/sad";
+        return "sadmin";
     }
 
     @GetMapping(value = "/se")
@@ -33,11 +31,11 @@ public class HomeController {
         User user = repo.findByUserName(auth.getName());
         model.addAttribute("name",user.getName());
 
-        return "secure/sec";
+        return "secure";
     }
 
     @GetMapping(value = "/u")
     public String userView() {
-        return "user/u";
+        return "user";
     }
 }

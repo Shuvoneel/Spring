@@ -1,0 +1,9 @@
+Steps:
+1. select template (admin dashboard)
+2. create boot project
+3. add template to project
+4. crud for role
+5. crud for user
+6. add security
+7. login
+8. logout
