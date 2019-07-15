@@ -7,3 +7,7 @@ Steps:
 6. add security
 7. login
 8. logout
+
+
+
+NB: findBy is implememnted in CustomUserDetails

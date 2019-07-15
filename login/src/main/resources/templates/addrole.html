@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Role</title>
+    <style>
+        label {
+            color: blue;
+            font-weight: bolder;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+<span th:text="${sucMsg}" style="color: green"></span>
+<form th:object="${role}" th:action="@{/role-save}" th:method="post">
+    <label>Add Role: </label>
+    <input type="text" required th:field="*{roleName}">
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

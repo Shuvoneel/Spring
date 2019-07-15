@@ -14,14 +14,19 @@ public class HomeController {
     @Autowired
     private UserRepo repo;
 
+    @GetMapping(value = "/sa")
+    public String superAdminView() {
+        return "sadmin";
+    }
+
     @GetMapping(value = "/adm")
     public String adminView() {
         return "admin";
     }
 
-    @GetMapping(value = "/sa")
-    public String superAdminView() {
-        return "sadmin";
+    @GetMapping(value = "/mn")
+    public String managerView() {
+        return "manager";
     }
 
     @GetMapping(value = "/se")

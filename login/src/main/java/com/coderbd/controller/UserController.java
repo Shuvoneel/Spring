@@ -27,20 +27,20 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping(value = "/user")
+    @GetMapping(value = "/user-save")
     public String displayUser(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("roleList", this.roleRepo.findAll());
 
-        return "user";
+        return "adduser";
     }
 
-    @PostMapping(value = "/user")
+    @PostMapping(value = "/user-save")
     public String signUp(@Valid User user, BindingResult result, Model model) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         this.repo.save(user);
         model.addAttribute("sucMsg", "Success !");
 
-        return "user";
+        return "adduser";
     }
 }
