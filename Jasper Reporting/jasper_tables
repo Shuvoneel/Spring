@@ -1,0 +1,81 @@
+1. create table product(
+ProductCode int(11) not null, Name varchar(50) not null, Description varchar(50) default null,
+Image longblob, Primary key (ProductCode) using BTREE
+) ENGINE=InnoDB DEFAULT CHARSET = utf8;
+
+2. create table supplier(
+SupplierNo int(11) not null, SupplierName varchar(50) not null, Address varchar(100) not null,
+ContactNo varchar(50) default null, primary key (SupplierNo)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8 ROW_FORMAT=FIXED;
+
+3. create table customer(
+CustomerNo int(11) not null, Name varchar(50) not null, Address varchar(100) default null, ContactNo varchar(50) default null, primary key (CustomerNo)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8 ROW_FORMAT=FIXED;
+
+4. create table purchase(
+PurchaseNo int(11) not null, PurchaseDate date not null, SupplierNo int(11),
+Primary key (PurchaseNo) using BTREE,
+key supplierNo (SupplierNo) using BTREE,
+key FK_purchase_supplierNo (SupplierNo),
+CONSTRAINT FK_purchase_supplierNo foreign key (SupplierNo)
+references supplier (SupplierNo)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8 ROW_FORMAT=FIXED;
+
+5. create table purchaseLine(
+PurchaseNo int(11) not null default 0, ProductCode int(11) not null default 0,
+PurchaseQuantity int(11) not null default 0, UnitPurchasePrice double not null default 0,
+primary key (PurchaseNo, ProductCode) using BTREE,
+key purchaseNo (PurchaseNo) using BTREE,
+key productNo (ProductCode) using BTREE,
+key FK_purchaseLine_purchaseNo (PurchaseNo),
+CONSTRAINT FK_purchaseLine_ProductCode foreign key (ProductCode) references product (ProductCode),
+CONSTRAINT FK_purchaseLine_purchaseNo foreign key (PurchaseNo) references purchase (PurchaseNo)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8 ROW_FORMAT=FIXED;
+
+6. create table sales(
+SalesNo int(11) not null, SalesDate date default null, CustomerNo int(11) default 0,
+primary key (SalesNo) using BTREE,
+key customerNo (CustomerNo) using BTREE,
+key FK_sales_customerNo (CustomerNo),
+CONSTRAINT FK_sales_customerNo foreign key (CustomerNo) references customer (CustomerNo)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8 ROW_FORMAT=FIXED;
+
+7. create table salesline(
+SalesNo Int(11) not null default 0,
+ProductCode Int(11) not null default 0,
+SalesQuantity Int(11) not null default 0,
+UnitSalesPrice double not null default 0,
+primary key (SalesNo, ProductCode) using BTREE,
+key salesNo (SalesNo) using BTREE,
+key productNo (ProductCode) using BTREE,
+key FK_salesline_ProductCode (ProductCode),
+key FK_salesline_salesNo (SalesNo),
+CONSTRAINT FK_salesline_ProductCode foreign key (ProductCode) references product (ProductCode),
+CONSTRAINT FK_salesline_salesNo foreign key (SalesNo) references sales (SalesNo)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8 ROW_FORMAT=FIXED;
+
+8. create table stock(
+ProductCode Int(11) not null default 0,
+Quantity Int(11) not null default 0,
+ReorderLevel Int(11) not null default 0,
+primary key (ProductCode) using BTREE,
+unique key productNo (ProductCode) using BTREE,
+key FK_stock_ProductCode (ProductCode),
+CONSTRAINT FK_stock_ProductCode foreign key (ProductCode) references product (ProductCode)
+) ENGINE=InnoDB DEFAULT CHARSET = utf8 ROW_FORMAT=FIXED;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
