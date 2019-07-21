@@ -2,11 +2,11 @@ package com.dawntechbd.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userName;
     private String companyName;
     private String address;
     private String category;
@@ -25,4 +25,8 @@ public class Company {
             inverseJoinColumns = @JoinColumn(name = "company_id")
     )
     private City city;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

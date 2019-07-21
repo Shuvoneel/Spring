@@ -17,4 +17,5 @@ public class Applicants {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
+    private ApplicantsStatus applicantsStatus;
 }
