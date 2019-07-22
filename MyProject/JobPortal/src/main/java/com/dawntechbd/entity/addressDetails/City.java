@@ -1,14 +1,15 @@
-package com.dawntechbd.entity;
+package com.dawntechbd.entity.addressDetails;
 
 import javax.persistence.*;
-import java.util.Set;
 
-public class Division {
+@Entity
+@Table
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     @ManyToOne
-    @JoinColumn(name = "city_id")
-    private Set<City> cities;
+    @JoinColumn(name = "district_id")
+    private District district;
 }

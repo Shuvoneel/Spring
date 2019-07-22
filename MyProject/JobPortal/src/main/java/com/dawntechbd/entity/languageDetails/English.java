@@ -1,12 +1,12 @@
-package com.dawntechbd.entity;
+package com.dawntechbd.entity.languageDetails;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-public class ApplicantsStatus {
+public class English {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String status;
+    private String competancy;
 }

@@ -1,8 +1,13 @@
-package com.dawntechbd.entity;
+package com.dawntechbd.entity.jobDetails;
+
+import com.dawntechbd.entity.User;
+import com.dawntechbd.entity.addressDetails.City;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +27,7 @@ public class Company {
     @JoinTable(
             name = "company_city",
             joinColumns = @JoinColumn(name = "company_id"),
-            inverseJoinColumns = @JoinColumn(name = "company_id")
+            inverseJoinColumns = @JoinColumn(name = "city_id")
     )
     private City city;
 

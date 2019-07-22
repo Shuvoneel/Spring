@@ -1,12 +1,12 @@
-package com.dawntechbd.entity;
+package com.dawntechbd.entity.academicDetails;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-public class JobType {
+public class Institute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String type;
+    private String name;
 }

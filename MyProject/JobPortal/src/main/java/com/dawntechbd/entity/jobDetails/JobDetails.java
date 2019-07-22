@@ -1,10 +1,12 @@
-package com.dawntechbd.entity;
+package com.dawntechbd.entity.jobDetails;
+
+import com.dawntechbd.entity.addressDetails.Country;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-public class Job {
+public class JobDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +26,13 @@ public class Job {
     private String educationalRequirements;
     private String experience;
     private String additionalRequirements;
-    private String location;
+    @ManyToMany
+    @JoinTable(
+            name = "job_city",
+            joinColumns = @JoinColumn(name = "job_id"),
+            inverseJoinColumns = @JoinColumn(name = "city_id")
+    )
+    private Country location;
     private String salary;
 
 }
