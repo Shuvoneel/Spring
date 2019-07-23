@@ -1,4 +1,4 @@
-package com.dawntechbd.entity.languageDetails;
+package com.dawntechbd.entity.skills;
 
 import com.dawntechbd.entity.User;
 
@@ -6,14 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class LanguageDetails {
+public class Extracurricular {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String reading;
-    private String writing;
-    private String speaking;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

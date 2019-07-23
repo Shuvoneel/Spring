@@ -1,5 +1,7 @@
 package com.dawntechbd.entity.academicDetails;
 
+import com.dawntechbd.entity.User;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,4 +26,7 @@ public class AcademicDetails {
     @ManyToOne
     @JoinColumn(name = "passingYear_id")
     private PassingYear passingYear;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

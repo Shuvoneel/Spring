@@ -1,5 +1,7 @@
 package com.dawntechbd.entity.addressDetails;
 
+import com.dawntechbd.entity.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,4 +16,7 @@ public class AddressDetails {
     @JoinColumn(name = "city_id")
     private City city;
     private int postcode;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

@@ -1,5 +1,7 @@
 package com.dawntechbd.entity;
 
+import com.dawntechbd.entity.applicantDetails.Religion;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -13,9 +15,15 @@ public class User {
     private String userName;
     private String firstName;
     private String lastName;
+    private String fatherName;
+    private String motherName;
     private String gender;
     private Date birthDate;
     private String nid;
+    private String maritalStatus;
+    @ManyToOne
+    @JoinColumn(name = "religion_id")
+    private Religion religion;
     private String email;
     private String mobile;
     private String password;

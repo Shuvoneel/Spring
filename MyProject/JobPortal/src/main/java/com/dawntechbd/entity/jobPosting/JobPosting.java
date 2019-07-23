@@ -1,12 +1,16 @@
-package com.dawntechbd.entity.jobDetails;
+package com.dawntechbd.entity.jobPosting;
 
+import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.addressDetails.Country;
+import com.dawntechbd.entity.jobPosting.Company;
+import com.dawntechbd.entity.jobPosting.JobDescription;
+import com.dawntechbd.entity.jobPosting.JobType;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-public class JobDetails {
+public class JobPosting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +26,8 @@ public class JobDetails {
             inverseJoinColumns = @JoinColumn(name = "description_id")
     )
     private JobDescription descriptions;
+    @ManyToOne
+    @JoinColumn(name = "jobType_id")
     private JobType jobType;
     private String educationalRequirements;
     private String experience;
@@ -34,5 +40,8 @@ public class JobDetails {
     )
     private Country location;
     private String salary;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

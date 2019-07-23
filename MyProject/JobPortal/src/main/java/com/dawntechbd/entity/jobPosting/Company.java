@@ -1,4 +1,4 @@
-package com.dawntechbd.entity.jobDetails;
+package com.dawntechbd.entity.jobPosting;
 
 import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.addressDetails.City;
