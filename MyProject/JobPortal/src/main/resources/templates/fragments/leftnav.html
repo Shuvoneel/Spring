@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Left Bar</title>
+</head>
+<body>
+<nav th:fragment="leftnav" class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/index.html}">
+                <i class="ti-shield menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#role" aria-expanded="false" aria-controls="role">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Roles</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="role">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/role/add}"> Add</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/role/list}">List</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#user" aria-expanded="false" aria-controls="user">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Users</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="user">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/user/add}"> Add</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/user/list}">List</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

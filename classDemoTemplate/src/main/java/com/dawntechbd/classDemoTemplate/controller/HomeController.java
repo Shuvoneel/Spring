@@ -1,10 +1,6 @@
 package com.dawntechbd.classDemoTemplate.controller;
 
-import com.dawntechbd.classDemoTemplate.entity.Role;
-import com.dawntechbd.classDemoTemplate.entity.User;
 import com.dawntechbd.classDemoTemplate.repo.UserRepo;
-import com.dawntechbd.classDemoTemplate.service.RoleService;
-import com.dawntechbd.classDemoTemplate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Controller
 public class HomeController {
