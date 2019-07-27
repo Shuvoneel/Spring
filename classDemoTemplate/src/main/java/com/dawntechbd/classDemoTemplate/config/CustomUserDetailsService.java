@@ -1,5 +1,6 @@
 package com.dawntechbd.classDemoTemplate.config;
 
+
 import com.dawntechbd.classDemoTemplate.entity.User;
 import com.dawntechbd.classDemoTemplate.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

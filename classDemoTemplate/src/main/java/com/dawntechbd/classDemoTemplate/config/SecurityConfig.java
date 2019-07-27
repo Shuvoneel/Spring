@@ -1,6 +1,5 @@
 package com.dawntechbd.classDemoTemplate.config;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-
         return new BCryptPasswordEncoder();
     }
 
@@ -49,7 +47,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(
                         "/static/**",
@@ -59,12 +56,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/js/**",
                         "/upload/**",
                         "/vendors/**",
-                        "/signup/**"
+                        "/signup/**",
+                        "/role/create/**"
 
                 ).permitAll()
                 .antMatchers(
                         "/**"
                 ).hasRole("ADMIN")
+                .antMatchers("/port/**").hasRole("USER")
                 .anyRequest()
                 .authenticated()
                 .and()
