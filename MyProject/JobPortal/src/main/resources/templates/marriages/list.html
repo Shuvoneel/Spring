@@ -7,27 +7,28 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Role List</title>
+    <title>Marital Status List</title>
     <style>
         .table {
             text-align: center;
         }
-        th{
+
+        th {
             color: blue;
         }
     </style>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Existing Roles</h1>
+    <h1>Marital Status</h1>
     <table class="table table-striped">
         <tr>
             <th>ID</th>
-            <th>Role</th>
+            <th>Marital Status</th>
         </tr>
-        <tr th:each="r : ${list}">
-            <td th:text="${r.id}"></td>
-            <td th:text="${r.roleName}"></td>
+        <tr th:each="ms : ${list}">
+            <td th:text="${ms.id}"></td>
+            <td th:text="${ms.statusType}"></td>
         </tr>
     </table>
 </div>

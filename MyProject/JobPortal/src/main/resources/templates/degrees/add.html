@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Degree</title>
+    </head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Degree..........!</h2>
+    <span th:text="${sucMsg}" style="color: green"></span>
+    <form th:object="${degree}" th:action="@{/dr/add}" th:method="post">
+        <input type="text" required th:field="*{name}">
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+
+</html>
+

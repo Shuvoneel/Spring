@@ -12,22 +12,23 @@
         .table {
             text-align: center;
         }
-        th{
+
+        th {
             color: blue;
         }
     </style>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Existing Roles</h1>
+    <h1>Religions</h1>
     <table class="table table-striped">
         <tr>
             <th>ID</th>
-            <th>Role</th>
+            <th>Religion</th>
         </tr>
-        <tr th:each="r : ${list}">
-            <td th:text="${r.id}"></td>
-            <td th:text="${r.roleName}"></td>
+        <tr th:each="rn : ${list}">
+            <td th:text="${rn.id}"></td>
+            <td th:text="${rn.religionName}"></td>
         </tr>
     </table>
 </div>

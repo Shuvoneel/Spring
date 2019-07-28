@@ -8,13 +8,13 @@ public class BloodGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String bloodGroup;
+    private String groupName;
 
     public BloodGroup() {
     }
 
-    public BloodGroup(String bloodGroup) {
-        this.bloodGroup = bloodGroup;
+    public BloodGroup(String groupName) {
+        this.groupName = groupName;
     }
 
     public Long getId() {
@@ -25,11 +25,11 @@ public class BloodGroup {
         this.id = id;
     }
 
-    public String getBloodGroup() {
-        return bloodGroup;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setBloodGroup(String bloodGroup) {
-        this.bloodGroup = bloodGroup;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 }

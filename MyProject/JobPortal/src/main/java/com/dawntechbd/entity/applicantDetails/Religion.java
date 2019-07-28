@@ -8,13 +8,13 @@ public class Religion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String religion;
+    private String religionName;
 
     public Religion() {
     }
 
-    public Religion(String religion) {
-        this.religion = religion;
+    public Religion(String religionName) {
+        this.religionName = religionName;
     }
 
     public Long getId() {
@@ -25,11 +25,11 @@ public class Religion {
         this.id = id;
     }
 
-    public String getReligion() {
-        return religion;
+    public String getReligionName() {
+        return religionName;
     }
 
-    public void setReligion(String religion) {
-        this.religion = religion;
+    public void setReligionName(String religionName) {
+        this.religionName = religionName;
     }
 }
