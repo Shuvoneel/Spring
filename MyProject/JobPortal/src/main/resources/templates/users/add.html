@@ -15,28 +15,28 @@
     <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${user}" th:action="@{/user/add}" th:method="post">
         <label>Username: </label>
-        <input type="text" required th:field="*{userName}"><br/>
+        <input type="text" required th:field="*{userName}">
         <label>First Name: </label>
-        <input type="text" required th:field="*{firstName}"><br/>
+        <input type="text" required th:field="*{firstName}">
         <label>Last Name: </label>
         <input type="text" required th:field="*{lastName}"><br/>
         <label>Father's Name: </label>
-        <input type="text" required th:field="*{fatherName}"><br/>
+        <input type="text" required th:field="*{fatherName}">
         <label>Mother's Name: </label>
         <input type="text" required th:field="*{motherName}"><br/>
         <label>Gender: </label>
         <input type="radio" required th:field="*{gender}" th:value="Male">Male
-        <input type="radio" required th:field="*{gender}" th:value="Female">Female<br/>
+        <input type="radio" required th:field="*{gender}" th:value="Female">Female
         <label>Birth Date: </label>
-        <input type="date" required th:field="*{birthDate}"><br/>
+        <input type="date" required th:field="*{birthDate}">
         <label>NID No: </label>
         <input type="text" required th:field="*{nid}"><br/>
         <label>Marital Status: </label>
-        <input type="text" required th:field="*{maritalStatus}"><br/>
+        <input type="text" required th:field="*{maritalStatus}">
         <label>Religion: </label>
         <input type="text" required th:field="*{religion}"><br/>
         <label>Email: </label>
-        <input type="text" required th:field="*{email}"><br/>
+        <input type="text" required th:field="*{email}">
         <label>Mobile: </label>
         <input type="text" required th:field="*{mobile}"><br/>
         <label>Password: </label>

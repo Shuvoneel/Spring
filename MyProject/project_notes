@@ -12,3 +12,5 @@
 		5. Coding
 		6. Testing
 		7. Deployment
+
+Dependencies: spring boot, spring mvc, spring data jpa, hibernate, mysql, spring security, thymeleaf

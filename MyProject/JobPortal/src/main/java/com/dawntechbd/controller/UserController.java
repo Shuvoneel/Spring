@@ -1,6 +1,7 @@
 package com.dawntechbd.controller;
 
 import com.dawntechbd.entity.User;
+import com.dawntechbd.repo.MarriageRepo;
 import com.dawntechbd.repo.RoleRepo;
 import com.dawntechbd.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class UserController {
     private UserRepo repo;
     @Autowired
     private RoleRepo roleRepo;
+    @Autowired
+    private MarriageRepo marriageRepo;
 
     private final String UPLOAD_FOLDER = "src/main/resources/static/upload/";
 
@@ -33,6 +36,7 @@ public class UserController {
     public String userAdd(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("roleList", this.roleRepo.findAll());
+        model.addAttribute("marriageList", this.marriageRepo.findAll());
         return "users/add";
     }
 
