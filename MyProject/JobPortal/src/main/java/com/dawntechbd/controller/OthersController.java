@@ -127,4 +127,10 @@ public class OthersController {
         return "address/add";
     }
 
+    @GetMapping(value = "/ctr/list")
+    public String countryList(Model model) {
+        model.addAttribute("list", this.countryRepo.findAll());
+        return "address/list";
+    }
+
 }

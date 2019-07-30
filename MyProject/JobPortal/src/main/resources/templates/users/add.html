@@ -32,9 +32,17 @@
         <label>NID No: </label>
         <input type="text" required th:field="*{nid}"><br/>
         <label>Marital Status: </label>
-        <input type="text" required th:field="*{maritalStatus}">
+        <select th:field="*{maritalStatus}">
+            <option th:value="Single">Single</option>
+            <option th:value="Married">Married</option>
+            <option th:value="Unmarried">Unmarried</option>
+        </select>
         <label>Religion: </label>
-        <input type="text" required th:field="*{religion}"><br/>
+        <select th:field="*{religion}">
+            <option th:each="rg : ${religionList}" th:value="${rg.id}">
+                <span th:text="${rg.religionName}"></span>
+            </option>
+        </select><br/>
         <label>Email: </label>
         <input type="text" required th:field="*{email}">
         <label>Mobile: </label>

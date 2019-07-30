@@ -5,6 +5,7 @@
         <title>Index</title>
     </head>
     <body>
+        <a th:href="@{/logout}">Logout</a>
         <span th:text="${sucMsg}" style="color: green"></span>
         <form th:object="${user}" th:action="@{/user/add}" method="POST">
             Name:<input type="text" th:field="*{username}" required>

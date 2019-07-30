@@ -2,6 +2,7 @@ package com.dawntechbd.controller;
 
 import com.dawntechbd.entity.User;
 import com.dawntechbd.repo.MarriageRepo;
+import com.dawntechbd.repo.ReligionRepo;
 import com.dawntechbd.repo.RoleRepo;
 import com.dawntechbd.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class UserController {
     private RoleRepo roleRepo;
     @Autowired
     private MarriageRepo marriageRepo;
+    @Autowired
+    private ReligionRepo religionRepo;
 
     private final String UPLOAD_FOLDER = "src/main/resources/static/upload/";
 
@@ -37,19 +40,31 @@ public class UserController {
         model.addAttribute("user", new User());
         model.addAttribute("roleList", this.roleRepo.findAll());
         model.addAttribute("marriageList", this.marriageRepo.findAll());
+        model.addAttribute("religionList", this.religionRepo.findAll());
         return "users/add";
     }
 
     @PostMapping(value = "add")
     public String userAdd(@Valid User user, BindingResult result, Model model, @RequestParam("photo") MultipartFile photo) throws IOException {
-        user.setPhoto("/upload/"+photo.getOriginalFilename());
-        byte[] bytes = photo.getBytes();
-        Path path = Paths.get(UPLOAD_FOLDER+photo.getOriginalFilename());
-        Files.write(path, bytes);
-        this.repo.save(user);
-        model.addAttribute("user", new User());
-        model.addAttribute("sucMsg", "Success !");
-        return "users/add";
+        model.addAttribute("roleList", this.roleRepo.findAll());
+        model.addAttribute("marriageList", this.marriageRepo.findAll());
+        model.addAttribute("religionList", this.religionRepo.findAll());
+        if (result.hasErrors()) {
+            return "users/add";
+        }
+        try {
+
+            byte[] bytes = photo.getBytes();
+            Path path = Paths.get(UPLOAD_FOLDER + photo.getOriginalFilename());
+            Files.write(path, bytes);
+            user.setPhoto("/upload/" + photo.getOriginalFilename());
+            this.repo.save(user);
+            model.addAttribute("user", new User());
+            model.addAttribute("sucMsg", "Success !");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "users/list";
     }
 
     @GetMapping(value = "list")
