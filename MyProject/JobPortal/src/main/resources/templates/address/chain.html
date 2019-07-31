@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
+        // Country to Division
         function showCountry(id) {
             var dropdown = document.getElementById('division-dropdown');
             dropdown.length = 0;
@@ -21,14 +22,10 @@
             dropdown.selectedIndex = 0;
 
             var xhttp;
-            // if (id == "") {
-            //     document.getElementById("txtHint").innerHTML = "";
-            //     return;
-            // }
+
             xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                 //   document.getElementById("txtHint").innerHTML = this.responseText;
                     var data = JSON.parse(this.responseText);
                     var option;
                     for (var i = 0; i < data.length; i++) {
@@ -43,6 +40,7 @@
             xhttp.send();
         }
 
+        // Division to District
         function showDivision(id) {
             var dropdown = document.getElementById('district-dropdown');
             dropdown.length = 0;
@@ -53,14 +51,9 @@
             dropdown.selectedIndex = 0;
 
             var xhttp;
-            // if (id == "") {
-            //     document.getElementById("txtHint").innerHTML = "";
-            //     return;
-            // }
             xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    //   document.getElementById("txtHint").innerHTML = this.responseText;
                     var data = JSON.parse(this.responseText);
                     var option;
                     for (var i = 0; i < data.length; i++) {
@@ -74,26 +67,63 @@
             xhttp.open("GET", "/rest/district?id=" + id, true);
             xhttp.send();
         }
+
+        // District to City
+        function showDistrict(id) {
+            var dropdown = document.getElementById('city-dropdown');
+            dropdown.length = 0;
+
+            var defaultOption = document.createElement('option');
+            defaultOption.text = 'Select A City';
+            dropdown.add(defaultOption);
+            dropdown.selectedIndex = 0;
+
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    var option;
+                    for (var i = 0; i < data.length; i++) {
+                        option = document.createElement('option');
+                        option.text = data[i].name;
+                        option.value = data[i].id;
+                        dropdown.add(option);
+                    }
+                }
+            };
+            xhttp.open("GET", "/rest/city?id=" + id, true);
+            xhttp.send();
+        }
     </script>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Chaining Test..........!</h2>
     <form th:object="${address}" th:action="@{/chain}" th:method="post">
+
         <label>Select a Country</label>
         <select onchange="showCountry(this.value)">
-            <option th:each="ct : ${countryList}" th:value="${ct.id}">
-                <span th:text="${ct.name}"></span>
+            <option th:each="ctr : ${countryList}" th:value="${ctr.id}">
+                <span th:text="${ctr.name}"></span>
             </option>
         </select>
+
         <label>Select a Division</label>
         <select id="division-dropdown" name="id" onchange="showDivision(this.value)">
             <option value="0">Select a Division</option>
         </select>
+
         <label>Select a District</label>
-        <select id="district-dropdown" name="id"></select>
+        <select id="district-dropdown" name="id" onchange="showDistrict(this.value)">
+            <option value="0">Select a District</option>
+        </select>
+
         <label>Select a City</label>
-        <select></select>
+        <select id="city-dropdown" name="id">
+            <option value="0">Select a City</option>
+        </select>
+
         <button type="submit">Save</button>
     </form>
 </div>

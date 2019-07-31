@@ -28,7 +28,6 @@ public class ChainRestController {
 
     @GetMapping("division")
     public List<Division> DivisionByCountry(Model model, @RequestParam("id") Long id) {
-        System.out.println("id "+ id);
         return this.divisionRepo.findAllByCountry(new Country(id));
     }
     @GetMapping("district")

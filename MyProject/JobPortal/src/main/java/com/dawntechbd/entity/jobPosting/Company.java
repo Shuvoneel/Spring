@@ -23,7 +23,6 @@ public class Company {
     private String CpEmail;
     private String CpMobile;
     private String password;
-    private String logo;
     @ManyToMany
     @JoinTable(
             name = "company_city",
@@ -39,7 +38,7 @@ public class Company {
     public Company() {
     }
 
-    public Company(String companyName, String address, String category, Date establishment, String tradeLicense, String cpName, String cpDesignation, String cpEmail, String cpMobile, String password, String logo, Set<City> cities, User user) {
+    public Company(String companyName, String address, String category, Date establishment, String tradeLicense, String cpName, String cpDesignation, String cpEmail, String cpMobile, String password, Set<City> cities, User user) {
         this.companyName = companyName;
         this.address = address;
         this.category = category;
@@ -50,7 +49,6 @@ public class Company {
         CpEmail = cpEmail;
         CpMobile = cpMobile;
         this.password = password;
-        this.logo = logo;
         this.cities = cities;
         this.user = user;
     }
@@ -141,14 +139,6 @@ public class Company {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
     }
 
     public Set<City> getCities() {

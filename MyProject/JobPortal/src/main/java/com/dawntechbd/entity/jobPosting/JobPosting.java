@@ -1,6 +1,7 @@
 package com.dawntechbd.entity.jobPosting;
 
 import com.dawntechbd.entity.User;
+import com.dawntechbd.entity.addressDetails.City;
 import com.dawntechbd.entity.addressDetails.Country;
 
 import javax.persistence.*;
@@ -36,7 +37,7 @@ public class JobPosting {
             joinColumns = @JoinColumn(name = "job_id"),
             inverseJoinColumns = @JoinColumn(name = "city_id")
     )
-    private Set<Country> countries;
+    private Set<City> cities;
     private String salary;
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -45,7 +46,7 @@ public class JobPosting {
     public JobPosting() {
     }
 
-    public JobPosting(String position, Company company, int vacancy, Set<JobDescription> jobDescriptions, JobType jobType, String educationalRequirements, String experience, String additionalRequirements, Set<Country> countries, String salary, User user) {
+    public JobPosting(String position, Company company, int vacancy, Set<JobDescription> jobDescriptions, JobType jobType, String educationalRequirements, String experience, String additionalRequirements, Set<City> cities, String salary, User user) {
         this.position = position;
         this.company = company;
         this.vacancy = vacancy;
@@ -54,7 +55,7 @@ public class JobPosting {
         this.educationalRequirements = educationalRequirements;
         this.experience = experience;
         this.additionalRequirements = additionalRequirements;
-        this.countries = countries;
+        this.cities = cities;
         this.salary = salary;
         this.user = user;
     }
@@ -131,12 +132,12 @@ public class JobPosting {
         this.additionalRequirements = additionalRequirements;
     }
 
-    public Set<Country> getCountries() {
-        return countries;
+    public Set<City> getCities() {
+        return cities;
     }
 
-    public void setCountries(Set<Country> countries) {
-        this.countries = countries;
+    public void setCities(Set<City> cities) {
+        this.cities = cities;
     }
 
     public String getSalary() {
