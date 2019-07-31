@@ -1,10 +1,7 @@
 package com.dawntechbd.controller;
 
 import com.dawntechbd.entity.User;
-import com.dawntechbd.repo.MarriageRepo;
-import com.dawntechbd.repo.ReligionRepo;
-import com.dawntechbd.repo.RoleRepo;
-import com.dawntechbd.repo.UserRepo;
+import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +29,14 @@ public class UserController {
     private MarriageRepo marriageRepo;
     @Autowired
     private ReligionRepo religionRepo;
+    @Autowired
+    private CountryRepo countryRepo;
+    @Autowired
+    private DivisionRepo divisionRepo;
+    @Autowired
+    private DistrictRepo districtRepo;
+    @Autowired
+    private CityRepo cityRepo;
 
     private final String UPLOAD_FOLDER = "src/main/resources/static/upload/";
 
@@ -72,4 +77,6 @@ public class UserController {
         model.addAttribute("list", this.repo.findAll());
         return "users/list";
     }
+
+
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>City</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add City..........!</h2>
+    <span th:text="${sucMsg}" style="color: green"></span>
+    <form th:object="${city}" th:action="@{/city/add}" th:method="post">
+        <label>Select A District: </label>
+        <select th:field="*{district}">
+            <option th:each="ds : ${list}" th:value="${ds.id}">
+                <span th:text="${ds.name}"></span>
+            </option>
+        </select>
+        <label>Add City: </label>
+        <input type="text" required th:field="*{name}">
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+
+</html>
+

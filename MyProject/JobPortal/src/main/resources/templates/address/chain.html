@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chaining</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        function showCountry(id) {
+            var dropdown = document.getElementById('division-dropdown');
+            dropdown.length = 0;
+
+            var defaultOption = document.createElement('option');
+            defaultOption.text = 'Select A Division';
+            dropdown.add(defaultOption);
+            dropdown.selectedIndex = 0;
+
+            var xhttp;
+            // if (id == "") {
+            //     document.getElementById("txtHint").innerHTML = "";
+            //     return;
+            // }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                 //   document.getElementById("txtHint").innerHTML = this.responseText;
+                    var data = JSON.parse(this.responseText);
+                    var option;
+                    for (var i = 0; i < data.length; i++) {
+                        option = document.createElement('option');
+                        option.text = data[i].name;
+                        option.value = data[i].id;
+                        dropdown.add(option);
+                    }
+                }
+            };
+            xhttp.open("GET", "/rest/division?id=" + id, true);
+            xhttp.send();
+        }
+
+        function showDivision(id) {
+            var dropdown = document.getElementById('district-dropdown');
+            dropdown.length = 0;
+
+            var defaultOption = document.createElement('option');
+            defaultOption.text = 'Select A District';
+            dropdown.add(defaultOption);
+            dropdown.selectedIndex = 0;
+
+            var xhttp;
+            // if (id == "") {
+            //     document.getElementById("txtHint").innerHTML = "";
+            //     return;
+            // }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //   document.getElementById("txtHint").innerHTML = this.responseText;
+                    var data = JSON.parse(this.responseText);
+                    var option;
+                    for (var i = 0; i < data.length; i++) {
+                        option = document.createElement('option');
+                        option.text = data[i].name;
+                        option.value = data[i].id;
+                        dropdown.add(option);
+                    }
+                }
+            };
+            xhttp.open("GET", "/rest/district?id=" + id, true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Chaining Test..........!</h2>
+    <form th:object="${address}" th:action="@{/chain}" th:method="post">
+        <label>Select a Country</label>
+        <select onchange="showCountry(this.value)">
+            <option th:each="ct : ${countryList}" th:value="${ct.id}">
+                <span th:text="${ct.name}"></span>
+            </option>
+        </select>
+        <label>Select a Division</label>
+        <select id="division-dropdown" name="id" onchange="showDivision(this.value)">
+            <option value="0">Select a Division</option>
+        </select>
+        <label>Select a District</label>
+        <select id="district-dropdown" name="id"></select>
+        <label>Select a City</label>
+        <select></select>
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+
+</body>
+
+</html>
+

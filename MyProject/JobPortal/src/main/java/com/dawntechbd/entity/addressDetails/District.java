@@ -16,6 +16,9 @@ public class District {
     public District() {
     }
 
+    public District(Long id) {
+        this.id=id;
+    }
     public District(String name, Division division) {
         this.name = name;
         this.division = division;

@@ -109,6 +109,61 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#division" aria-expanded="false"
+               aria-controls="division">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Division</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="division">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/division/add}"> Add Division</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/division/list}">List</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#district" aria-expanded="false"
+               aria-controls="district">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">District</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="district">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/dist/add}"> Add District</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/dist/list}">List</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#city" aria-expanded="false"
+               aria-controls="city">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">City</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="city">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/city/add}"> Add City</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/city/list}">List</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#chain" aria-expanded="false"
+               aria-controls="chain">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Chaining</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="chain">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/chain}">Chaining Test</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </nav>
 </body>
