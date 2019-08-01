@@ -65,8 +65,9 @@ public class UserController {
             Files.write(path, bytes);
 
             this.repo.save(user);
-            model.addAttribute("user", new User());
             model.addAttribute("sucMsg", "Success !");
+            model.addAttribute("list", this.repo.findAll());
+            model.addAttribute("user", new User());
         } catch (IOException e) {
             e.printStackTrace();
         }

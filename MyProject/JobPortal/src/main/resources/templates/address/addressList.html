@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Country List</title>
+    <style>
+        .table {
+            text-align: center;
+        }
+
+        th {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h1>Country</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Address Type</th>
+            <th>City</th>
+            <th>Village</th>
+            <th>Postcode</th>
+        </tr>
+        <tr th:each="ad : ${list}">
+            <td th:text="${ad.id}"></td>
+            <td>
+                <span th:each="u : ${ad.user.userName}">
+                    <span th:text="${u}"></span>
+                </span>
+            </td>
+            <td th:text="${ad.addressType}"></td>
+            <td>
+                <span th:each="c : ${ad.city.name}">
+                    <span th:text="${c}"></span>
+                </span>
+            </td>
+            <td th:text="${ad.village}"></td>
+            <td th:text="${ad.postcode}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
+

@@ -1,30 +1,26 @@
 package com.dawntechbd.entity.academicDetails;
 
 import com.dawntechbd.entity.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table
 public class AcademicDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "degree_id")
     private Degree degree;
-    @ManyToOne
-    @JoinColumn(name = "groupOrDept_id")
-    private GroupOrDept groupOrDept;
-    @ManyToOne
-    @JoinColumn(name = "institute_id")
-    private Institute institute;
-    @ManyToOne
-    @JoinColumn(name = "cgpa_id")
-    private GPA gpa;
-    @ManyToOne
-    @JoinColumn(name = "passingYear_id")
-    private PassingYear passingYear;
+    private String groupOrDept;
+    private String institute;
+    private String gpa;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date passingYear;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -32,7 +28,7 @@ public class AcademicDetails {
     public AcademicDetails() {
     }
 
-    public AcademicDetails(Degree degree, GroupOrDept groupOrDept, Institute institute, GPA gpa, PassingYear passingYear, User user) {
+    public AcademicDetails(Degree degree, String groupOrDept, String institute, String gpa, Date passingYear, User user) {
         this.degree = degree;
         this.groupOrDept = groupOrDept;
         this.institute = institute;
@@ -41,11 +37,11 @@ public class AcademicDetails {
         this.user = user;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,35 +53,35 @@ public class AcademicDetails {
         this.degree = degree;
     }
 
-    public GroupOrDept getGroupOrDept() {
+    public String getGroupOrDept() {
         return groupOrDept;
     }
 
-    public void setGroupOrDept(GroupOrDept groupOrDept) {
+    public void setGroupOrDept(String groupOrDept) {
         this.groupOrDept = groupOrDept;
     }
 
-    public Institute getInstitute() {
+    public String getInstitute() {
         return institute;
     }
 
-    public void setInstitute(Institute institute) {
+    public void setInstitute(String institute) {
         this.institute = institute;
     }
 
-    public GPA getGpa() {
+    public String getGpa() {
         return gpa;
     }
 
-    public void setGpa(GPA gpa) {
+    public void setGpa(String gpa) {
         this.gpa = gpa;
     }
 
-    public PassingYear getPassingYear() {
+    public Date getPassingYear() {
         return passingYear;
     }
 
-    public void setPassingYear(PassingYear passingYear) {
+    public void setPassingYear(Date passingYear) {
         this.passingYear = passingYear;
     }
 

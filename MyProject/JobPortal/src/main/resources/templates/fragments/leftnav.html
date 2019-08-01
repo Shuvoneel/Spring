@@ -96,58 +96,38 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#country" aria-expanded="false"
-               aria-controls="country">
+            <a class="nav-link" data-toggle="collapse" href="#address" aria-expanded="false"
+               aria-controls="address">
                 <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">Country</span>
+                <span class="menu-title">Address</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="country">
+            <div class="collapse" id="address">
                 <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/address}"> Add Address Details</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/addressList}"> Address Details List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/ctr/add}"> Add Country</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/ctr/list}">List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#division" aria-expanded="false"
-               aria-controls="division">
-                <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">Division</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="division">
-                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/ctr/list}">Country List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/division/add}"> Add Division</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/division/list}">List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#district" aria-expanded="false"
-               aria-controls="district">
-                <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">District</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="district">
-                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/division/list}">Division List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/dist/add}"> Add District</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/dist/list}">List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/dist/list}">District List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/city/add}"> Add City</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/city/list}">City List</a></li>
                 </ul>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#city" aria-expanded="false"
-               aria-controls="city">
+            <a class="nav-link" data-toggle="collapse" href="#education" aria-expanded="false"
+               aria-controls="education">
                 <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">City</span>
+                <span class="menu-title">Education Details</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="city">
+            <div class="collapse" id="education">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/city/add}"> Add City</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/city/list}">List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/add}"> Add Education</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/list}">List</a></li>
                 </ul>
             </div>
         </li>

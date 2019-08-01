@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Education Details</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Education..........!</h2>
+    <span th:text="${sucMsg}" style="color: green"></span>
+    <form th:object="${education}" th:action="@{/edu/add}" th:method="post">
+        <table class="table-hover">
+            <tr>
+                <td>User</td>
+                <td>
+                    <select th:field="*{user}">
+                        <option th:each="u: ${userList}" th:value="${u.id}">
+                            <span th:text="${u.userName}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Degree</td>
+                <td>
+                    <select th:field="*{degree}">
+                        <option th:each="dr: ${degreeList}" th:value="${dr.id}">
+                            <span th:text="${dr.name}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Group/Department</td>
+                <td><input type="text" th:field="*{groupOrDept}" required></td>
+            </tr>
+            <tr>
+                <td>Institute</td>
+                <td><input type="text" th:field="*{institute}" required></td>
+            </tr>
+            <tr>
+                <td>GPA/Grade</td>
+                <td><input type="text" th:field="*{gpa}" required></td>
+            </tr>
+            <tr>
+                <td>Passing Year</td>
+                <td><input type="date" th:field="*{passingYear}" required></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Add Education</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+
+</html>
+

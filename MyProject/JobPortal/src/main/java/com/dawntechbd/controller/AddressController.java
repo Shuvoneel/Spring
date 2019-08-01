@@ -24,6 +24,8 @@ public class AddressController {
     private DistrictRepo districtRepo;
     @Autowired
     private CityRepo cityRepo;
+    @Autowired
+    private UserRepo userRepo;
 
     //Country
     @GetMapping(value = "/ctr/add")
@@ -136,5 +138,31 @@ public class AddressController {
     public String chainList(Model model) {
         model.addAttribute("list", this.addressRepo.findAll());
         return "address/chainList";
+    }
+
+    // Address Details
+    @GetMapping(value = "/address")
+    public String addAddress(Model model) {
+        model.addAttribute("address", new AddressDetails());
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("cityList", this.cityRepo.findAll());
+        return "address/addressAdd";
+    }
+
+    @PostMapping(value = "/address")
+    public String addAddress(@Valid AddressDetails address, BindingResult bindingResult, Model model) {
+        this.addressRepo.save(address);
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("cityList", this.cityRepo.findAll());
+        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("address", new AddressDetails());
+        model.addAttribute("list", this.addressRepo.findAll());
+        return "address/addressList";
+    }
+
+    @GetMapping(value = "/addressList")
+    public String addressList(Model model) {
+        model.addAttribute("list", this.addressRepo.findAll());
+        return "address/addressList";
     }
 }
