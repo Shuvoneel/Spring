@@ -50,7 +50,8 @@ public class UserController {
     }
 
     @PostMapping(value = "add")
-    public String userAdd(@Valid User user, BindingResult result, Model model, @RequestParam("photo") MultipartFile photo) throws IOException {
+    public String userAdd(@Valid User user, BindingResult result, Model model, @RequestParam(value = "file",required = false) MultipartFile file) throws IOException {
+        user.setPhoto("upload/" + file.getOriginalFilename());
         model.addAttribute("roleList", this.roleRepo.findAll());
         model.addAttribute("marriageList", this.marriageRepo.findAll());
         model.addAttribute("religionList", this.religionRepo.findAll());
@@ -59,10 +60,10 @@ public class UserController {
         }
         try {
 
-            byte[] bytes = photo.getBytes();
-            Path path = Paths.get(UPLOAD_FOLDER + photo.getOriginalFilename());
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
-            user.setPhoto("/upload/" + photo.getOriginalFilename());
+
             this.repo.save(user);
             model.addAttribute("user", new User());
             model.addAttribute("sucMsg", "Success !");

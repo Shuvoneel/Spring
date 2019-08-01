@@ -1,6 +1,7 @@
 package com.dawntechbd.entity;
 
 import com.dawntechbd.entity.applicantDetails.Religion;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,6 +19,9 @@ public class User {
     private String fatherName;
     private String motherName;
     private String gender;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
     private String nid;
     private String maritalStatus;
@@ -27,6 +31,8 @@ public class User {
     private String email;
     private String mobile;
     private String password;
+
+
     private String photo;
     @ManyToMany
     @JoinTable(

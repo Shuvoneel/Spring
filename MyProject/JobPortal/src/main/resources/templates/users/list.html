@@ -12,7 +12,8 @@
         .table {
             text-align: center;
         }
-        th{
+
+        th {
             color: blue;
         }
     </style>
@@ -23,11 +24,44 @@
     <table class="table table-striped">
         <tr>
             <th>ID</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Father's Name</th>
+            <th>Mother's Name</th>
+            <th>Gender</th>
+            <th>Birth Date</th>
+            <th>Nid</th>
+            <th>Marital Status</th>
+            <th>Religion</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Password</th>
             <th>Role</th>
+            <th>Photo</th>
+
         </tr>
-        <tr th:each="r : ${list}">
-            <td th:text="${r.id}"></td>
-            <td th:text="${r.roleName}"></td>
+        <tr th:each="s : ${list}">
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.userName}"></td>
+            <td th:text="${s.firstName}"></td>
+            <td th:text="${s.lastName}"></td>
+            <td th:text="${s.fatherName}"></td>
+            <td th:text="${s.motherName}"></td>
+            <td th:text="${s.gender}"></td>
+            <td th:text="${s.birthDate}"></td>
+            <td th:text="${s.nid}"></td>
+            <td th:text="${s.maritalStatus}"></td>
+            <td th:each="rn : ${religionList}" th:value="${rn.id}">
+                <span th:text="${rn.religionName}"></span>
+            </td>
+            <td th:text="${s.email}"></td>
+            <td th:text="${s.mobile}"></td>
+            <td th:text="${s.password}"></td>
+            <td th:each="r : ${roleList}" th:value="${r.id}">
+                <span th:text="${r.roleName}"></span>
+            </td>
+            <td th:text="${s.photo}"></td>
         </tr>
     </table>
 </div>
