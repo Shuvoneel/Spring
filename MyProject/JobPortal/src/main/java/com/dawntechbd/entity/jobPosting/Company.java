@@ -2,6 +2,7 @@ package com.dawntechbd.entity.jobPosting;
 
 import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.addressDetails.City;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,7 +16,15 @@ public class Company {
     private Long id;
     private String companyName;
     private String address;
-    private String category;
+    @ManyToMany
+    @JoinTable(
+            name = "company_category",
+            joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date establishment;
     private String tradeLicense;
     private String CpName;
@@ -23,14 +32,6 @@ public class Company {
     private String CpEmail;
     private String CpMobile;
     private String password;
-    @ManyToMany
-    @JoinTable(
-            name = "company_city",
-            joinColumns = @JoinColumn(name = "company_id"),
-            inverseJoinColumns = @JoinColumn(name = "city_id")
-    )
-    private Set<City> cities;
-
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -38,10 +39,10 @@ public class Company {
     public Company() {
     }
 
-    public Company(String companyName, String address, String category, Date establishment, String tradeLicense, String cpName, String cpDesignation, String cpEmail, String cpMobile, String password, Set<City> cities, User user) {
+    public Company(String companyName, String address, Set<Category> categories, Date establishment, String tradeLicense, String cpName, String cpDesignation, String cpEmail, String cpMobile, String password, User user) {
         this.companyName = companyName;
         this.address = address;
-        this.category = category;
+        this.categories = categories;
         this.establishment = establishment;
         this.tradeLicense = tradeLicense;
         CpName = cpName;
@@ -49,7 +50,6 @@ public class Company {
         CpEmail = cpEmail;
         CpMobile = cpMobile;
         this.password = password;
-        this.cities = cities;
         this.user = user;
     }
 
@@ -77,12 +77,12 @@ public class Company {
         this.address = address;
     }
 
-    public String getCategory() {
-        return category;
+    public Set<Category> getCategories() {
+        return categories;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public Date getEstablishment() {
@@ -139,14 +139,6 @@ public class Company {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Set<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(Set<City> cities) {
-        this.cities = cities;
     }
 
     public User getUser() {

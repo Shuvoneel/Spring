@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Company</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Company..........!</h2>
+    <span th:text="${sucMsg}" style="color: green"></span>
+    <form th:object="${company}" th:action="@{/com/add}" th:method="post">
+        <table class="table-hover">
+            <tr>
+                <td>Select User</td>
+                <td>
+                    <select th:field="*{user}">
+                        <option th:each="u : ${userList}" th:value="${u.id}">
+                            <span th:text="${u.userName}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Company Name</td>
+                <td><input type="text" th:field="*{companyName}" required></td>
+            </tr>
+            <tr>
+                <td>Company Address</td>
+                <td><input type="text" th:field="*{address}" required></td>
+            </tr>
+
+            <tr>
+                <td>Category</td>
+                <td>
+                    <select th:field="*{categories}">
+                        <option th:each="cat : ${catList}" th:value="${cat.id}">
+                            <span th:text="${cat.name}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Year of Establishment</td>
+                <td><input type="date" th:field="*{establishment}" required></td>
+            </tr>
+            <tr>
+                <td>Trade License</td>
+                <td><input type="text" th:field="*{tradeLicense}" required></td>
+            </tr>
+            <tr>
+                <td>Contact Person Name</td>
+                <td><input type="text" th:field="*{cpName}" required></td>
+            </tr>
+            <tr>
+                <td>Contact Person Designation</td>
+                <td><input type="text" th:field="*{cpDesignation}" required></td>
+            </tr>
+            <tr>
+                <td>Contact Person Mobile</td>
+                <td><input type="text" th:field="*{cpMobile}" required></td>
+            </tr>
+            <tr>
+                <td>Contact Person Email</td>
+                <td><input type="text" th:field="*{cpEmail}" required></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" th:field="*{password}" required></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Add Company</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+
+</html>
+

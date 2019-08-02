@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Role List</title>
+    <style>
+        .table {
+            text-align: center;
+        }
+        th{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h1>Existing Job Types</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Job Type</th>
+        </tr>
+        <tr th:each="jt : ${list}">
+            <td th:text="${jt.id}"></td>
+            <td th:text="${jt.type}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Category List</title>
+    <style>
+        .table {
+            width: auto;
+            height: auto;
+            text-align: center;
+        }
+
+        th {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h1>Available Categories for the Company</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+        </tr>
+
+        <tr th:each="cat : ${list}">
+            <td th:text="${cat.id}"></td>
+            <td th:text="${cat.name}"></td>
+        </tr>
+        <tr>
+            <th><a th:href="@{/cat/add}">Add More</a></th>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
+

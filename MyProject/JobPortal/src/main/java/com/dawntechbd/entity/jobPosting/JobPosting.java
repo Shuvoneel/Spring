@@ -1,8 +1,6 @@
 package com.dawntechbd.entity.jobPosting;
 
-import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.addressDetails.City;
-import com.dawntechbd.entity.addressDetails.Country;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,13 +16,7 @@ public class JobPosting {
     @JoinColumn(name = "company_id")
     private Company company;
     private int vacancy;
-    @ManyToMany
-    @JoinTable(
-            name = "job_descriptions",
-            joinColumns = @JoinColumn(name = "job_id"),
-            inverseJoinColumns = @JoinColumn(name = "descriptions_id")
-    )
-    private Set<JobDescription> jobDescriptions;
+    private String jobDescriptions;
     @ManyToOne
     @JoinColumn(name = "jobType_id")
     private JobType jobType;
@@ -38,15 +30,12 @@ public class JobPosting {
             inverseJoinColumns = @JoinColumn(name = "city_id")
     )
     private Set<City> cities;
-    private String salary;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private int salary;
 
     public JobPosting() {
     }
 
-    public JobPosting(String position, Company company, int vacancy, Set<JobDescription> jobDescriptions, JobType jobType, String educationalRequirements, String experience, String additionalRequirements, Set<City> cities, String salary, User user) {
+    public JobPosting(String position, Company company, int vacancy, String jobDescriptions, JobType jobType, String educationalRequirements, String experience, String additionalRequirements, Set<City> cities, int salary) {
         this.position = position;
         this.company = company;
         this.vacancy = vacancy;
@@ -57,7 +46,6 @@ public class JobPosting {
         this.additionalRequirements = additionalRequirements;
         this.cities = cities;
         this.salary = salary;
-        this.user = user;
     }
 
     public Long getId() {
@@ -92,11 +80,11 @@ public class JobPosting {
         this.vacancy = vacancy;
     }
 
-    public Set<JobDescription> getJobDescriptions() {
+    public String getJobDescriptions() {
         return jobDescriptions;
     }
 
-    public void setJobDescriptions(Set<JobDescription> jobDescriptions) {
+    public void setJobDescriptions(String jobDescriptions) {
         this.jobDescriptions = jobDescriptions;
     }
 
@@ -140,19 +128,11 @@ public class JobPosting {
         this.cities = cities;
     }
 
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

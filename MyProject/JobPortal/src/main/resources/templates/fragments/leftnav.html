@@ -134,6 +134,38 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#jobs" aria-expanded="false"
+               aria-controls="jobs">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Job Details</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="jobs">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/job/add}">Add Job Type</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/job/list}">Job Type List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/job/post}">Post a Job</a></li>
+
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#company" aria-expanded="false"
+               aria-controls="company">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Company</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="company">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/com/add}">Add Company</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/com/list}">Company List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/cat/add}">Add Company Category</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/cat/list}">Category List</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#chain" aria-expanded="false"
                aria-controls="chain">
                 <i class="ti-palette menu-icon"></i>

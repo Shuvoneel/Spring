@@ -18,9 +18,7 @@ public class AcademicDetails {
     private String groupOrDept;
     private String institute;
     private String gpa;
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date passingYear;
+    private int passingYear;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -28,7 +26,7 @@ public class AcademicDetails {
     public AcademicDetails() {
     }
 
-    public AcademicDetails(Degree degree, String groupOrDept, String institute, String gpa, Date passingYear, User user) {
+    public AcademicDetails(Degree degree, String groupOrDept, String institute, String gpa, int passingYear, User user) {
         this.degree = degree;
         this.groupOrDept = groupOrDept;
         this.institute = institute;
@@ -69,20 +67,20 @@ public class AcademicDetails {
         this.institute = institute;
     }
 
+    public int getPassingYear() {
+        return passingYear;
+    }
+
+    public void setPassingYear(int passingYear) {
+        this.passingYear = passingYear;
+    }
+
     public String getGpa() {
         return gpa;
     }
 
     public void setGpa(String gpa) {
         this.gpa = gpa;
-    }
-
-    public Date getPassingYear() {
-        return passingYear;
-    }
-
-    public void setPassingYear(Date passingYear) {
-        this.passingYear = passingYear;
     }
 
     public User getUser() {
