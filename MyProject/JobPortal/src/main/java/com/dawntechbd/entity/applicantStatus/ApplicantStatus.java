@@ -1,4 +1,6 @@
-package com.dawntechbd.entity.applicantDetails;
+package com.dawntechbd.entity.applicantStatus;
+
+import com.dawntechbd.entity.User;
 
 import javax.persistence.*;
 
@@ -9,12 +11,16 @@ public class ApplicantStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String status;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public ApplicantStatus() {
     }
 
-    public ApplicantStatus(String status) {
+    public ApplicantStatus(String status, User user) {
         this.status = status;
+        this.user = user;
     }
 
     public Long getId() {
@@ -31,5 +37,13 @@ public class ApplicantStatus {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

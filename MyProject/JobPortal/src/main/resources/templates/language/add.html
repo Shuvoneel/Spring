@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Language Details</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Language..........!</h2>
+    <span th:text="${sucMsg}" style="color: green"></span>
+    <form th:object="${language}" th:action="@{/lan/add}" th:method="post">
+        <table class="table-hover">
+            <tr>
+                <td>User</td>
+                <td>
+                    <select th:field="*{user}">
+                        <option th:each="u: ${userList}" th:value="${u.id}">
+                            <span th:text="${u.userName}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Language</td>
+                <td><input type="text" th:field="*{name}" required></td>
+            </tr>
+            <tr>
+                <td>Reading Skills</td>
+                <td><input type="text" th:field="*{reading}" required></td>
+            </tr>
+            <tr>
+                <td>Writing Skills</td>
+                <td><input type="text" th:field="*{writing}" required></td>
+            </tr>
+            <tr>
+                <td>Speaking Skills</td>
+                <td><input type="text" th:field="*{speaking}" required></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Add Language</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+
+</html>
+

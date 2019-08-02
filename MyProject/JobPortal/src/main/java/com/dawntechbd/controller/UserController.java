@@ -40,6 +40,7 @@ public class UserController {
 
     private final String UPLOAD_FOLDER = "src/main/resources/static/upload/";
 
+    // User Add
     @GetMapping(value = "add")
     public String userAdd(Model model) {
         model.addAttribute("user", new User());
@@ -50,7 +51,7 @@ public class UserController {
     }
 
     @PostMapping(value = "add")
-    public String userAdd(@Valid User user, BindingResult result, Model model, @RequestParam(value = "file",required = false) MultipartFile file) throws IOException {
+    public String userAdd(@Valid User user, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         user.setPhoto("upload/" + file.getOriginalFilename());
         model.addAttribute("roleList", this.roleRepo.findAll());
         model.addAttribute("marriageList", this.marriageRepo.findAll());
