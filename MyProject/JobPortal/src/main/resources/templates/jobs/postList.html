@@ -12,38 +12,57 @@
         .table {
             text-align: center;
         }
-        th{
+
+        th {
             color: blue;
         }
     </style>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
-    <h1>List of Posted Jobs</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <td>Position</td>
-            <td>Company</td>
-            <td>No of Vacancies</td>
-            <td>Job Descriptions</td>
-            <td>Job Type</td>
-            <td>Educational Requirements</td>
-            <td>Required Experiences</td>
-            <td>Additional Requirements</td>
-            <td>Location</td>
-            <td>Remuneration</td>
-
-        </tr>
-        <tr th:each="jp : ${list}">
-            <td th:text="${jp.id}"></td>
-            <td th:text="${jp.position}"></td>
-            <td th:text="${jp.position}"></td>
-            <td th:text="${jp.company}"></td>
-            <td th:text="${jp.position}"></td>
-
-        </tr>
-    </table>
+    <div class="card">
+        <h1>List of Posted Jobs</h1>
+        <table class="table-responsive table table-striped">
+            <tr>
+                <th>ID</th>
+                <td>Position</td>
+                <td>Company</td>
+                <td>No of Vacancies</td>
+                <td>Job Descriptions</td>
+                <td>Job Type</td>
+                <td>Educational Requirements</td>
+                <td>Required Experiences</td>
+                <td>Additional Requirements</td>
+                <td>Location</td>
+                <td>Remuneration</td>
+            </tr>
+            <tr th:each="jp : ${list}">
+                <td th:text="${jp.id}"></td>
+                <td th:text="${jp.position}"></td>
+                <td>
+                    <span th:each="cmp : ${jp.company.companyName}">
+                    <span th:text="${cmp}"></span>
+                </span>
+                </td>
+                <td th:text="${jp.vacancy}"></td>
+                <td th:text="${jp.jobDescriptions}"></td>
+                <td>
+                    <span th:each="jt : ${jp.jobType.type}">
+                    <span th:text="${jt}"></span>
+                        </span>
+                </td>
+                <td th:text="${jp.educationalRequirements}"></td>
+                <td th:text="${jp.experience}"></td>
+                <td th:text="${jp.additionalRequirements}"></td>
+                <td>
+                    <span th:each="ct : ${jp.cities}">
+                    <span th:text="${ct.name}"></span>
+                        </span>
+                </td>
+                <td th:text="${jp.salary}"></td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 
