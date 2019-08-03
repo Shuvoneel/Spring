@@ -1,9 +1,11 @@
 package com.dawntechbd.controller;
 
 import com.dawntechbd.entity.academicDetails.Degree;
+import com.dawntechbd.entity.applicantDetails.Applicant;
 import com.dawntechbd.entity.applicantDetails.BloodGroup;
 import com.dawntechbd.entity.applicantDetails.MaritalStatus;
 import com.dawntechbd.entity.applicantDetails.Religion;
+import com.dawntechbd.entity.jobHistory.JobHistory;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 @Controller
 public class ApplicantController {
@@ -24,6 +27,73 @@ public class ApplicantController {
     private BloodRepo bloodRepo;
     @Autowired
     private DegreeRepo degreeRepo;
+    @Autowired
+    private ApplicantRepo applicantRepo;
+    @Autowired
+    private UserRepo userRepo;
+    @Autowired
+    private JobPostingRepo jobPostingRepo;
+    @Autowired
+    private CompanyRepo companyRepo;
+    @Autowired
+    private JobHistoryRepo jobHistoryRepo;
+
+    // Applicant
+    @GetMapping(value = "/app/add")
+    public String addApplicant(Model model) {
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("comList", this.companyRepo.findAll());
+        model.addAttribute("postList", this.jobPostingRepo.findAll());
+        model.addAttribute("applicant", new Applicant());
+        return "applicant/add";
+    }
+
+    @PostMapping(value = "/app/add")
+    public String addApplicant(@Valid Applicant applicant, BindingResult result, Model model) {
+        applicant.setApplyDate(new Date());
+        this.applicantRepo.save(applicant);
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("comList", this.companyRepo.findAll());
+        model.addAttribute("postList", this.jobPostingRepo.findAll());
+        model.addAttribute("list", this.applicantRepo.findAll());
+        model.addAttribute("applicant", new Applicant());
+        model.addAttribute("sucMsg", "Success !");
+        return "applicant/list";
+    }
+
+    @GetMapping(value = "/app/list")
+    public String applicantList(Model model) {
+        model.addAttribute("list", this.applicantRepo.findAll());
+        return "applicant/list";
+    }
+
+
+    // Job History
+
+    @GetMapping(value = "/app/history")
+    public String addJobHistory(Model model) {
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("jobHistory", new JobHistory());
+        return "applicant/jobHistory";
+    }
+
+    @PostMapping(value = "/app/history")
+    public String addJobHistory(@Valid JobHistory jobHistory, BindingResult result, Model model) {
+        this.jobHistoryRepo.save(jobHistory);
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("list", this.jobHistoryRepo.findAll());
+        model.addAttribute("jobHistory", new JobHistory());
+        model.addAttribute("sucMsg", "Success !");
+        return "applicant/historyList";
+    }
+
+    @GetMapping(value = "/app/historyList")
+    public String historyList(Model model) {
+        model.addAttribute("list", this.jobHistoryRepo.findAll());
+        model.addAttribute("jobHistory", new JobHistory());
+        return "applicant/historyList";
+    }
+
 
     // Marital Status
     @GetMapping(value = "/ms/add")

@@ -37,7 +37,7 @@ public class CompanyController {
     }
 
     @PostMapping(value = "/com/add")
-    public String addCompany(@Valid Company company, BindingResult bindingResult, Model model) throws IOException {
+    public String addCompany(@Valid Company company, BindingResult bindingResult, Model model) {
 
         this.companyRepo.save(company);
         model.addAttribute("company", new Company());

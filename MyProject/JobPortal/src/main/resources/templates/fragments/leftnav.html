@@ -40,61 +40,26 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#maritalStatus" aria-expanded="false"
-               aria-controls="maritalStatus">
+            <a class="nav-link" data-toggle="collapse" href="#applicant" aria-expanded="false"
+               aria-controls="applicant">
                 <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">Marital Status</span>
+                <span class="menu-title">Applicants</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="maritalStatus">
+            <div class="collapse" id="applicant">
                 <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/add}"> Add Applicants</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/list}"> Applicants List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/history}"> Add Job History</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/historyList}"> Job History List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/ms/add}"> Add Marital Status</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/ms/list}">List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#religion" aria-expanded="false"
-               aria-controls="religion">
-                <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">Religion</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="religion">
-                <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" th:href="@{/rn/add}"> Add Religion</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/rn/list}">List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#bloodGroup" aria-expanded="false"
-               aria-controls="bloodGroup">
-                <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">Blood Group</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="bloodGroup">
-                <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" th:href="@{/bg/add}"> Add Blood Group</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/bg/list}">List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#degree" aria-expanded="false"
-               aria-controls="degree">
-                <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">Degree</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="degree">
-                <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" th:href="@{/dr/add}"> Add Degree</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/dr/list}">List</a></li>
                 </ul>
             </div>
         </li>
+
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#address" aria-expanded="false"
                aria-controls="address">

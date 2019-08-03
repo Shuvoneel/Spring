@@ -23,9 +23,7 @@ public class Company {
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private Set<Category> categories;
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date establishment;
+    private String establishment;
     private String tradeLicense;
     private String CpName;
     private String CpDesignation;
@@ -39,7 +37,7 @@ public class Company {
     public Company() {
     }
 
-    public Company(String companyName, String address, Set<Category> categories, Date establishment, String tradeLicense, String cpName, String cpDesignation, String cpEmail, String cpMobile, String password, User user) {
+    public Company(String companyName, String address, Set<Category> categories, String establishment, String tradeLicense, String cpName, String cpDesignation, String cpEmail, String cpMobile, String password, User user) {
         this.companyName = companyName;
         this.address = address;
         this.categories = categories;
@@ -85,11 +83,11 @@ public class Company {
         this.categories = categories;
     }
 
-    public Date getEstablishment() {
+    public String getEstablishment() {
         return establishment;
     }
 
-    public void setEstablishment(Date establishment) {
+    public void setEstablishment(String establishment) {
         this.establishment = establishment;
     }
 

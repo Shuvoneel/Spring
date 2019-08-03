@@ -4,8 +4,10 @@ import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.academicDetails.AcademicDetails;
 import com.dawntechbd.entity.jobPosting.Company;
 import com.dawntechbd.entity.jobPosting.JobPosting;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table
@@ -22,14 +24,18 @@ public class Applicant {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private JobPosting jobPosting;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+    private Date applyDate;
 
     public Applicant() {
     }
 
-    public Applicant(User user, Company company, JobPosting jobPosting) {
+    public Applicant(User user, Company company, JobPosting jobPosting, Date applyDate) {
         this.user = user;
         this.company = company;
         this.jobPosting = jobPosting;
+        this.applyDate = applyDate;
     }
 
     public Long getId() {
@@ -62,5 +68,13 @@ public class Applicant {
 
     public void setJobPosting(JobPosting jobPosting) {
         this.jobPosting = jobPosting;
+    }
+
+    public Date getApplyDate() {
+        return applyDate;
+    }
+
+    public void setApplyDate(Date applyDate) {
+        this.applyDate = applyDate;
     }
 }

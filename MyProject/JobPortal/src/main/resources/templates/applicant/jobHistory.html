@@ -6,13 +6,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Language Details</title>
+    <title>Job History</title>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
-    <h2>Add Language..........!</h2>
+    <h2>Add Job History..........!</h2>
     <span th:text="${sucMsg}" style="color: green"></span>
-    <form th:object="${applicant}" th:action="@{/app/add}" th:method="post">
+    <form th:object="${jobHistory}" th:action="@{/app/history}" th:method="post">
         <table class="table-hover">
             <tr>
                 <td>User Name</td>
@@ -25,29 +25,34 @@
                 </td>
             </tr>
             <tr>
-                <td>Company</td>
-                <td>
-                    <select th:field="*{company}">
-                        <option th:each="c : ${comList}" th:value="${c.id}">
-                            <span th:text="${c.companyName}"></span>
-                        </option>
-                    </select>
-                </td>
+                <td>Designation</td>
+                <td><input type="text" required th:field="*{designation}"></td>
             </tr>
             <tr>
-                <td>Available Circular</td>
-                <td>
-                    <select th:field="*{jobPosting}">
-                        <option th:each="j : ${postList}" th:value="${j.id}">
-                            <span th:text="${j.position}"></span>
-                        </option>
-                    </select>
-                </td>
+                <td>Company</td>
+                <td><input type="text" required th:field="*{company}"></td>
             </tr>
+            <tr>
+                <td>Company Address</td>
+                <td><input type="text" required th:field="*{location}"></td>
+            </tr>
+            <tr>
+                <td>Duration</td>
+                <td><input type="text" required th:field="*{duration}"></td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td><input type="text" required th:field="*{department}"></td>
+            </tr>
+            <tr>
+                <td>Supervisor Details</td>
+                <td><textarea type="text" required th:field="*{supervisorDetails}"></textarea></td>
+            </tr>
+
             <tr>
                 <td></td>
                 <td>
-                    <button type="submit">Apply</button>
+                    <button type="submit">Add</button>
                 </td>
             </tr>
         </table>
