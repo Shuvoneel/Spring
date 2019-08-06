@@ -6,6 +6,7 @@ import com.dawntechbd.entity.applicantDetails.BloodGroup;
 import com.dawntechbd.entity.applicantDetails.MaritalStatus;
 import com.dawntechbd.entity.applicantDetails.Religion;
 import com.dawntechbd.entity.jobHistory.JobHistory;
+import com.dawntechbd.entity.professionalTrainings.ProfessionalTrainings;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,8 @@ public class ApplicantController {
     private CompanyRepo companyRepo;
     @Autowired
     private JobHistoryRepo jobHistoryRepo;
+    @Autowired
+    private ProTrainingsRepo proTrainingsRepo;
 
     // Applicant
     @GetMapping(value = "/app/add")
@@ -92,6 +95,35 @@ public class ApplicantController {
         model.addAttribute("list", this.jobHistoryRepo.findAll());
         model.addAttribute("jobHistory", new JobHistory());
         return "applicant/historyList";
+    }
+
+
+    // Professional Trainings
+
+    @GetMapping(value = "/app/training")
+    public String addProTraining(Model model) {
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("proTraining", new ProfessionalTrainings());
+        return "applicant/proTraining";
+    }
+
+    @PostMapping(value = "/app/training")
+    public String addProTraining(@Valid ProfessionalTrainings proTraining, BindingResult result, Model model) {
+        this.proTrainingsRepo.save(proTraining);
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("list", this.proTrainingsRepo.findAll());
+        model.addAttribute("proTraining", new ProfessionalTrainings());
+        model.addAttribute("sucMsg", "Success !");
+        return "applicant/trainingList";
+    }
+
+    @GetMapping(value = "/app/trainingList")
+    public String trainingList(Model model) {
+        model.addAttribute("list", this.proTrainingsRepo.findAll());
+        model.addAttribute("proTraining", new ProfessionalTrainings());
+        return "applicant/trainingList";
     }
 
 
