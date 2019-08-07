@@ -11,6 +11,7 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <div class="row">
+        <h1>Add User</h1>
         <span th:text="${sucMsg}" style="color: green"></span>
         <form th:object="${user}" th:action="@{/user/add}" th:method="post" enctype="multipart/form-data">
             <table class="table-hover">

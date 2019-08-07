@@ -7,6 +7,7 @@ import com.dawntechbd.entity.applicantDetails.MaritalStatus;
 import com.dawntechbd.entity.applicantDetails.Religion;
 import com.dawntechbd.entity.jobHistory.JobHistory;
 import com.dawntechbd.entity.professionalTrainings.ProfessionalTrainings;
+import com.dawntechbd.entity.references.Reference;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,8 @@ public class ApplicantController {
     private JobHistoryRepo jobHistoryRepo;
     @Autowired
     private ProTrainingsRepo proTrainingsRepo;
+    @Autowired
+    private ReferenceRepo referenceRepo;
 
     // Applicant
     @GetMapping(value = "/app/add")
@@ -72,7 +75,6 @@ public class ApplicantController {
 
 
     // Job History
-
     @GetMapping(value = "/app/history")
     public String addJobHistory(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
@@ -99,7 +101,6 @@ public class ApplicantController {
 
 
     // Professional Trainings
-
     @GetMapping(value = "/app/training")
     public String addProTraining(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
@@ -124,6 +125,32 @@ public class ApplicantController {
         model.addAttribute("list", this.proTrainingsRepo.findAll());
         model.addAttribute("proTraining", new ProfessionalTrainings());
         return "applicant/trainingList";
+    }
+
+
+    // Reference
+    @GetMapping(value = "/app/ref")
+    public String addReference(Model model) {
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("reference", new Reference());
+        return "applicant/addReference";
+    }
+
+    @PostMapping(value = "/app/ref")
+    public String addReference(@Valid Reference reference, BindingResult result, Model model) {
+        this.referenceRepo.save(reference);
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("list", this.referenceRepo.findAll());
+        model.addAttribute("reference", new Reference());
+        model.addAttribute("sucMsg", "Success !");
+        return "applicant/referenceList";
+    }
+
+    @GetMapping(value = "/app/refList")
+    public String referenceList(Model model) {
+        model.addAttribute("list", this.referenceRepo.findAll());
+        model.addAttribute("reference", new Reference());
+        return "applicant/referenceList";
     }
 
 

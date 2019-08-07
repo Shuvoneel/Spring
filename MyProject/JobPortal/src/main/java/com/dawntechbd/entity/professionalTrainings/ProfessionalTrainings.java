@@ -19,21 +19,17 @@ public class ProfessionalTrainings {
     @ManyToOne
     @JoinColumn(name = "applicantDetails_id")
     private Applicant applicant;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
     public ProfessionalTrainings() {
     }
 
-    public ProfessionalTrainings(String title, String duration, String topicsCovered, String institute, String location, Applicant applicant, User user) {
+    public ProfessionalTrainings(String title, String duration, String topicsCovered, String institute, String location, Applicant applicant) {
         this.title = title;
         this.duration = duration;
         this.topicsCovered = topicsCovered;
         this.institute = institute;
         this.location = location;
         this.applicant = applicant;
-        this.user = user;
     }
 
     public Long getId() {
@@ -92,11 +88,4 @@ public class ProfessionalTrainings {
         this.applicant = applicant;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

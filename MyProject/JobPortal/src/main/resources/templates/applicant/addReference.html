@@ -6,13 +6,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Professional Training</title>
+    <title>Reference Details</title>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
-    <h2>Add Professional Training..........!</h2>
+    <h2>Add Reference..........!</h2>
     <span th:text="${sucMsg}" style="color: green"></span>
-    <form th:object="${proTraining}" th:action="@{/app/training}" th:method="post">
+    <form th:object="${reference}" th:action="@{/app/ref}" th:method="post">
         <table class="table-hover">
             <tr>
                 <td>Applicant Name</td>
@@ -25,29 +25,38 @@
                 </td>
             </tr>
             <tr>
-                <td>Title</td>
-                <td><input type="text" required th:field="*{title}"></td>
+                <td>Reference Name</td>
+                <td><input th:field="*{referenceName}"/></td>
             </tr>
             <tr>
-                <td>Duration</td>
-                <td><input type="text" required th:field="*{duration}"></td>
+                <td>Designation</td>
+                <td><input th:field="*{designation}"/></td>
             </tr>
             <tr>
-                <td>Topics Covered</td>
-                <td><input type="text" required th:field="*{topicsCovered}"></td>
+                <td>Organization</td>
+                <td><input th:field="*{organization}"/></td>
             </tr>
             <tr>
-                <td>Institute</td>
-                <td><input type="text" required th:field="*{institute}"></td>
+                <td>Mobile</td>
+                <td><input th:field="*{mobile}"/></td>
             </tr>
             <tr>
-                <td>Location</td>
-                <td><textarea type="text" required th:field="*{location}"></textarea></td>
+                <td>Email</td>
+                <td><input th:field="*{email}"/></td>
             </tr>
+            <tr>
+                <td>Address</td>
+                <td><input th:field="*{address}"/></td>
+            </tr>
+            <tr>
+                <td>Relation</td>
+                <td><input th:field="*{relation}"/></td>
+            </tr>
+
             <tr>
                 <td></td>
                 <td>
-                    <button type="submit">Add Training</button>
+                    <button type="submit">Apply</button>
                 </td>
             </tr>
         </table>

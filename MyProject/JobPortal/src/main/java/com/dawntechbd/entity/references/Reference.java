@@ -1,6 +1,7 @@
 package com.dawntechbd.entity.references;
 
 import com.dawntechbd.entity.User;
+import com.dawntechbd.entity.applicantDetails.Applicant;
 
 import javax.persistence.*;
 
@@ -10,7 +11,7 @@ public class Reference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String referenceName;
     private String designation;
     private String organization;
     private String mobile;
@@ -18,21 +19,21 @@ public class Reference {
     private String address;
     private String relation;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "applicantDetails_id")
+    private Applicant applicant;
 
     public Reference() {
     }
 
-    public Reference(String name, String designation, String organization, String mobile, String email, String address, String relation, User user) {
-        this.name = name;
+    public Reference(String referenceName, String designation, String organization, String mobile, String email, String address, String relation, Applicant applicant) {
+        this.referenceName = referenceName;
         this.designation = designation;
         this.organization = organization;
         this.mobile = mobile;
         this.email = email;
         this.address = address;
         this.relation = relation;
-        this.user = user;
+        this.applicant = applicant;
     }
 
     public Long getId() {
@@ -43,12 +44,12 @@ public class Reference {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getReferenceName() {
+        return referenceName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setReferenceName(String referenceName) {
+        this.referenceName = referenceName;
     }
 
     public String getDesignation() {
@@ -99,11 +100,11 @@ public class Reference {
         this.relation = relation;
     }
 
-    public User getUser() {
-        return user;
+    public Applicant getApplicant() {
+        return applicant;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
     }
 }
