@@ -58,6 +58,11 @@ public class JobController {
         return "jobs/postList";
     }
 
+    @GetMapping(value = "home")
+    public String jobHome(Model model) {
+        model.addAttribute("list", this.jobPostingRepo.findAll());
+        return "home";
+    }
     // Job Type
     @GetMapping(value = "add")
     public String JobTypeAdd(Model model) {

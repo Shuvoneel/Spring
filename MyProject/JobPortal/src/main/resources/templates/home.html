@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Job Posting List</title>
+    <style>
+        .table {
+            text-align: center;
+        }
+
+        th {
+            color: blue;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <div class="row" style="margin-bottom: 30px" th:each="jp : ${list}">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header" th:text="${jp.position}">Header</div>
+                <div class="card-body" th:text="${jp.jobDescriptions}">Content</div>
+                <div class="card-footer" th:text="${jp?.company?.companyName}">Footer</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header" th:text="${jp.position}">Header</div>
+                <div class="card-body" th:text="${jp.jobDescriptions}">Content</div>
+                <div class="card-footer" th:text="${jp?.company?.companyName}">Footer</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header" th:text="${jp.position}">Header</div>
+                <div class="card-body" th:text="${jp.jobDescriptions}">Content</div>
+                <div class="card-footer" th:text="${jp?.company?.companyName}">Footer</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>
