@@ -7,14 +7,27 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Job Posting List</title>
+    <link rel="stylesheet" id="bootstrap-css" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/all.css">
+
+    <title>Home</title>
     <style>
-        .table {
-            text-align: center;
+        .card {
+            margin-bottom: 15px;
         }
 
-        th {
-            color: blue;
+        .icon-action {
+            margin-top: 5px;
+            float: right;
+            font-size: 80%;
+        }
+
+        .list-group-item .title {
+            margin-top: 5px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -23,24 +36,84 @@
 <div class="content-wrapper" layout:fragment="custom-content">
     <div class="row" style="margin-bottom: 30px" th:each="jp : ${list}">
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header" th:text="${jp.position}">Header</div>
+            <div class="card text-white bg-success border-danger mb-3" style="width: 18rem;">
+                <div class="card-header text-center" th:text="${jp.position}">Header</div>
                 <div class="card-body" th:text="${jp.jobDescriptions}">Content</div>
-                <div class="card-footer" th:text="${jp?.company?.companyName}">Footer</div>
+                <div class="card-footer text-center" th:text="${jp?.company?.companyName}">Footer</div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header" th:text="${jp.position}">Header</div>
+            <div class="card text-white bg-info border-danger mb-3" style="width: 18rem;">
+                <div class="card-header text-center" th:text="${jp.position}">Header</div>
                 <div class="card-body" th:text="${jp.jobDescriptions}">Content</div>
-                <div class="card-footer" th:text="${jp?.company?.companyName}">Footer</div>
+                <div class="card-footer text-center" th:text="${jp?.company?.companyName}">Footer</div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header" th:text="${jp.position}">Header</div>
+            <div class="card text-white bg-dark border-danger mb-3" style="width: 18rem;">
+                <div class="card-header text-center" th:text="${jp.position}">Header</div>
                 <div class="card-body" th:text="${jp.jobDescriptions}">Content</div>
-                <div class="card-footer" th:text="${jp?.company?.companyName}">Footer</div>
+                <div class="card-footer text-center" th:text="${jp?.company?.companyName}">Footer</div>
+            </div>
+        </div>
+    </div>
+    <!--    Collapseable Row Started-->
+    <div class="row" style="margin-bottom: 30px" th:each="jp : ${list}">
+        <div class="col-md-4">
+            <div class="card text-white bg-info border-danger mb-3" style="width: 18rem;">
+                <header class="card-header text-center">
+                    <a href="#" data-toggle="collapse" data-target="#collapse11+${jp.id}" aria-expanded="true" class="">
+                        <i class="icon-action fa fa-chevron-down"></i>
+                        <span class="title"><span th:text="${jp.position}"></span> </span>
+                    </a>
+                </header>
+                <div class="collapse show" id="collapse11 +'${jp.id}'" style="">
+                    <article class="card-body">
+                        <span th:text="${jp.jobDescriptions}"></span>
+                    </article>
+                    <article class="card-body text-center">
+                        <span th:text="${jp?.company?.companyName}"></span>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success border-danger mb-3" style="width: 18rem;">
+                <header class="card-header text-center">
+                    <a href="#" data-toggle="collapse" data-target="#collapse22" aria-expanded="true" class="">
+                        <i class="icon-action fa fa-chevron-down"></i>
+                        <span class="title"><span th:text="${jp.position}"></span> </span>
+                    </a>
+                </header>
+                <div class="collapse show" id="collapse22" style="">
+                    <article class="card-body">
+                        <span th:text="${jp.jobDescriptions}"></span>
+                    </article>
+                    <article class="card-body text-center">
+                        <span th:text="${jp?.company?.companyName}"></span>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-dark border-danger mb-3" style="width: 18rem;">
+                <header class="card-header text-center">
+                    <a href="#" data-toggle="collapse" data-target="#collapse33" aria-expanded="true" class="">
+                        <i class="icon-action fa fa-chevron-down"></i>
+                        <span class="title"><span th:text="${jp.position}"></span> </span>
+                    </a>
+                </header>
+                <div class="collapse show" id="collapse33" style="">
+                    <article class="card-body">
+                        <span th:text="${jp.jobDescriptions}"></span>
+                    </article>
+                    <article class="card-body text-center">
+                        <span th:text="${jp?.company?.companyName}"></span>
+                    </article>
+                </div>
+
             </div>
         </div>
     </div>
