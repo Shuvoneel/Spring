@@ -12,24 +12,37 @@
         .table {
             text-align: center;
         }
-        th{
+
+        th {
             color: blue;
         }
     </style>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Existing Job Types</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Job Type</th>
-        </tr>
-        <tr th:each="jt : ${list}">
-            <td th:text="${jt.id}"></td>
-            <td th:text="${jt.type}"></td>
-        </tr>
-    </table>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Existing Job Types</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>ID</th>
+                                <th>Job Type</th>
+                            </tr>
+                            <tr th:each="jt : ${list}">
+                                <td th:text="${jt.id}"></td>
+                                <td th:text="${jt.type}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 

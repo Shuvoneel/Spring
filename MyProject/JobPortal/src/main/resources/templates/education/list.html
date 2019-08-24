@@ -9,8 +9,6 @@
     <title>Education Details</title>
     <style>
         .table {
-            width: auto;
-            height: auto;
             text-align: center;
         }
 
@@ -20,37 +18,49 @@
     </style>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Education Details of the User</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Degree</th>
-            <th>Group or Department</th>
-            <th>Institute</th>
-            <th>GPA or Grade</th>
-            <th>Passing Year</th>
-        </tr>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Education Details of the User</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Degree</th>
+                                <th>Group or Department</th>
+                                <th>Institute</th>
+                                <th>GPA or Grade</th>
+                                <th>Passing Year</th>
+                            </tr>
 
-        <tr th:each="edu : ${list}">
-            <td th:text="${edu.id}"></td>
-            <td>
+                            <tr th:each="edu : ${list}">
+                                <td th:text="${edu.id}"></td>
+                                <td>
                 <span th:each="u: ${edu.user.userName}">
                     <span th:text="${u}"></span>
                 </span>
-            </td>
-            <td>
+                                </td>
+                                <td>
                 <span th:each="u: ${edu.degree.name}">
                     <span th:text="${u}"></span>
                 </span>
-            </td>
-            <td th:text="${edu.groupOrDept}"></td>
-            <td th:text="${edu.institute}"></td>
-            <td th:text="${edu.gpa}"></td>
-            <td th:text="${edu.passingYear}"></td>
-        </tr>
-    </table>
+                                </td>
+                                <td th:text="${edu.groupOrDept}"></td>
+                                <td th:text="${edu.institute}"></td>
+                                <td th:text="${edu.gpa}"></td>
+                                <td th:text="${edu.passingYear}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 

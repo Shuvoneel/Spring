@@ -9,8 +9,6 @@
     <title>Company Details</title>
     <style>
         .table {
-            width: auto;
-            height: auto;
             text-align: center;
         }
 
@@ -20,47 +18,60 @@
     </style>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Company Details of the User</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <td>Company Name</td>
-            <td>Company Address</td>
-            <td>Category</td>
-            <td>Year of Establishment</td>
-            <td>Trade License</td>
-            <td>Contact Person Name</td>
-            <td>Contact Person Designation</td>
-            <td>Contact Person Mobile</td>
-            <td>Contact Person Email</td>
-            <td>Password</td>
-        </tr>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Company Details of the User</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Company Name</th>
+                                <th>Company Address</th>
+                                <th>Category</th>
+                                <th>Year of Establishment</th>
+                                <th>Trade License</th>
+                                <th>Contact Person Name</th>
+                                <th>Contact Person Designation</th>
+                                <th>Contact Person Mobile</th>
+                                <th>Contact Person Email</th>
+                            </tr>
 
-        <tr th:each="cmp : ${list}">
-            <td th:text="${cmp.id}"></td>
-            <td>
+                            <tr th:each="cmp : ${list}">
+                                <td th:text="${cmp.id}"></td>
+                                <td>
                 <span th:each="u : ${cmp.user.userName}">
                     <span th:text="${u}"></span>
                 </span>
-            </td>
-            <td th:text="${cmp.companyName}"></td>
-            <td th:text="${cmp.address}"></td>
-            <td>
+                                </td>
+                                <td th:text="${cmp.companyName}"></td>
+                                <td th:text="${cmp.address}"></td>
+                                <td>
                 <span th:each="cr : ${cmp.categories}">
                     <span th:text="${cr.name}"></span>
                 </span>
-            </td>
-            <td th:text="${cmp.establishment}"></td>
-            <td th:text="${cmp.tradeLicense}"></td>
-            <td th:text="${cmp.cpName}"></td>
-            <td th:text="${cmp.cpDesignation}"></td>
-            <td th:text="${cmp.cpMobile}"></td>
-            <td th:text="${cmp.cpEmail}"></td>
-
-        </tr>
-    </table>
+                                </td>
+                                <td th:text="${cmp.establishment}"></td>
+                                <td th:text="${cmp.tradeLicense}"></td>
+                                <td th:text="${cmp.cpName}"></td>
+                                <td th:text="${cmp.cpDesignation}"></td>
+                                <td th:text="${cmp.cpMobile}"></td>
+                                <td th:text="${cmp.cpEmail}"></td>
+                            </tr>
+                            <tr>
+                                <th><a th:href="@{/com/add}">Add More</a></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 

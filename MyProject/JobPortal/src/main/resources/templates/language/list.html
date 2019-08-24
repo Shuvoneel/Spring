@@ -9,8 +9,6 @@
     <title>Language Details</title>
     <style>
         .table {
-            width: auto;
-            height: auto;
             text-align: center;
         }
 
@@ -20,31 +18,43 @@
     </style>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Language Details of the User</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Language</th>
-            <th>Reading</th>
-            <th>Writing</th>
-            <th>Speaking</th>
-        </tr>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Language Details of the User</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Language</th>
+                                <th>Reading</th>
+                                <th>Writing</th>
+                                <th>Speaking</th>
+                            </tr>
 
-        <tr th:each="lan : ${list}">
-            <td th:text="${lan.id}"></td>
-            <td>
+                            <tr th:each="lan : ${list}">
+                                <td th:text="${lan.id}"></td>
+                                <td>
                 <span th:each="u: ${lan.user.userName}">
                     <span th:text="${u}"></span>
                 </span>
-            </td>
-            <td th:text="${lan.name}"></td>
-            <td th:text="${lan.reading}"></td>
-            <td th:text="${lan.writing}"></td>
-            <td th:text="${lan.speaking}"></td>
-        </tr>
-    </table>
+                                </td>
+                                <td th:text="${lan.name}"></td>
+                                <td th:text="${lan.reading}"></td>
+                                <td th:text="${lan.writing}"></td>
+                                <td th:text="${lan.speaking}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 

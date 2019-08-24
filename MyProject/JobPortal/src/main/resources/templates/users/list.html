@@ -20,55 +20,66 @@
     </style>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Existing Users</h1>
-    <table class="table-responsive table table-striped">
-        <tr class="thead-light">
-            <th>ID</th>
-            <th>Username</th>
-<!--            <th>First Name</th>-->
-<!--            <th>Last Name</th>-->
-<!--            <th>Father's Name</th>-->
-<!--            <th>Mother's Name</th>-->
-            <th>Gender</th>
-            <th>Birth Date</th>
-            <th>NID</th>
-            <th>Marital Status</th>
-            <th>Religion</th>
-<!--            <th>Email</th>-->
-            <th>Mobile</th>
-            <th>Password</th>
-            <th>Role</th>
-            <th>Photo</th>
-
-        </tr>
-        <tr th:each="s : ${list}">
-            <td th:text="${s.id}"></td>
-            <td th:text="${s.userName}"></td>
-<!--            <td th:text="${s.firstName}"></td>-->
-<!--            <td th:text="${s.lastName}"></td>-->
-<!--            <td th:text="${s.fatherName}"></td>-->
-<!--            <td th:text="${s.motherName}"></td>-->
-            <td th:text="${s.gender}"></td>
-            <td th:text="${s.birthDate}"></td>
-            <td th:text="${s.nid}"></td>
-            <td th:text="${s.maritalStatus}"></td>
-            <td>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h2>Existing Users</h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Father's Name</th>
+                                            <th>Mother's Name</th>
+                                <th>Gender</th>
+                                <th>Birth Date</th>
+                                <th>NID</th>
+                                <th>Marital Status</th>
+                                <th>Religion</th>
+                                            <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Password</th>
+                                <th>Role</th>
+                                <th>Photo</th>
+                            </tr>
+                            <tr th:each="s : ${list}">
+                                <td th:text="${s.id}"></td>
+                                <td th:text="${s.userName}"></td>
+                                            <td th:text="${s.firstName}"></td>
+                                            <td th:text="${s.lastName}"></td>
+                                            <td th:text="${s.fatherName}"></td>
+                                            <td th:text="${s.motherName}"></td>
+                                <td th:text="${s.gender}"></td>
+                                <td th:text="${s.birthDate}"></td>
+                                <td th:text="${s.nid}"></td>
+                                <td th:text="${s.maritalStatus}"></td>
+                                <td>
                 <span th:each="rn: ${s.religion.religionName}">
                     <span th:text="${rn}"></span>
                 </span>
-            </td>
-<!--            <td th:text="${s.email}"></td>-->
-            <td th:text="${s.mobile}"></td>
-            <td th:text="${s.password}"></td>
-            <td>
+                                </td>
+                                <td th:text="${s.email}"></td>
+                                <td th:text="${s.mobile}"></td>
+                                <td th:text="${s.password}"></td>
+                                <td>
                 <span th:each="r : ${s.roles}">
                     <span th:text="${r.roleName}"></span>
                 </span>
-            </td>
-            <td><img th:src="@{${s.photo}}" width="100" height="100"/></td>
-        </tr>
-    </table>
+                                </td>
+                                <td><img th:src="@{'/'+${s.photo}}" width="100" height="100"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 

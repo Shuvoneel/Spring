@@ -9,8 +9,6 @@
     <title>Category List</title>
     <style>
         .table {
-            width: auto;
-            height: auto;
             text-align: center;
         }
 
@@ -20,22 +18,34 @@
     </style>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Available Categories for the Company</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Category</th>
-        </tr>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>List of Categories for the Company</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>ID</th>
+                                <th>Category</th>
+                            </tr>
 
-        <tr th:each="cat : ${list}">
-            <td th:text="${cat.id}"></td>
-            <td th:text="${cat.name}"></td>
-        </tr>
-        <tr>
-            <th><a th:href="@{/cat/add}">Add More</a></th>
-        </tr>
-    </table>
+                            <tr th:each="cat : ${list}">
+                                <td th:text="${cat.id}"></td>
+                                <td th:text="${cat.name}"></td>
+                            </tr>
+                            <tr>
+                                <th><a th:href="@{/cat/add}">Add More</a></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 

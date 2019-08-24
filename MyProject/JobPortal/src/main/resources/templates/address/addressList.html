@@ -19,34 +19,46 @@
     </style>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <h1>Address Details of the Users</h1>
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Address Type</th>
-            <th>City</th>
-            <th>Village</th>
-            <th>Postcode</th>
-        </tr>
-        <tr th:each="ad : ${list}">
-            <td th:text="${ad.id}"></td>
-            <td>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Address Details of the Users</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Address Type</th>
+                                <th>City</th>
+                                <th>Village</th>
+                                <th>Postcode</th>
+                            </tr>
+                            <tr th:each="ad : ${list}">
+                                <td th:text="${ad.id}"></td>
+                                <td>
                 <span th:each="u : ${ad.user.userName}">
                     <span th:text="${u}"></span>
                 </span>
-            </td>
-            <td th:text="${ad.addressType}"></td>
-            <td>
+                                </td>
+                                <td th:text="${ad.addressType}"></td>
+                                <td>
                 <span th:each="c : ${ad.city.name}">
                     <span th:text="${c}"></span>
                 </span>
-            </td>
-            <td th:text="${ad.village}"></td>
-            <td th:text="${ad.postcode}"></td>
-        </tr>
-    </table>
+                                </td>
+                                <td th:text="${ad.village}"></td>
+                                <td th:text="${ad.postcode}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 
