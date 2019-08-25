@@ -40,9 +40,7 @@
                                 <th>Gender</th>
                                 <th>Birth Date</th>
                                 <th>NID</th>
-                                <th>Marital Status</th>
-                                <th>Religion</th>
-                                            <th>Email</th>
+                                <th>Email</th>
                                 <th>Mobile</th>
                                 <th>Password</th>
                                 <th>Role</th>
@@ -58,12 +56,6 @@
                                 <td th:text="${s.gender}"></td>
                                 <td th:text="${s.birthDate}"></td>
                                 <td th:text="${s.nid}"></td>
-                                <td th:text="${s.maritalStatus}"></td>
-                                <td>
-                <span th:each="rn: ${s.religion.religionName}">
-                    <span th:text="${rn}"></span>
-                </span>
-                                </td>
                                 <td th:text="${s.email}"></td>
                                 <td th:text="${s.mobile}"></td>
                                 <td th:text="${s.password}"></td>

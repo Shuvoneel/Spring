@@ -14,7 +14,14 @@
     <h2>Add Blood Group..........!</h2>
     <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${bloodGroup}" th:action="@{/bg/add}" th:method="post">
-        <input type="text" required th:field="*{groupName}">
+        <label>Select a User</label>
+        <select th:field="*{applicant}">
+            <option th:each="ap : ${applicantList}" th:value="${ap.id}">
+                <span th:text="${ap?.user?.userName}"></span>
+            </option>
+        </select>
+        <label>Type Your Blood Group</label>
+        <input type="text" th:field="*{groupName}" required>
         <button type="submit">Save</button>
     </form>
 </div>

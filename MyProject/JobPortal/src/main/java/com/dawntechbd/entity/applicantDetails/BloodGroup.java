@@ -9,12 +9,16 @@ public class BloodGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String groupName;
+    @ManyToOne
+    @JoinColumn(name = "applicants_id")
+    private Applicant applicant;
 
     public BloodGroup() {
     }
 
-    public BloodGroup(String groupName) {
+    public BloodGroup(String groupName, Applicant applicant) {
         this.groupName = groupName;
+        this.applicant = applicant;
     }
 
     public Long getId() {
@@ -31,5 +35,13 @@ public class BloodGroup {
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
+    }
+
+    public Applicant getApplicant() {
+        return applicant;
+    }
+
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
     }
 }

@@ -49,24 +49,6 @@
                     <td><input type="text" required th:field="*{nid}"></td>
                 </tr>
                 <tr>
-                    <td>Marital Status:</td>
-                    <td><select th:field="*{maritalStatus}">
-                        <option th:value="Single">Single</option>
-                        <option th:value="Married">Married</option>
-                        <option th:value="Unmarried">Unmarried</option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Religion:</td>
-                    <td><select th:field="*{religion}">
-                        <option th:each="rg : ${religionList}" th:value="${rg.id}">
-                            <span th:text="${rg.religionName}"></span>
-                        </option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
                     <td>Email:</td>
                     <td><input type="text" required th:field="*{email}"></td>
                 </tr>

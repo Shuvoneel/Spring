@@ -24,10 +24,6 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
     private String nid;
-    private String maritalStatus;
-    @ManyToOne
-    @JoinColumn(name = "religion_id")
-    private Religion religion;
     private String email;
     private String mobile;
     private String password;
@@ -45,7 +41,7 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String firstName, String lastName, String fatherName, String motherName, String gender, Date birthDate, String nid, String maritalStatus, Religion religion, String email, String mobile, String password, String photo, Set<Role> roles) {
+    public User(String userName, String firstName, String lastName, String fatherName, String motherName, String gender, Date birthDate, String nid, String email, String mobile, String password, String photo, Set<Role> roles) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -54,8 +50,6 @@ public class User {
         this.gender = gender;
         this.birthDate = birthDate;
         this.nid = nid;
-        this.maritalStatus = maritalStatus;
-        this.religion = religion;
         this.email = email;
         this.mobile = mobile;
         this.password = password;
@@ -133,22 +127,6 @@ public class User {
 
     public void setNid(String nid) {
         this.nid = nid;
-    }
-
-    public String getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public Religion getReligion() {
-        return religion;
-    }
-
-    public void setReligion(Religion religion) {
-        this.religion = religion;
     }
 
     public String getEmail() {

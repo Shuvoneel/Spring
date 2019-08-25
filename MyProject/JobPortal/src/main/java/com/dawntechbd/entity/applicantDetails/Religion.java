@@ -9,12 +9,16 @@ public class Religion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String religionName;
+    @ManyToOne
+    @JoinColumn(name = "applicants_id")
+    private Applicant applicant;
 
     public Religion() {
     }
 
-    public Religion(String religionName) {
+    public Religion(String religionName, Applicant applicant) {
         this.religionName = religionName;
+        this.applicant = applicant;
     }
 
     public Long getId() {
@@ -31,5 +35,13 @@ public class Religion {
 
     public void setReligionName(String religionName) {
         this.religionName = religionName;
+    }
+
+    public Applicant getApplicant() {
+        return applicant;
+    }
+
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
     }
 }

@@ -157,6 +157,7 @@ public class ApplicantController {
     // Marital Status
     @GetMapping(value = "/ms/add")
     public String statusAdd(Model model) {
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("statusType", new MaritalStatus());
         return "marriages/add";
     }
@@ -164,6 +165,7 @@ public class ApplicantController {
     @PostMapping(value = "/ms/add")
     public String statusAdd(@Valid MaritalStatus statusType, BindingResult result, Model model) {
         this.marriageRepo.save(statusType);
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("statusType", new MaritalStatus());
         model.addAttribute("sucMsg", "Success !");
         return "marriages/add";
@@ -178,6 +180,7 @@ public class ApplicantController {
     // Religion
     @GetMapping(value = "/rn/add")
     public String religionAdd(Model model) {
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("religion", new Religion());
         return "religions/add";
     }
@@ -185,6 +188,7 @@ public class ApplicantController {
     @PostMapping(value = "/rn/add")
     public String religionAdd(@Valid Religion religion, BindingResult bindingResult, Model model) {
         this.religionRepo.save(religion);
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("religion", new Religion());
         model.addAttribute("sucMsg", "Success !");
         return "religions/add";
@@ -199,6 +203,7 @@ public class ApplicantController {
     //Blood Group
     @GetMapping(value = "/bg/add")
     public String bloodAdd(Model model) {
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("bloodGroup", new BloodGroup());
         return "bloodGroups/add";
     }
@@ -206,6 +211,7 @@ public class ApplicantController {
     @PostMapping(value = "/bg/add")
     public String bloodAdd(@Valid BloodGroup bloodGroup, BindingResult bindingResult, Model model) {
         this.bloodRepo.save(bloodGroup);
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("bloodGroup", new BloodGroup());
         model.addAttribute("sucMsg", "Success !");
         return "bloodGroups/add";

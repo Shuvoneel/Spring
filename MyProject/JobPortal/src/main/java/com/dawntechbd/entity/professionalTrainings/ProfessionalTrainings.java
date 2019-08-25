@@ -17,7 +17,7 @@ public class ProfessionalTrainings {
     private String institute;
     private String location;
     @ManyToOne
-    @JoinColumn(name = "applicantDetails_id")
+    @JoinColumn(name = "applicants_id")
     private Applicant applicant;
 
     public ProfessionalTrainings() {
