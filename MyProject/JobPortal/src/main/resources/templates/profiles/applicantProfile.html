@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add User</title>
+    <style>
+        .pic {
+            width: 150px;
+            height: 100px;
+        }
+        th{
+            color: #a01a1f;
+        }
+        h4{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <h1>CV of <span th:text="${applicantDetails.firstName} +' '+ ${applicantDetails.lastName}"></span></h1>
+    <div class="bg-secondary">
+        <div class="pinfo">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4 style="padding-top: 100px; padding-left: 5px">Personal Information</h4>
+                </div>
+                <div class="col-md-2"><img class="pic" th:src="@{'/'+${applicantDetails.getPhoto()}}"></div>
+            </div>
+            <div class="row" style="padding-left: 25px">
+                <div class="col-md-2">
+                    <label>Father's Name</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getFatherName()}"></p></div>
+
+                <div class="col-md-2">
+                    <label>Mother's Name</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getMotherName()}"></p></div>
+            </div>
+
+            <div class="row" style="padding-left: 25px">
+                <div class="col-md-2">
+                    <label>Gender</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getGender()}"></p></div>
+
+                <div class="col-md-2">
+                    <label>Birth Date</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getBirthDate()}"></p></div>
+            </div>
+
+            <div class="row" style="padding-left: 25px">
+                <div class="col-md-2">
+                    <label>NID</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getNid()}"></p></div>
+
+                <div class="col-md-2">
+                    <label>Email</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getEmail()}"></p></div>
+            </div>
+
+            <div class="row" style="padding-left: 25px">
+                <div class="col-md-2">
+                    <label>Religion</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getReligion().religionName}"></p></div>
+
+                <div class="col-md-2">
+                    <label>Blood Group</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getBloodGroup().groupName}"></p></div>
+            </div>
+
+            <div class="row" style="padding-left: 25px">
+                <div class="col-md-2">
+                    <label>Mobile</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getMobile()}"></p></div>
+
+                <div class="col-md-2">
+                    <label>Marital Status</label>
+                </div>
+                <div class="col-md-4"><p th:text="${applicantDetails.getMaritalStatus().statusType}"></p></div>
+            </div>
+        </div>
+
+        <div class="acinfo table-responsive" style="padding: 5px">
+            <table class="table table-hover">
+                <h4>Academic Information</h4>
+                <tr>
+                    <th>Degree</th>
+                    <th>Group or Department</th>
+                    <th>Institute</th>
+                    <th>GPA or Grade</th>
+                    <th>Passing Year</th>
+                </tr>
+
+                <tr th:each="ac : ${applicantDetails.getAcademicDetailsList()}">
+                    <td th:text="${ac.getDegree().getName()}"></td>
+                    <td th:text="${ac.getGroupOrDept()}"></td>
+                    <td th:text="${ac.getInstitute()}"></td>
+                    <td th:text="${ac.getGpa()}"></td>
+                    <td th:text="${ac.getPassingYear()}">
+                </tr>
+            </table>
+        </div>
+
+        <div class="jhistory table-responsive" style="padding: 5px">
+            <table class="table table-hover">
+                <h4>Job Experience</h4>
+                <tr>
+                    <th>Designation</th>
+                    <th>Company</th>
+                    <th>Department</th>
+                    <th>Duration</th>
+                    <th>Company Address</th>
+                    <th>Supervisor Details</th>
+                </tr>
+
+                <tr th:each="jh : ${applicantDetails.getJobHistoryList()}">
+                    <td th:text="${jh.getDesignation()}"></td>
+                    <td th:text="${jh.getCompany()}"></td>
+                    <td th:text="${jh.getDepartment()}"></td>
+                    <td th:text="${jh.getDuration()}"></td>
+                    <td th:text="${jh.getLocation()}"></td>
+                    <td th:text="${jh.getSupervisorDetails()}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="protrain table-responsive" style="padding: 5px">
+            <table class="table table-hover">
+                <h4>Professional Trainings</h4>
+                <tr>
+                    <th>Title</th>
+                    <th>Duration</th>
+                    <th>Topics Covered</th>
+                    <th>Institute</th>
+                    <th>Institute Address</th>
+                </tr>
+
+                <tr th:each="pt : ${applicantDetails.getProfessionalTrainingsList()}">
+                    <td th:text="${pt.getTitle()}"></td>
+                    <td th:text="${pt.getDuration()}"></td>
+                    <td th:text="${pt.getTopicsCovered()}"></td>
+                    <td th:text="${pt.getInstitute()}"></td>
+                    <td th:text="${pt.getLocation()}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="language table-responsive" style="padding: 5px">
+            <table class="table table-hover">
+                <h4>Language Competancy</h4>
+                <tr>
+                    <th>Language</th>
+                    <th>Reading</th>
+                    <th>Writing</th>
+                    <th>Speaking</th>
+                </tr>
+
+                <tr th:each="ld : ${applicantDetails.getLanguageDetailsList()}">
+                    <td th:text="${ld.getName()}"></td>
+                    <td th:text="${ld.getReading()}"></td>
+                    <td th:text="${ld.getWriting()}"></td>
+                    <td th:text="${ld.getSpeaking()}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="skill" style="padding: 5px">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-hover" style="border-right: 1px red;">
+                        <tr>
+                            <h4>Technical Skills</h4>
+                        </tr>
+
+                        <tr th:each="ts : ${applicantDetails.getTechnicalList()}">
+                            <td th:text="${ts.getName()}"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-hover">
+                        <tr>
+                            <h4>Extracurricular Activities</h4>
+                        </tr>
+
+                        <tr th:each="ec : ${applicantDetails.getExtracurricularList()}">
+                            <td th:text="${ec.getName()}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="ref table-responsive" style="padding: 5px">
+            <table class="table table-hover">
+                <h4>Reference</h4>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Organization</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Relation</th>
+                </tr>
+
+                <tr th:each="rf : ${applicantDetails.getReferenceList()}">
+                    <td th:text="${rf.getReferenceName()}"></td>
+                    <td th:text="${rf.getDesignation()}"></td>
+                    <td th:text="${rf.getOrganization()}"></td>
+                    <td th:text="${rf.getMobile()}"></td>
+                    <td th:text="${rf.getEmail()}"></td>
+                    <td th:text="${rf.getAddress()}"></td>
+                    <td th:text="${rf.getRelation()}"></td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

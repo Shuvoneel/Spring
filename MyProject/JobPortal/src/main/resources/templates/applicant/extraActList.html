@@ -23,7 +23,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header-panel">
-                    <h1>Applicant Application Details</h1>
+                    <h1>Applicants Extracurricular Activities</h1>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -31,31 +31,17 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Username</th>
-                                <th>Company</th>
-                                <th>Applied Post</th>
-                                <th>Application Date</th>
-                                <th>Action</th>
+                                <th>Extracurricular Activities</th>
                             </tr>
 
-                            <tr th:each="ap : ${list}">
-                                <td th:text="${ap.id}"></td>
+                            <tr th:each="ec : ${list}">
+                                <td th:text="${ec.id}"></td>
                                 <td>
-                <span th:each="u : ${ap?.user?.userName}">
+                <span th:each="u : ${ec?.applicant.user.userName}">
                     <span th:text="${u}"></span>
                 </span>
                                 </td>
-                                <td>
-                <span th:each="c : ${ap?.company?.companyName}">
-                    <span th:text="${c}"></span>
-                </span>
-                                </td>
-                                <td>
-                <span th:each="j : ${ap?.jobPosting?.position}">
-                    <span th:text="${j}"></span>
-                </span>
-                                </td>
-                                <td th:text="${ap.applyDate}"></td>
-                                <td><a th:href="@{/cv/}+${ap.id}">View Profile</a></td>
+                                <td th:text="${ec.name}"></td>
                             </tr>
                         </table>
                     </div>

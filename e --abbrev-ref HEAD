@@ -1,0 +1,20 @@
+[33mcommit 8a7ba8de0a085f95a7b1bb2700f456ff96626e49[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Shuvoneel <mhshuvo29@gmail.com>
+Date:   Sun Aug 4 00:53:44 2019 +0600
+
+    job history done
+
+:100644 100644 cc15bf6 d720c19 M	MyProject/JobPortal/src/main/java/com/dawntechbd/controller/ApplicantController.java
+:100644 100644 249b61e bcf1881 M	MyProject/JobPortal/src/main/java/com/dawntechbd/controller/CompanyController.java
+:100644 100644 aafba7a 546e5ae M	MyProject/JobPortal/src/main/java/com/dawntechbd/entity/applicantDetails/Applicant.java
+:100644 100644 3fbecc2 e55a460 M	MyProject/JobPortal/src/main/java/com/dawntechbd/entity/jobPosting/Company.java
+:000000 100644 0000000 1a0f379 A	MyProject/JobPortal/src/main/java/com/dawntechbd/repo/JobHistoryRepo.java
+:100644 100644 bf3c8ee ee6c9c3 M	MyProject/JobPortal/src/main/resources/application.properties
+:100644 100644 79819ea 624987d M	MyProject/JobPortal/src/main/resources/templates/applicant/add.html
+:000000 100644 0000000 7e70873 A	MyProject/JobPortal/src/main/resources/templates/applicant/historyList.html
+:000000 100644 0000000 8579c73 A	MyProject/JobPortal/src/main/resources/templates/applicant/jobHistory.html
+:100644 100644 58e68ac f3d9811 M	MyProject/JobPortal/src/main/resources/templates/applicant/list.html
+:100644 100644 3cc867e 90462c7 M	MyProject/JobPortal/src/main/resources/templates/company/add.html
+:100644 100644 9e2c56d 5cba8e3 M	MyProject/JobPortal/src/main/resources/templates/fragments/leftnav.html
+:100644 100644 a7771ee 5231559 M	MyProject/JobPortal/src/main/resources/templates/jobs/postList.html
+:100644 100644 f951c8d a5abde0 M	MyProject/JobPortal/src/main/resources/templates/users/list.html

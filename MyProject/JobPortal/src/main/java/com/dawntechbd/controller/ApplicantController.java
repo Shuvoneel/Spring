@@ -8,6 +8,8 @@ import com.dawntechbd.entity.applicantDetails.Religion;
 import com.dawntechbd.entity.jobHistory.JobHistory;
 import com.dawntechbd.entity.professionalTrainings.ProfessionalTrainings;
 import com.dawntechbd.entity.references.Reference;
+import com.dawntechbd.entity.skills.Extracurricular;
+import com.dawntechbd.entity.skills.Technical;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,6 +45,10 @@ public class ApplicantController {
     private ProTrainingsRepo proTrainingsRepo;
     @Autowired
     private ReferenceRepo referenceRepo;
+    @Autowired
+    private TechnicalRepo technicalRepo;
+    @Autowired
+    private ExtracurricularRepo extracurricularRepo;
 
     // Applicant
     @GetMapping(value = "/app/add")
@@ -103,7 +109,6 @@ public class ApplicantController {
     // Professional Trainings
     @GetMapping(value = "/app/training")
     public String addProTraining(Model model) {
-        model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("proTraining", new ProfessionalTrainings());
         return "applicant/proTraining";
@@ -112,7 +117,6 @@ public class ApplicantController {
     @PostMapping(value = "/app/training")
     public String addProTraining(@Valid ProfessionalTrainings proTraining, BindingResult result, Model model) {
         this.proTrainingsRepo.save(proTraining);
-        model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("applicantList", this.applicantRepo.findAll());
         model.addAttribute("list", this.proTrainingsRepo.findAll());
         model.addAttribute("proTraining", new ProfessionalTrainings());
@@ -125,6 +129,58 @@ public class ApplicantController {
         model.addAttribute("list", this.proTrainingsRepo.findAll());
         model.addAttribute("proTraining", new ProfessionalTrainings());
         return "applicant/trainingList";
+    }
+
+
+    // Technical Skills
+    @GetMapping(value = "/skills/add")
+    public String addTechnicalSkills(Model model) {
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("technical", new Technical());
+        return "skills/add";
+    }
+
+    @PostMapping(value = "/skills/add")
+    public String addTechnicalSkills(@Valid Technical technical, BindingResult result, Model model) {
+        this.technicalRepo.save(technical);
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("list", this.technicalRepo.findAll());
+        model.addAttribute("technical", new Technical());
+        model.addAttribute("sucMsg", "Success !");
+        return "skills/list";
+    }
+
+    @GetMapping(value = "/skills/list")
+    public String technicalList(Model model) {
+        model.addAttribute("list", this.technicalRepo.findAll());
+        model.addAttribute("technical", new Technical());
+        return "skills/list";
+    }
+
+
+    // Extracurricular Activities
+    @GetMapping(value = "/app/addEx")
+    public String addExtraActivity(Model model) {
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("extraActivity", new Extracurricular());
+        return "applicant/addExtraAct";
+    }
+
+    @PostMapping(value = "/app/addEx")
+    public String addExtraActivity(@Valid Extracurricular extracurricular, BindingResult result, Model model) {
+        this.extracurricularRepo.save(extracurricular);
+        model.addAttribute("applicantList", this.applicantRepo.findAll());
+        model.addAttribute("list", this.extracurricularRepo.findAll());
+        model.addAttribute("extraActivity", new Extracurricular());
+        model.addAttribute("sucMsg", "Success !");
+        return "applicant/extraActList";
+    }
+
+    @GetMapping(value = "/app/exList")
+    public String extraActivityList(Model model) {
+        model.addAttribute("list", this.extracurricularRepo.findAll());
+        model.addAttribute("extraActivity", new Extracurricular());
+        return "applicant/extraActList";
     }
 
 

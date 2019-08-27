@@ -27,6 +27,18 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#profile" aria-expanded="false" aria-controls="profile">
+                <i class="ti-user menu-icon"></i>
+                <span class="menu-title">Profile</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="profile">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/list}">Applicant Profile</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#user" aria-expanded="false" aria-controls="user">
                 <i class="ti-user menu-icon"></i>
                 <span class="menu-title">Users</span>
@@ -48,12 +60,16 @@
             </a>
             <div class="collapse" id="applicant">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/app/add}"> Add Applicants</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/add}"> Apply</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/list}"> Applicants List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/history}"> Add Job History</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/historyList}"> Job History List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/training}"> Add Professional Training</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/trainingList}"> Professional Training List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/skills/add}"> Add Technical Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/skills/list}"> Technical Skills List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/addEx}"> Add Extracurricular Activity</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/exList}"> Extracurricular List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/ref}"> Add Reference</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/refList}"> Reference List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/ms/add}"> Add Marital Status</a></li>

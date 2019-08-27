@@ -1,6 +1,7 @@
 package com.dawntechbd.entity.skills;
 
 import com.dawntechbd.entity.User;
+import com.dawntechbd.entity.applicantDetails.Applicant;
 
 import javax.persistence.*;
 
@@ -12,15 +13,15 @@ public class Extracurricular {
     private Long id;
     private String name;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "applicants_id")
+    private Applicant applicant;
 
     public Extracurricular() {
     }
 
-    public Extracurricular(String name, User user) {
+    public Extracurricular(String name, Applicant applicant) {
         this.name = name;
-        this.user = user;
+        this.applicant = applicant;
     }
 
     public Long getId() {
@@ -39,11 +40,11 @@ public class Extracurricular {
         this.name = name;
     }
 
-    public User getUser() {
-        return user;
+    public Applicant getApplicant() {
+        return applicant;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
     }
 }

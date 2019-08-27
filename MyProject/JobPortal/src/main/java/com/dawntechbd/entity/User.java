@@ -41,6 +41,10 @@ public class User {
     public User() {
     }
 
+    public User(Long id) {
+        this.id = id;
+    }
+
     public User(String userName, String firstName, String lastName, String fatherName, String motherName, String gender, Date birthDate, String nid, String email, String mobile, String password, String photo, Set<Role> roles) {
         this.userName = userName;
         this.firstName = firstName;

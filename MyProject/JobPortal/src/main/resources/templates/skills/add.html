@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Language Details</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Technical Skills..........!</h2>
+    <span th:text="${sucMsg}" style="color: green"></span>
+    <form th:object="${technical}" th:action="@{/skills/add}" th:method="post">
+        <table class="table-hover">
+            <tr>
+                <td>Applicant</td>
+                <td>
+                    <select th:field="*{applicant}">
+                        <option th:each="u: ${applicantList}" th:value="${u.id}">
+                            <span th:text="${u.user.userName}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Technical Skills</td>
+                <td><textarea th:field="*{name}" required></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Add Skill</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+
+</html>
+

@@ -9,97 +9,60 @@
     <title>Add User</title>
 </head>
 <body>
-<div class="content-wrapper" layout:fragment="custom-content">
-    <div class="row">
-        <span th:text="${sucMsg}" style="color: green"></span>
-        <form th:object="${user}" th:action="@{/user/add}" th:method="post" enctype="multipart/form-data">
-            <table class="table-hover">
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" required th:field="*{userName}"></td>
-                </tr>
-                <tr>
-                    <td>First Name:</td>
-                    <td><input type="text" required th:field="*{firstName}"></td>
-                </tr>
-                <tr>
-                    <td>Last Name:</td>
-                    <td><input type="text" required th:field="*{lastName}"></td>
-                </tr>
-                <tr>
-                    <td>Father's Name:</td>
-                    <td><input type="text" required th:field="*{fatherName}"></td>
-                </tr>
-                <tr>
-                    <td>Mother's Name:</td>
-                    <td><input type="text" required th:field="*{motherName}"></td>
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td><input type="radio" required th:field="*{gender}" th:value="Male">Male
-                        <input type="radio" required th:field="*{gender}" th:value="Female">Female
-                    </td>
-                </tr>
-                <tr>
-                    <td>Birth Date:</td>
-                    <td><input type="date" required th:field="*{birthDate}"></td>
-                </tr>
-                <tr>
-                    <td>NID No:</td>
-                    <td><input type="text" required th:field="*{nid}"></td>
-                </tr>
-                <tr>
-                    <td>Marital Status:</td>
-                    <td><select th:field="*{maritalStatus}">
-                        <option th:value="Single">Single</option>
-                        <option th:value="Married">Married</option>
-                        <option th:value="Unmarried">Unmarried</option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Religion:</td>
-                    <td><select th:field="*{religion}">
-                        <option th:each="rg : ${religionList}" th:value="${rg.id}">
-                            <span th:text="${rg.religionName}"></span>
-                        </option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="text" required th:field="*{email}"></td>
-                </tr>
-                <tr>
-                    <td>Mobile:</td>
-                    <td><input type="text" required th:field="*{mobile}"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="text" required th:field="*{password}"></td>
-                </tr>
-                <tr>
-                    <td>Assigned Role:</td>
-                    <td><select th:field="*{roles}">
-                        <option th:each="role : ${roleList}" th:value="${role.id}">
-                            <span th:text="${role.roleName}"></span>
-                        </option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Upload Photo:</td>
-                    <td><input type="file" required name="file"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <button type="submit">Add User</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Personal Details of the Applicants</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>NID</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr th:each="ap : ${userList}">
+                                <td th:text="${ap.firstName +' '+ ap.lastName}"></td>
+                                <td th:text="${ap.gender}"></td>
+                                <td th:text="${ap.nid}"></td>
+                                <td th:text="${ap.email}"></td>
+                                <td th:text="${ap.mobile}"></td>
+                                <td><a th:href="@{/cv/}+${ap.id}">View</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Academic Details of the Applicants</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Degree</th>
+                                <th>Group or Department</th>
+                                <th>Institute</th>
+                                <th>GPA or Grade</th>
+                                <th>Passing Year</th>
+                            </tr>
+                            <tr th:each="ap : ${applicantList}">
+                                <td th:text="${ap}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add User</title>
+    <style>
+        .pic {
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div>
+        <div>
+            <div class="col-md-10 text-center">
+                Curriculum Vitae of
+                <span th:text="${applicantDetails.firstName} +' '+ ${applicantDetails.lastName}"></span>
+            </div>
+            <div class="col-md-2"><img class="pic" th:src="@{'/'+${applicantDetails.getPhoto()}}"></div>
+        </div>
+
+        <div class="acinfo table-responsive">
+            <table class="table table-striped">
+                <tr>Academic Information</tr>
+                <tr>
+                    <th>Degree</th>
+                    <th>Group or Department</th>
+                    <th>Institute</th>
+                    <th>GPA or Grade</th>
+                    <th>Passing Year</th>
+                </tr>
+
+                <tr th:each="ac : ${applicantDetails.getAcademicDetailsList()}">
+                    <td th:text="${ac.getDegree().getName()}"></td>
+                    <td th:text="${ac.getGroupOrDept()}"></td>
+                    <td th:text="${ac.getInstitute()}"></td>
+                    <td th:text="${ac.getGpa()}"></td>
+                    <td th:text="${ac.getPassingYear()}">
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
