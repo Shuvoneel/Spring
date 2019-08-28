@@ -12,12 +12,12 @@ public interface UserRepo extends JpaRepository<User, Long> {
 
     User findByMobile(String mobile);
 
-    User findByUserName(String userName);
+    User findByUsername(String username);
 
     User findUserById(Long id);
 
-    User findByUserNameAndPassword(String userName, String password);
+    User findByUsernameAndPassword(String username, String password);
 
-    Optional<User> findByUserNameOrEmail(String userName, String email);
+    Optional<User> findByUsernameOrEmail(String username, String email);
 
 }

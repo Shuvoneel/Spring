@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/cv/")
@@ -48,60 +49,69 @@ public class CVController {
     private BloodRepo bloodRepo;
 
 
-    // Applicant ID
     @GetMapping(value = "{id}")
     public String applicantProfileByApplicant(Model model, @PathVariable("id") Long id) {
-        Applicant applicant = this.applicantRepo.getOne(id);
+        Optional<Applicant>  applicant = this.applicantRepo.findById(id);
         User user = this.userRepo.getOne(id);
         UserDto userDto = new UserDto();
-        userDto.setFirstName(applicant.getUser().getFirstName());
-        userDto.setLastName(applicant.getUser().getLastName());
-        userDto.setFatherName(applicant.getUser().getFatherName());
-        userDto.setMotherName(applicant.getUser().getMotherName());
-        userDto.setGender(applicant.getUser().getGender());
-        userDto.setBirthDate(applicant.getUser().getBirthDate());
-        userDto.setNid(applicant.getUser().getNid());
-        userDto.setEmail(applicant.getUser().getEmail());
-        userDto.setMobile(applicant.getUser().getMobile());
-        userDto.setPhoto(applicant.getUser().getPhoto());
-        userDto.setAcademicDetailsList(this.academicRepo.findAllByUser(applicant.getUser()));
-        userDto.setJobHistoryList(this.jobHistoryRepo.findAllByUser(applicant.getUser()));
-        userDto.setMaritalStatus(this.marriageRepo.findByApplicant(applicant));
-        userDto.setReligion(this.religionRepo.findByApplicant(applicant));
-        userDto.setBloodGroup(this.bloodRepo.findByApplicant(applicant));
-        userDto.setProfessionalTrainingsList(this.proTrainingsRepo.findAllByApplicant(applicant));
-        userDto.setLanguageDetailsList(this.languageRepo.findAllByUser(applicant.getUser()));
-        userDto.setTechnicalList(this.technicalRepo.findAllByApplicant(applicant));
-        userDto.setExtracurricularList(this.extracurricularRepo.findAllByApplicant(applicant));
-        userDto.setReferenceList(this.referenceRepo.findAllByApplicant(applicant));
-
-//         Using User
-
-//        userDto.setFirstName(user.getFirstName());
-//        userDto.setLastName(user.getLastName());
-//        userDto.setFatherName(user.getFatherName());
-//        userDto.setMotherName(user.getMotherName());
-//        userDto.setGender(user.getGender());
-//        userDto.setBirthDate(user.getBirthDate());
-//        userDto.setNid(user.getNid());
-//        userDto.setEmail(user.getEmail());
-//        userDto.setMobile(user.getMobile());
-//        userDto.setPhoto(user.getPhoto());
-//        userDto.setAcademicDetailsList(this.academicRepo.findAllByUser(user));
-//        userDto.setJobHistoryList(this.jobHistoryRepo.findAllByUser(user));
-//        userDto.setMaritalStatus(this.marriageRepo.findByApplicant(this.applicantRepo.findByUser(user)));
-//        userDto.setReligion(this.religionRepo.findByApplicant(this.applicantRepo.findByUser(user)));
-//        userDto.setBloodGroup(this.bloodRepo.findByApplicant(this.applicantRepo.findByUser(user)));
-//        userDto.setProfessionalTrainingsList(this.proTrainingsRepo.findAllByApplicant(this.applicantRepo.findByUser(user)));
-//        userDto.setLanguageDetailsList(this.languageRepo.findAllByUser(user));
-//        userDto.setTechnicalList(this.technicalRepo.findAllByApplicant(this.applicantRepo.findByUser(user)));
-//        userDto.setExtracurricularList(this.extracurricularRepo.findAllByApplicant(this.applicantRepo.findByUser(user)));
-//        userDto.setReferenceList(this.referenceRepo.findAllByApplicant(this.applicantRepo.findByUser(user)));
-
+        userDto.setFirstName(applicant.get().getUser().getFirstName());
+        userDto.setLastName(applicant.get().getUser().getLastName());
+        userDto.setFatherName(applicant.get().getUser().getFatherName());
+        userDto.setMotherName(applicant.get().getUser().getMotherName());
+        userDto.setGender(applicant.get().getUser().getGender());
+        userDto.setBirthDate(applicant.get().getUser().getBirthDate());
+        userDto.setNid(applicant.get().getUser().getNid());
+        userDto.setEmail(applicant.get().getUser().getEmail());
+        userDto.setMobile(applicant.get().getUser().getMobile());
+        userDto.setPhoto(applicant.get().getUser().getPhoto());
+        userDto.setAcademicDetailsList(this.academicRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setJobHistoryList(this.jobHistoryRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setMaritalStatus(this.marriageRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setReligion(this.religionRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setBloodGroup(this.bloodRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setProfessionalTrainingsList(this.proTrainingsRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setLanguageDetailsList(this.languageRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setTechnicalList(this.technicalRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setExtracurricularList(this.extracurricularRepo.findAllByUser(applicant.get().getUser()));
+        userDto.setReferenceList(this.referenceRepo.findAllByUser(applicant.get().getUser()));
 
 
 
         model.addAttribute("applicantDetails", userDto);
+
+
+        return "profiles/applicantProfile";
+    }
+
+    @GetMapping
+    public String applicantProfile(Model model) {
+//
+//        User user = this.userRepo.getOne(id);
+//        UserDto userDto = new UserDto();
+//        userDto.setFirstName(applicant.get().getUser().getFirstName());
+//        userDto.setLastName(applicant.get().getUser().getLastName());
+//        userDto.setFatherName(applicant.get().getUser().getFatherName());
+//        userDto.setMotherName(applicant.get().getUser().getMotherName());
+//        userDto.setGender(applicant.get().getUser().getGender());
+//        userDto.setBirthDate(applicant.get().getUser().getBirthDate());
+//        userDto.setNid(applicant.get().getUser().getNid());
+//        userDto.setEmail(applicant.get().getUser().getEmail());
+//        userDto.setMobile(applicant.get().getUser().getMobile());
+//        userDto.setPhoto(applicant.get().getUser().getPhoto());
+//        userDto.setAcademicDetailsList(this.academicRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setJobHistoryList(this.jobHistoryRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setMaritalStatus(this.marriageRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setReligion(this.religionRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setBloodGroup(this.bloodRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setProfessionalTrainingsList(this.proTrainingsRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setLanguageDetailsList(this.languageRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setTechnicalList(this.technicalRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setExtracurricularList(this.extracurricularRepo.findAllByUser(applicant.get().getUser()));
+//        userDto.setReferenceList(this.referenceRepo.findAllByUser(applicant.get().getUser()));
+//
+//
+//
+//        model.addAttribute("applicantDetails", userDto);
 
 
         return "profiles/applicantProfile";

@@ -19,13 +19,13 @@ public class Reference {
     private String address;
     private String relation;
     @ManyToOne
-    @JoinColumn(name = "applicantDetails_id")
-    private Applicant applicant;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Reference() {
     }
 
-    public Reference(String referenceName, String designation, String organization, String mobile, String email, String address, String relation, Applicant applicant) {
+    public Reference(String referenceName, String designation, String organization, String mobile, String email, String address, String relation, User user) {
         this.referenceName = referenceName;
         this.designation = designation;
         this.organization = organization;
@@ -33,7 +33,7 @@ public class Reference {
         this.email = email;
         this.address = address;
         this.relation = relation;
-        this.applicant = applicant;
+        this.user = user;
     }
 
     public Long getId() {
@@ -100,11 +100,11 @@ public class Reference {
         this.relation = relation;
     }
 
-    public Applicant getApplicant() {
-        return applicant;
+    public User getUser() {
+        return user;
     }
 
-    public void setApplicant(Applicant applicant) {
-        this.applicant = applicant;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

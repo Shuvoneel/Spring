@@ -34,7 +34,7 @@
                                 <th>Marital Status</th>
                             </tr>
                             <tr th:each="ms : ${list}">
-                                <td th:text="${ms.applicant.user.userName}"></td>
+                                <td th:text="${ms.user.username}"></td>
                                 <td th:text="${ms.statusType}"></td>
                             </tr>
                         </table>

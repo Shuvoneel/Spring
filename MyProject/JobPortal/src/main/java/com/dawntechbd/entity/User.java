@@ -1,6 +1,5 @@
 package com.dawntechbd.entity;
 
-import com.dawntechbd.entity.applicantDetails.Religion;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -8,12 +7,11 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userName;
+    private String username;
     private String firstName;
     private String lastName;
     private String fatherName;
@@ -30,7 +28,8 @@ public class User {
 
 
     private String photo;
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -41,12 +40,30 @@ public class User {
     public User() {
     }
 
+    public User(User user) {               // This will be used in super(user) of CustomUserDetails
+
+        this.username = user.username;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.fatherName = user.fatherName;
+        this.motherName = user.motherName;
+        this.gender = user.gender;
+        this.birthDate = user.birthDate;
+        this.nid = user.nid;
+        this.email = user.email;
+        this.mobile = user.mobile;
+        this.password = user.password;
+        this.photo = user.photo;
+        this.roles = user.roles;
+    }
+
+
     public User(Long id) {
         this.id = id;
     }
 
-    public User(String userName, String firstName, String lastName, String fatherName, String motherName, String gender, Date birthDate, String nid, String email, String mobile, String password, String photo, Set<Role> roles) {
-        this.userName = userName;
+    public User(String username, String firstName, String lastName, String fatherName, String motherName, String gender, Date birthDate, String nid, String email, String mobile, String password, String photo, Set<Role> roles) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fatherName = fatherName;
@@ -69,12 +86,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {

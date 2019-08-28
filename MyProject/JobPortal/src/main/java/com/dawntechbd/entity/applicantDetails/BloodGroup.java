@@ -1,5 +1,7 @@
 package com.dawntechbd.entity.applicantDetails;
 
+import com.dawntechbd.entity.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,15 +12,15 @@ public class BloodGroup {
     private Long id;
     private String groupName;
     @ManyToOne
-    @JoinColumn(name = "applicants_id")
-    private Applicant applicant;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public BloodGroup() {
     }
 
-    public BloodGroup(String groupName, Applicant applicant) {
+    public BloodGroup(String groupName, User user) {
         this.groupName = groupName;
-        this.applicant = applicant;
+        this.user = user;
     }
 
     public Long getId() {
@@ -37,11 +39,11 @@ public class BloodGroup {
         this.groupName = groupName;
     }
 
-    public Applicant getApplicant() {
-        return applicant;
+    public User getUser() {
+        return user;
     }
 
-    public void setApplicant(Applicant applicant) {
-        this.applicant = applicant;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -14,15 +14,15 @@ public class Technical {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "applicants_id")
-    private Applicant applicant;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Technical() {
     }
 
-    public Technical(String name, Applicant applicant) {
+    public Technical(String name, User user) {
         this.name = name;
-        this.applicant = applicant;
+        this.user = user;
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class Technical {
         this.name = name;
     }
 
-    public Applicant getApplicant() {
-        return applicant;
+    public User getUser() {
+        return user;
     }
 
-    public void setApplicant(Applicant applicant) {
-        this.applicant = applicant;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

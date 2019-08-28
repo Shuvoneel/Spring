@@ -71,12 +71,12 @@
                 <div class="col-md-2">
                     <label>Religion</label>
                 </div>
-                <div class="col-md-4"><p th:text="${applicantDetails.getReligion().religionName}"></p></div>
+                <div class="col-md-4"><p th:text="${applicantDetails?.getReligion()?.religionName}"></p></div>
 
                 <div class="col-md-2">
                     <label>Blood Group</label>
                 </div>
-                <div class="col-md-4"><p th:text="${applicantDetails.getBloodGroup().groupName}"></p></div>
+                <div class="col-md-4"><p th:text="${applicantDetails?.getBloodGroup()?.groupName}"></p></div>
             </div>
 
             <div class="row" style="padding-left: 25px">
@@ -88,7 +88,7 @@
                 <div class="col-md-2">
                     <label>Marital Status</label>
                 </div>
-                <div class="col-md-4"><p th:text="${applicantDetails.getMaritalStatus().statusType}"></p></div>
+                <div class="col-md-4"><p th:text="${applicantDetails?.getMaritalStatus()?.statusType}"></p></div>
             </div>
         </div>
 

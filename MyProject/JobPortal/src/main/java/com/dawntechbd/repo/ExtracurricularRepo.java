@@ -12,6 +12,6 @@ import java.util.List;
 
 @Repository
 public interface ExtracurricularRepo extends JpaRepository<Extracurricular, Long> {
-    List<Extracurricular> findAllByApplicant(Applicant applicant);
+    List<Extracurricular> findAllByUser(User user);
 
 }

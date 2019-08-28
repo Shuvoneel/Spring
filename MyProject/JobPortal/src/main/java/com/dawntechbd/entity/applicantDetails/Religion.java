@@ -1,5 +1,7 @@
 package com.dawntechbd.entity.applicantDetails;
 
+import com.dawntechbd.entity.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,15 +12,15 @@ public class Religion {
     private Long id;
     private String religionName;
     @ManyToOne
-    @JoinColumn(name = "applicants_id")
-    private Applicant applicant;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Religion() {
     }
 
-    public Religion(String religionName, Applicant applicant) {
+    public Religion(String religionName, User user) {
         this.religionName = religionName;
-        this.applicant = applicant;
+        this.user = user;
     }
 
     public Long getId() {
@@ -37,11 +39,11 @@ public class Religion {
         this.religionName = religionName;
     }
 
-    public Applicant getApplicant() {
-        return applicant;
+    public User getUser() {
+        return user;
     }
 
-    public void setApplicant(Applicant applicant) {
-        this.applicant = applicant;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

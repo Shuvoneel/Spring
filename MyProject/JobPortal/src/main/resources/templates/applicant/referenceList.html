@@ -45,7 +45,7 @@
                             <tr th:each="rf : ${list}">
                                 <td th:text="${rf.id}"></td>
                                 <td>
-                <span th:each="u : ${rf.applicant.user.userName}">
+                <span th:each="u : ${rf.user.username}">
                     <span th:text="${u}"></span>
                 </span>
                                 </td>

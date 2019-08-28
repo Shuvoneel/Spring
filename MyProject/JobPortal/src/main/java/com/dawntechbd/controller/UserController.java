@@ -3,6 +3,7 @@ package com.dawntechbd.controller;
 import com.dawntechbd.entity.User;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,6 +38,8 @@ public class UserController {
     private DistrictRepo districtRepo;
     @Autowired
     private CityRepo cityRepo;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     private final String UPLOAD_FOLDER = "src/main/resources/static/upload/";
 
@@ -64,7 +67,7 @@ public class UserController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
-
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             this.repo.save(user);
             model.addAttribute("sucMsg", "Success !");
             model.addAttribute("list", this.repo.findAll());

@@ -17,9 +17,9 @@
             <tr>
                 <td>Applicant</td>
                 <td>
-                    <select th:field="*{applicant}">
-                        <option th:each="u: ${applicantList}" th:value="${u.id}">
-                            <span th:text="${u.user.userName}"></span>
+                    <select th:field="*{user}">
+                        <option th:each="u: ${userList}" th:value="${u.id}">
+                            <span th:text="${u.username}"></span>
                         </option>
                     </select>
                 </td>

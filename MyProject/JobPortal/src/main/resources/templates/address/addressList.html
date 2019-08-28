@@ -40,7 +40,7 @@
                             <tr th:each="ad : ${list}">
                                 <td th:text="${ad.id}"></td>
                                 <td>
-                <span th:each="u : ${ad.user.userName}">
+                <span th:each="u : ${ad.user.username}">
                     <span th:text="${u}"></span>
                 </span>
                                 </td>

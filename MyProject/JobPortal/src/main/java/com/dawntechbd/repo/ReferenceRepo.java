@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface ReferenceRepo extends JpaRepository<Reference, Long> {
-    List<Reference> findAllByApplicant(Applicant applicant);
+    List<Reference> findAllByUser(User user);
 
 }

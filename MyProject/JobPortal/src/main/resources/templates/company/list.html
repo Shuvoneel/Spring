@@ -45,7 +45,7 @@
                             <tr th:each="cmp : ${list}">
                                 <td th:text="${cmp.id}"></td>
                                 <td>
-                <span th:each="u : ${cmp.user.userName}">
+                <span th:each="u : ${cmp.user.username}">
                     <span th:text="${u}"></span>
                 </span>
                                 </td>

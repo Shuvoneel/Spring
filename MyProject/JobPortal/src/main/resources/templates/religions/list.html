@@ -34,7 +34,7 @@
                                 <th>Religion</th>
                             </tr>
                             <tr th:each="rn : ${list}">
-                                <td th:text="${rn.applicant.user.userName}"></td>
+                                <td th:text="${rn.user.username}"></td>
                                 <td th:text="${rn.religionName}"></td>
                             </tr>
                         </table>

@@ -15,9 +15,9 @@
     <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${statusType}" th:action="@{/ms/add}" th:method="post">
         <label>Select a User</label>
-        <select th:field="*{applicant}">
-            <option th:each="ap : ${applicantList}" th:value="${ap.id}">
-                <span th:text="${ap?.user?.userName}"></span>
+        <select th:field="*{user}">
+            <option th:each="u : ${userList}" th:value="${u.id}">
+                <span th:text="${u.username}"></span>
             </option>
         </select>
         <label>Select Status</label>

@@ -12,11 +12,11 @@
 <div class="content-wrapper" layout:fragment="custom-content">
     <div class="row">
         <span th:text="${sucMsg}" style="color: green"></span>
-        <form th:object="${user}" th:action="@{/user/add}" th:method="post" enctype="multipart/form-data">
+        <form th:object="${user}" th:action="@{/user/add}" th:method="POST" enctype="multipart/form-data">
             <table class="table-hover">
                 <tr>
                     <td>Username:</td>
-                    <td><input type="text" required th:field="*{userName}"></td>
+                    <td><input type="text" required th:field="*{username}"></td>
                 </tr>
                 <tr>
                     <td>First Name:</td>

@@ -12,5 +12,5 @@ import java.util.List;
 
 @Repository
 public interface TechnicalRepo extends JpaRepository<Technical, Long> {
-    List<Technical> findAllByApplicant(Applicant applicant);
+    List<Technical> findAllByUser(User user);
 }

@@ -11,5 +11,5 @@ import java.util.List;
 
 @Repository
 public interface ProTrainingsRepo extends JpaRepository<ProfessionalTrainings, Long> {
-    List<ProfessionalTrainings> findAllByApplicant(Applicant applicant);
+    List<ProfessionalTrainings> findAllByUser(User user);
 }
