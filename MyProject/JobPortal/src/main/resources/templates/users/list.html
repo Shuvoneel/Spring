@@ -33,32 +33,28 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Username</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Father's Name</th>
-                                            <th>Mother's Name</th>
+                                <th>Fullname</th>
+                                <th>Father's Name</th>
+                                <th>Mother's Name</th>
                                 <th>Gender</th>
                                 <th>Birth Date</th>
                                 <th>NID</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
-                                <th>Password</th>
                                 <th>Role</th>
                                 <th>Photo</th>
                             </tr>
                             <tr th:each="s : ${list}">
                                 <td th:text="${s.id}"></td>
                                 <td th:text="${s.username}"></td>
-                                            <td th:text="${s.firstName}"></td>
-                                            <td th:text="${s.lastName}"></td>
-                                            <td th:text="${s.fatherName}"></td>
-                                            <td th:text="${s.motherName}"></td>
+                                <td th:text="${s.firstName}+' '+${s.lastName}" ></td>
+                                <td th:text="${s.fatherName}"></td>
+                                <td th:text="${s.motherName}"></td>
                                 <td th:text="${s.gender}"></td>
                                 <td th:text="${s.birthDate}"></td>
                                 <td th:text="${s.nid}"></td>
                                 <td th:text="${s.email}"></td>
                                 <td th:text="${s.mobile}"></td>
-                                <td th:text="${s.password}"></td>
                                 <td>
                 <span th:each="r : ${s.roles}">
                     <span th:text="${r.roleName}"></span>

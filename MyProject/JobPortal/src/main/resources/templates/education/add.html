@@ -49,7 +49,12 @@
             </tr>
             <tr>
                 <td>Passing Year</td>
-                <td><input type="number"  th:field="*{passingYear}" required></td>
+                <td>
+                    <select th:field="*{passingYear}">
+                        <option th:each="i : ${#numbers.sequence(1990, 2020)}" th:value="${i}" th:text="${i}">
+                        </option>
+                    </select>
+                </td>
             </tr>
 
             <tr>

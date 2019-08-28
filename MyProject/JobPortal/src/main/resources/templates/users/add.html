@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                     <td>Assigned Role:</td>
-                    <td><select th:field="*{roles}">
+                    <td><select th:field="*{roles}" multiple>
                         <option th:each="role : ${roleList}" th:value="${role.id}">
                             <span th:text="${role.roleName}"></span>
                         </option>

@@ -16,9 +16,11 @@ public class Division {
 
     public Division() {
     }
+
     public Division(Long id) {
         this.id = id;
     }
+
     public Division(String name, Country country) {
         this.name = name;
         this.country = country;
