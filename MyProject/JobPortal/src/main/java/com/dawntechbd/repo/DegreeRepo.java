@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DegreeRepo extends JpaRepository<Degree, Long> {
-    Degree findByName(String name);
+    Degree findByNameOrderByNameAsc(String name);
 }
