@@ -7,81 +7,106 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Add User</title>
+    <style>
+        input{
+            width: 50%;
+        }
+    </style>
 </head>
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <div class="row">
         <span th:text="${sucMsg}" style="color: green"></span>
-        <form th:object="${user}" th:action="@{/user/add}" th:method="POST" enctype="multipart/form-data">
-            <table class="table-hover">
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" required th:field="*{username}"></td>
-                </tr>
-                <tr>
-                    <td>First Name:</td>
-                    <td><input type="text" required th:field="*{firstName}"></td>
-                </tr>
-                <tr>
-                    <td>Last Name:</td>
-                    <td><input type="text" required th:field="*{lastName}"></td>
-                </tr>
-                <tr>
-                    <td>Father's Name:</td>
-                    <td><input type="text" required th:field="*{fatherName}"></td>
-                </tr>
-                <tr>
-                    <td>Mother's Name:</td>
-                    <td><input type="text" required th:field="*{motherName}"></td>
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td><input type="radio" required th:field="*{gender}" th:value="Male">Male
-                        <input type="radio" required th:field="*{gender}" th:value="Female">Female
-                    </td>
-                </tr>
-                <tr>
-                    <td>Birth Date:</td>
-                    <td><input type="date" required th:field="*{birthDate}"></td>
-                </tr>
-                <tr>
-                    <td>NID No:</td>
-                    <td><input type="text" required th:field="*{nid}"></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="text" required th:field="*{email}"></td>
-                </tr>
-                <tr>
-                    <td>Mobile:</td>
-                    <td><input type="text" required th:field="*{mobile}"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="text" required th:field="*{password}"></td>
-                </tr>
-                <tr>
-                    <td>Assigned Role:</td>
-                    <td><select th:field="*{roles}" multiple>
-                        <option th:each="role : ${roleList}" th:value="${role.id}">
-                            <span th:text="${role.roleName}"></span>
-                        </option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Upload Photo:</td>
-                    <td><input type="file" required name="file"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <button type="submit">Add User</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Create/Edit Profile</h4>
+                            <p class="card-category">Complete your profile</p>
+                        </div>
+                        <div class="card-body">
+                            <form th:object="${user}" th:action="@{/user/add}" th:method="POST"
+                                  enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Username</label>
+                                        <input type="text" th:field="*{username}" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Email</label>
+                                        <input type="email" th:field="*{email}" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Mobile</label>
+                                        <input type="text" th:field="*{mobile}" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>First Name</label>
+                                        <input type="text" th:field="*{firstName}" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Last Name</label>
+                                        <input type="text" th:field="*{lastName}" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Gender</label>
+                                        <input type="radio" th:field="*{gender}" th:value="Male">Male
+                                        <input type="radio" th:field="*{gender}" th:value="Male">Male
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Father's Name:</label>
+                                        <input type="text" th:field="*{fatherName}" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Mother's Name:</label>
+                                        <input type="text" th:field="*{motherName}" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>NID</label>
+                                        <input type="text" required th:field="*{nid}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Birth Date</label>
+                                        <input type="date" required th:field="*{birthDate}">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label>Password</label>
+                                        <input type="text" required th:field="*{password}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Upload Photo</label>
+                                        <input type="file" required name="file">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Assigned Role</label>
+                                        <select th:field="*{roles}" multiple>
+                                            <option th:each="role : ${roleList}" th:value="${role.id}">
+                                                <span th:text="${role.roleName}"></span>
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 </body>
 </html>
