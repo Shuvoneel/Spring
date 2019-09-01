@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping(value = "job/")
+@RequestMapping(value = "/job/")
 public class JobController {
     @Autowired
     private JobTypeRepo repo;
@@ -63,6 +63,7 @@ public class JobController {
         model.addAttribute("list", this.jobPostingRepo.findAll());
         return "home";
     }
+
     // Job Type
     @GetMapping(value = "add")
     public String JobTypeAdd(Model model) {

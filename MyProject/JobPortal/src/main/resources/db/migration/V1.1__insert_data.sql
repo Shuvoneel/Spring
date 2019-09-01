@@ -5,26 +5,6 @@ INSERT INTO role (role_name) VALUES ('EMPLOYER');
 INSERT INTO role (role_name) VALUES ('DEVELOPER');
 INSERT INTO role (role_name) VALUES ('MANAGER');
 
-# Academic Degree table
-INSERT INTO degree (name) VALUES ('SSC');
-INSERT INTO degree (name) VALUES ('HSC');
-INSERT INTO degree (name) VALUES ('Honors');
-INSERT INTO degree (name) VALUES ('Masters');
-INSERT INTO degree (name) VALUES ('PHD');
-
-# Company Category table
-INSERT INTO category (name) VALUES ('Bank/ Non-Bank Fin. Institution');
-INSERT INTO category (name) VALUES ('Commercial/Supply Chain');
-INSERT INTO category (name) VALUES ('Garments/Textile');
-INSERT INTO category (name) VALUES ('HR/Org. Development');
-INSERT INTO category (name) VALUES ('IT & Telecommunication');
-INSERT INTO category (name) VALUES ('Marketing/Sales');
-INSERT INTO category (name) VALUES ('Media/Event Mgt.');
-INSERT INTO category (name) VALUES ('Agro');
-INSERT INTO category (name) VALUES ('Media/Ad./Event Mgt.');
-INSERT INTO category (name) VALUES ('Research/Consultancy');
-
-
 # COUNTRY table
 INSERT INTO country (name) VALUES ('Argentina');
 INSERT INTO country (name) VALUES ('Bangladesh');

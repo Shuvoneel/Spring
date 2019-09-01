@@ -1,13 +1,11 @@
 package com.dawntechbd.controller;
 
-import com.dawntechbd.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,13 +18,11 @@ public class HomeController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "6") int perPage) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("title", "Hire Us to Build Your  Future ");
 
-        modelAndView.setViewName("index");
-        return modelAndView;
+    @GetMapping(value="/")
+    public String viewIndex() {
+
+        return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -41,12 +37,13 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/access-denied")
+    @GetMapping(value="/access-denied")
     public String accessDenied() {
-        return "/access-denied";
+
+        return "accessDenied";
     }
 
-    @RequestMapping(value = "/signup.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signup() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
@@ -57,15 +54,6 @@ public class HomeController {
         return "user/add";
     }
 
-
-    @Autowired
-    UserRepo userRepo;
-
-    @RequestMapping(value = "/port/event.do", method = RequestMethod.GET)
-    public String portEvent(Model model) {
-        model.addAttribute("users", userRepo.findAll());
-        return "event";
-    }
 
 
 }

@@ -16,16 +16,6 @@
     <form th:object="${education}" th:action="@{/edu/add}" th:method="post">
         <table class="table-hover">
             <tr>
-                <td>User</td>
-                <td>
-                    <select th:field="*{user}">
-                        <option th:each="u: ${userList}" th:value="${u.id}">
-                            <span th:text="${u.username}"></span>
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
                 <td>Degree</td>
                 <td>
                     <select th:field="*{degree}">

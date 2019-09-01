@@ -13,11 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.io.IOException;
 
 @Controller
+
+@RequestMapping(value = "/lan/")
 public class LanguageController {
     @Autowired
     private LanguageRepo languageRepo;
@@ -25,14 +28,14 @@ public class LanguageController {
     private UserRepo userRepo;
 
 
-    @GetMapping(value = "/lan/add")
+    @GetMapping(value = "add")
     public String addLanguage(Model model) {
         model.addAttribute("language", new LanguageDetails());
         model.addAttribute("userList", this.userRepo.findAll());
         return "language/add";
     }
 
-    @PostMapping(value = "/lan/add")
+    @PostMapping(value = "add")
     public String addLanguage(@Valid LanguageDetails language, BindingResult bindingResult, Model model) throws IOException {
 
         this.languageRepo.save(language);
@@ -43,7 +46,7 @@ public class LanguageController {
         return "language/list";
     }
 
-    @GetMapping(value = "/lan/list")
+    @GetMapping(value = "list")
     public String languageList(Model model) {
         model.addAttribute("list", this.languageRepo.findAll());
         return "language/list";

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping(value = "cat/")
+@RequestMapping(value = "/cat/")
 public class ComCategoryController {
     @Autowired
     private ComCategoryRepo categoryRepo;

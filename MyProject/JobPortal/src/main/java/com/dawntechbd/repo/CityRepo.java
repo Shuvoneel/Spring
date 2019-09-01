@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface CityRepo extends JpaRepository<City, Long> {
-      List<City> findAllByDistrict(District district);
+    City findByName(String name);
+   List<City> findAllByDistrict(District district);
 //    List<District> findDistrictsByDivision_Id();
 }

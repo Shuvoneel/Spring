@@ -13,7 +13,7 @@
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Add Division..........!</h2>
     <span th:text="${sucMsg}" style="color: green"></span>
-    <form th:object="${division}" th:action="@{/division/add}" th:method="post">
+    <form th:object="${division}" th:action="@{/div/add}" th:method="post">
         <label>Select A Country: </label>
         <select th:field="*{country}">
             <option th:each="ctr : ${list}" th:value="${ctr.id}">

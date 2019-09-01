@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface ApplicantRepo extends JpaRepository<Applicant, Long> {
-    List<Applicant> findAllByUser(User user);
+    Iterable<Applicant> findAllByUser(User user);
     Applicant findByUser(User user);
 }

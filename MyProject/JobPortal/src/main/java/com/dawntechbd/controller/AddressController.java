@@ -49,14 +49,14 @@ public class AddressController {
     }
 
     //Division
-    @GetMapping(value = "/division/add")
+    @GetMapping(value = "/div/add")
     public String addDivision(Model model) {
         model.addAttribute("division", new Division());
         model.addAttribute("list", this.countryRepo.findAll());
         return "address/division";
     }
 
-    @PostMapping(value = "/division/add")
+    @PostMapping(value = "/div/add")
     public String addDivision(@Valid Division division, BindingResult bindingResult, Model model) {
         this.divisionRepo.save(division);
         model.addAttribute("list", this.countryRepo.findAll());
@@ -65,7 +65,7 @@ public class AddressController {
         return "address/division";
     }
 
-    @GetMapping(value = "/division/list")
+    @GetMapping(value = "/div/list")
     public String divList(Model model) {
         model.addAttribute("list", this.divisionRepo.findAll());
         return "address/divList";
