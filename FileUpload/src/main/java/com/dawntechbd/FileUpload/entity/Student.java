@@ -11,7 +11,6 @@ public class Student {
     private String name;
     private String gender;
     private int age;
-    private Date birthDate;
     private String email;
     private String filePath;
 
@@ -48,14 +47,6 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public String getEmail() {

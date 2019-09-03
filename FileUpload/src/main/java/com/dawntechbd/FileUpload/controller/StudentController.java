@@ -24,8 +24,8 @@ public class StudentController {
 
     @Autowired
     private StudentRepo repo;
-    @Autowired
-    private ImageOptimizer imageOptimizer;
+//    @Autowired
+//    private ImageOptimizer imageOptimizer;
 
     @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -44,22 +44,20 @@ public class StudentController {
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
 
-            return "redirect:uploadStatus";
+            return "redirect:/";
         }
 
         try {
 
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-
             Files.write(path, bytes);
 
-            student.setFilePath("/images/" + "new-" + file.getOriginalFilename());
+            student.setFilePath("/images/" + file.getOriginalFilename());
             repo.save(student);
             System.out.println("=============== save success ============");
             redirectAttributes.addFlashAttribute("message",
-                    "You've successfully uploaded '" + file.getOriginalFilename() + "'");
-            imageOptimizer.optimizeImage(UPLOADED_FOLDER, file, 0.8f, 200, 250);
+                    "You've successfully uploaded '" + file.getOriginalFilename()+"'");
             //            // Get the file and save it somewhere
 
         } catch (IOException e) {

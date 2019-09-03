@@ -7,7 +7,7 @@
 <body>
 <h1>Spring Boot file upload example</h1>
 
-<form th:object="${student}" method="POST" action="/upload" enctype="multipart/form-data">
+<form th:object="${student}" method="POST" th:action="@{/upload}" enctype="multipart/form-data">
     <label>Name</label>
     <input type="text" th:field="*{name}"/><br/>
     <label>Gender:</label>
@@ -17,8 +17,6 @@
     <label>Female</label><br/>
     <label>Age</label>
     <input type="number" th:field="*{age}"/><br/>
-    <label>Birth Date</label>
-    <input type="date" th:field="*{birthDate}"/><br/>
     <label>Email</label>
     <input type="email" th:field="*{email}"/><br/>
     <label>Image File</label>
@@ -33,7 +31,6 @@
         <th>Name</th>
         <th>Gender</th>
         <th>Age</th>
-        <th>Birth Date</th>
         <th>Email</th>
         <th>Image</th>
     </tr>
@@ -42,7 +39,6 @@
         <td th:text="${u.name}"></td>
         <td th:text="${u.gender}"></td>
         <td th:text="${u.age}"></td>
-        <td th:text="${u.birthdate}"></td>
         <td th:text="${u.email}"></td>
         <td><img th:src="@{${u.filePath}}" width="100" height="100"/></td>
     </tr>
