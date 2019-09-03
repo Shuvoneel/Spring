@@ -31,8 +31,6 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-responsive">
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
                                 <th>Designation</th>
                                 <th>Company</th>
                                 <th>Company Address</th>
@@ -42,12 +40,6 @@
                             </tr>
 
                             <tr th:each="jh : ${list}">
-                                <td th:text="${jh.id}"></td>
-                                <td>
-                <span th:each="u : ${jh?.user?.username}">
-                    <span th:text="${u}"></span>
-                </span>
-                                </td>
                                 <td th:text="${jh.designation}"></td>
                                 <td th:text="${jh.company}"></td>
                                 <td th:text="${jh.location}"></td>

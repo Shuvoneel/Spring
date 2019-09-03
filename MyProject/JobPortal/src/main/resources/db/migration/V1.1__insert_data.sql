@@ -5,6 +5,14 @@ INSERT INTO role (role_name) VALUES ('EMPLOYER');
 INSERT INTO role (role_name) VALUES ('DEVELOPER');
 INSERT INTO role (role_name) VALUES ('MANAGER');
 
+# DEGREE table
+INSERT INTO degree (name) VALUES ('SSC');
+INSERT INTO degree (name) VALUES ('HSC');
+INSERT INTO degree (name) VALUES ('Honors');
+INSERT INTO degree (name) VALUES ('Masters');
+INSERT INTO degree (name) VALUES ('PHD');
+INSERT INTO degree (name) VALUES ('Diploma');
+
 # COUNTRY table
 INSERT INTO country (name) VALUES ('Argentina');
 INSERT INTO country (name) VALUES ('Bangladesh');

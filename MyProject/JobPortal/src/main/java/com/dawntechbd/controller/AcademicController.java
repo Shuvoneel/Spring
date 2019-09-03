@@ -43,7 +43,6 @@ public class AcademicController {
         education.setUser(user);
         this.academicRepo.save(education);
         model.addAttribute("education", new AcademicDetails());
-        model.addAttribute("degreeList", this.degreeRepo.findAll());
         model.addAttribute("list", this.academicRepo.findAll());
         model.addAttribute("sucMsg", "Success !");
         return "education/list";

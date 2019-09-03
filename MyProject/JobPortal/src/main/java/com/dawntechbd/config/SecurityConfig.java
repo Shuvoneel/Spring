@@ -87,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
 
                         "/user/add", "/user/list",
-                        "/role/add", "/role/list",
+                        "/role/add", "/role/list", "/role/edit/{id}","/role/del/{id}",
                         "/ctr/add", "/ctr/list",
                         "/div/add", "/div/list",
                         "/dist/add", "/dist/list",

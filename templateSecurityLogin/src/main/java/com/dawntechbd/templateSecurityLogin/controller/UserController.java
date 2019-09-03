@@ -37,7 +37,7 @@ public class UserController {
         model.addAttribute("rolelist" , this.roleRepo.findAll());
         return "user";
     }
-    @PostMapping(value = "signup")
+    @PostMapping(value = "/signup")
     public String signUp(@Valid User user, BindingResult result,
                          @RequestParam("photo")MultipartFile photo, Model model) throws IOException{
       if(result.hasErrors()){

@@ -1,5 +1,6 @@
 package com.dawntechbd.controller;
 
+import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.academicDetails.Degree;
 import com.dawntechbd.entity.applicantDetails.Applicant;
 import com.dawntechbd.entity.applicantDetails.BloodGroup;
@@ -12,6 +13,8 @@ import com.dawntechbd.entity.skills.Extracurricular;
 import com.dawntechbd.entity.skills.Technical;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -53,7 +56,6 @@ public class ApplicantController {
     // Applicant
     @GetMapping(value = "/app/add")
     public String addApplicant(Model model) {
-        model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("comList", this.companyRepo.findAll());
         model.addAttribute("postList", this.jobPostingRepo.findAll());
         model.addAttribute("applicant", new Applicant());
@@ -62,9 +64,11 @@ public class ApplicantController {
 
     @PostMapping(value = "/app/add")
     public String addApplicant(@Valid Applicant applicant, BindingResult result, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        applicant.setUser(user);
         applicant.setApplyDate(new Date());
         this.applicantRepo.save(applicant);
-        model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("comList", this.companyRepo.findAll());
         model.addAttribute("postList", this.jobPostingRepo.findAll());
         model.addAttribute("list", this.applicantRepo.findAll());
@@ -83,17 +87,18 @@ public class ApplicantController {
     // Job History
     @GetMapping(value = "/app/history")
     public String addJobHistory(Model model) {
-        model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("jobHistory", new JobHistory());
         return "applicant/jobHistory";
     }
 
     @PostMapping(value = "/app/history")
     public String addJobHistory(@Valid JobHistory jobHistory, BindingResult result, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        jobHistory.setUser(user);
         this.jobHistoryRepo.save(jobHistory);
-        model.addAttribute("userList", this.userRepo.findAll());
-        model.addAttribute("list", this.jobHistoryRepo.findAll());
         model.addAttribute("jobHistory", new JobHistory());
+        model.addAttribute("list", this.jobHistoryRepo.findAll());
         model.addAttribute("sucMsg", "Success !");
         return "applicant/historyList";
     }

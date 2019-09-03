@@ -32,10 +32,14 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Role</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                             <tr th:each="r : ${list}">
                                 <td th:text="${r.id}"></td>
                                 <td th:text="${r.roleName}"></td>
+                                <td><a th:href="@{'/role/edit/' + ${role.id}}">Update</a></td>
+                                <td><a th:href="@{'/role/del/' + ${role.id}}">Delete</a></td>
                             </tr>
                         </table>
                     </div>

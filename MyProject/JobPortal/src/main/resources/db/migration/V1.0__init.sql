@@ -5,6 +5,13 @@ CREATE TABLE IF NOT EXISTS role (
                        PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+# DEGREE table
+CREATE TABLE IF NOT EXISTS degree (
+                                       id bigint(20) NOT NULL AUTO_INCREMENT,
+                                       name varchar(50) NOT NULL UNIQUE,
+                                       PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 # COUNTRY table
 CREATE TABLE IF NOT EXISTS country (
                                     id bigint(20) NOT NULL AUTO_INCREMENT,
