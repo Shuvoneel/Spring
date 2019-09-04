@@ -66,8 +66,6 @@ public class UserController {
             Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-//            Role role = this.roleRepo.findByRoleName("USER");
-//            user.setRoles(role.getRoleName("USER"));
             this.repo.save(user);
             model.addAttribute("list", this.repo.findAll());
             model.addAttribute("user", new User());

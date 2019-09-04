@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/profile/")
 public class ProfileController {
     @Autowired
     private UserRepo userRepo;
@@ -19,18 +18,19 @@ public class ProfileController {
 
 
     // Applicant Profile
-    @GetMapping(value = "applicant")
+    @GetMapping(value = "/profile/applicant")
     public String applicantProfile(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("applicantList", this.applicantRepo.findAll());
         return "profiles/applicant";
     }
 
-    @GetMapping(value = "applicant/{id}")
+    @GetMapping(value = "/profile/applicant/{id}")
     public String applicantProfileByApplicant(Model model, @PathVariable("id") Long id) {
 
         model.addAttribute("applicant", this.applicantRepo.getOne(id));
 
         return "profiles/applicantProfile";
     }
+
 }

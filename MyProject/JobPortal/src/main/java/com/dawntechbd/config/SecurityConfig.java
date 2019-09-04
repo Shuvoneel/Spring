@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -86,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 ).hasAnyRole("EMPLOYER")
                 .antMatchers(
 
-                         "/user/list", "/user/edit/{id}", "/user/del/{id}",
+                        "/user/list", "/user/edit/{id}", "/user/del/{id}",
                         "/role/add", "/role/list", "/role/edit/{id}", "/role/del/{id}",
                         "/edu/list",
                         "/ctr/add", "/ctr/list",

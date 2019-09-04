@@ -1,9 +1,12 @@
 package com.dawntechbd.entity;
 
+import com.sun.security.auth.UserPrincipal;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.Authentication;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Optional;
 import java.util.Set;
 
 @Entity
@@ -36,6 +39,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles;
+
 
     public User() {
     }
@@ -189,4 +193,6 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+
 }
