@@ -29,18 +29,11 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-responsive">
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
                                 <th>Extracurricular Activities</th>
                             </tr>
 
                             <tr th:each="ec : ${list}">
-                                <td th:text="${ec.id}"></td>
-                                <td>
-                <span th:each="u : ${ec?.user.username}">
-                    <span th:text="${u}"></span>
-                </span>
-                                </td>
+
                                 <td th:text="${ec.name}"></td>
                             </tr>
                         </table>

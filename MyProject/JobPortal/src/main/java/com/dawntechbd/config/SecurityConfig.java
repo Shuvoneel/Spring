@@ -57,11 +57,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/js/**",
                         "/upload/**",
                         "/vendors/**",
-                        "/", "/login", "/job/home", "/signup"
+                        "/", "/login", "/job/home", "/signup", "/user/add"
                 ).permitAll()
                 .antMatchers(
-                        "/user/add", "/user/list",
-                        "/edu/add", "/edu/list",
+                        "/user/edit/{id}",
+                        "/edu/add", "/edu/list/{id}",
                         "/address", "/addressList",
                         "/app/add", "   /app/list",
                         "/app/history", "/app/historyList",
@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/cv/{id}",
                         "/lan/add", "/lan/list",
                         "/profile/applicant/{id}"
-                ).hasAnyRole("APPLICANT")
+                ).hasAnyRole("USER")
                 .antMatchers(
                         "/com/add", "/com/list",
                         "/cv/{id}",
@@ -86,8 +86,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 ).hasAnyRole("EMPLOYER")
                 .antMatchers(
 
-                        "/user/add", "/user/list",
-                        "/role/add", "/role/list", "/role/edit/{id}","/role/del/{id}",
+                         "/user/list", "/user/edit/{id}", "/user/del/{id}",
+                        "/role/add", "/role/list", "/role/edit/{id}", "/role/del/{id}",
+                        "/edu/list",
                         "/ctr/add", "/ctr/list",
                         "/div/add", "/div/list",
                         "/dist/add", "/dist/list",

@@ -30,11 +30,9 @@
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
-                                <th>Applicant Name</th>
                                 <th>Religion</th>
                             </tr>
                             <tr th:each="rn : ${list}">
-                                <td th:text="${rn.user.username}"></td>
                                 <td th:text="${rn.religionName}"></td>
                             </tr>
                         </table>

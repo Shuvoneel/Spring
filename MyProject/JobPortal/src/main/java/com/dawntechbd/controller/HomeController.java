@@ -51,7 +51,7 @@ public class HomeController {
             /* The user is logged in :) */
             return "redirect:/";
         }
-        return "user/add";
+        return "signup";
     }
 
 

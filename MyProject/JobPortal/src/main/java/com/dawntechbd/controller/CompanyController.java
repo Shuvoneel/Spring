@@ -1,10 +1,13 @@
 package com.dawntechbd.controller;
 
 
+import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.academicDetails.AcademicDetails;
 import com.dawntechbd.entity.jobPosting.Company;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,7 +41,9 @@ public class CompanyController {
 
     @PostMapping(value = "/com/add")
     public String addCompany(@Valid Company company, BindingResult bindingResult, Model model) {
-
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        company.setUser(user);
         this.companyRepo.save(company);
         model.addAttribute("company", new Company());
         model.addAttribute("cityList", this.cityRepo.findAll());

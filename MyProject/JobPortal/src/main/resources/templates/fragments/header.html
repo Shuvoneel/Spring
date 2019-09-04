@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
@@ -128,11 +129,7 @@
                         <i class="ti-settings text-primary"></i>
                         Settings
                     </a>
-                    <a class="dropdown-item" th:href="@{/user/add}">
-                        <i class="ti-user text-primary"></i>
-                        Create Account
-                    </a>
-                    <a class="dropdown-item" th:href="@{/logout}">
+                    <a class="dropdown-item" th:href="@{/logout}" sec:authorize="isAuthenticated()">
                         <i class="ti-power-off text-primary"></i>
                         Logout
                     </a>

@@ -29,8 +29,6 @@
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
                                 <th>Language</th>
                                 <th>Reading</th>
                                 <th>Writing</th>
@@ -38,12 +36,7 @@
                             </tr>
 
                             <tr th:each="lan : ${list}">
-                                <td th:text="${lan.id}"></td>
-                                <td>
-                <span th:each="u: ${lan.user.username}">
-                    <span th:text="${u}"></span>
-                </span>
-                                </td>
+
                                 <td th:text="${lan.name}"></td>
                                 <td th:text="${lan.reading}"></td>
                                 <td th:text="${lan.writing}"></td>

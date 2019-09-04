@@ -11,4 +11,5 @@ import java.util.List;
 @Repository
 public interface AcademicRepo extends JpaRepository<AcademicDetails, Long> {
     List<AcademicDetails> findAllByUser(User user);
+
 }

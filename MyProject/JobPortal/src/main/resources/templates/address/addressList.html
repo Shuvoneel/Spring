@@ -30,20 +30,12 @@
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
                                 <th>Address Type</th>
                                 <th>City</th>
                                 <th>Village</th>
                                 <th>Postcode</th>
                             </tr>
                             <tr th:each="ad : ${list}">
-                                <td th:text="${ad.id}"></td>
-                                <td>
-                <span th:each="u : ${ad.user.username}">
-                    <span th:text="${u}"></span>
-                </span>
-                                </td>
                                 <td th:text="${ad.addressType}"></td>
                                 <td>
                 <span th:each="c : ${ad.city.name}">

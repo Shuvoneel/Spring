@@ -1,9 +1,7 @@
 package com.dawntechbd.controller;
 
 import com.dawntechbd.entity.jobPosting.Category;
-import com.dawntechbd.entity.jobPosting.JobType;
 import com.dawntechbd.repo.ComCategoryRepo;
-import com.dawntechbd.repo.JobTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +26,7 @@ public class ComCategoryController {
 
     @PostMapping(value = "add")
     public String categoryAdd(@Valid Category category, BindingResult result, Model model) {
+
         this.categoryRepo.save(category);
         model.addAttribute("category", new Category());
         model.addAttribute("sucMsg", "Success !");

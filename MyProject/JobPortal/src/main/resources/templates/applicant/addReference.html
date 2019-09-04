@@ -14,17 +14,7 @@
     <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${reference}" th:action="@{/app/ref}" th:method="post">
         <table class="table-hover">
-            <tr>
-                <td>Applicant Name</td>
-                <td>
-                    <select th:field="*{user}">
-                        <option th:each="u : ${userList}" th:value="${u.id}">
-                            <span th:text="${u.username}"></span>
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
+                        <tr>
                 <td>Reference Name</td>
                 <td><input th:field="*{referenceName}"/></td>
             </tr>
@@ -56,7 +46,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <button type="submit">Apply</button>
+                    <button type="submit">Add</button>
                 </td>
             </tr>
         </table>

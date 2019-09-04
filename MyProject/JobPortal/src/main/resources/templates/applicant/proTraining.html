@@ -15,16 +15,6 @@
     <form th:object="${proTraining}" th:action="@{/app/training}" th:method="post">
         <table class="table-hover">
             <tr>
-                <td>Applicant Name</td>
-                <td>
-                    <select th:field="*{user}">
-                        <option th:each="u : ${userList}" th:value="${u.id}">
-                            <span th:text="${u.username}"></span>
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
                 <td>Title</td>
                 <td><input type="text" required th:field="*{title}"></td>
             </tr>

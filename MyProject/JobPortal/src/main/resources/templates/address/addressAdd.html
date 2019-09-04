@@ -102,12 +102,7 @@
     <h2>Add Address Details</h2>
     <form th:object="${address}" th:action="@{/address}" th:method="post">
 
-        <label>Select a User</label>
-        <select th:field="*{user}">
-            <option th:each="u : ${userList}" th:value="${u.id}">
-                <span th:text="${u.username}"></span>
-            </option>
-        </select>
+
         <label>Address Type</label>
         <input type="text" required th:field="*{addressType}">
         <label>Village</label>

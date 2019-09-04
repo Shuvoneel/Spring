@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/role/")
@@ -62,10 +63,10 @@ public class RoleController {
             return "roles/edit";
         } else {
             if (role != null) {
-                Role role1 = this.repo.findByRoleName(role.getRoleName());
+               Role role1 = this.repo.findByRoleName(role.getRoleName());
                 if (role1 != null) {
                     model.addAttribute("existMsg", "RoleName is already exist");
-                    return "role/edit";
+                    return "roles/edit";
                 } else {
                     this.repo.save(role);
                     model.addAttribute("role", new Role());
@@ -74,7 +75,7 @@ public class RoleController {
                 }
             }
         }
-        return "roles/list";
+        return "redirect:/role/list";
     }
 
     // DELETE Role

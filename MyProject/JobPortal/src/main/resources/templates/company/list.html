@@ -29,8 +29,6 @@
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
                                 <th>Company Name</th>
                                 <th>Company Address</th>
                                 <th>Category</th>
@@ -43,12 +41,7 @@
                             </tr>
 
                             <tr th:each="cmp : ${list}">
-                                <td th:text="${cmp.id}"></td>
-                                <td>
-                <span th:each="u : ${cmp.user.username}">
-                    <span th:text="${u}"></span>
-                </span>
-                                </td>
+                                
                                 <td th:text="${cmp.companyName}"></td>
                                 <td th:text="${cmp.address}"></td>
                                 <td>

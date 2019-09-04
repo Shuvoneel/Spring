@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Left Bar</title>
@@ -112,9 +113,10 @@
             <div class="collapse" id="education">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" th:href="@{/edu/add}"> Add Education</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/list}">Education List</a></li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" th:href="@{/edu/list}">Education List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/lan/add}"> Add language</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/lan/list}">Language List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/list/{id}}">Your List</a></li>
                 </ul>
             </div>
         </li>

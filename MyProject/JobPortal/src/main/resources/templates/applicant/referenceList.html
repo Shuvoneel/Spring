@@ -31,8 +31,6 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-responsive">
                             <tr>
-                                <th>ID</th>
-                                <th>Applicant Name</th>
                                 <th>Reference Name</th>
                                 <th>Designation</th>
                                 <th>Organization</th>
@@ -43,12 +41,7 @@
                             </tr>
 
                             <tr th:each="rf : ${list}">
-                                <td th:text="${rf.id}"></td>
-                                <td>
-                <span th:each="u : ${rf.user.username}">
-                    <span th:text="${u}"></span>
-                </span>
-                                </td>
+
                                 <td th:text="${rf.referenceName}"></td>
                                 <td th:text="${rf.designation}"></td>
                                 <td th:text="${rf.organization}"></td>

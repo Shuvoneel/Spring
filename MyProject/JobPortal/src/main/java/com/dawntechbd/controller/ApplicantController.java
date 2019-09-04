@@ -121,6 +121,9 @@ public class ApplicantController {
 
     @PostMapping(value = "/app/training")
     public String addProTraining(@Valid ProfessionalTrainings proTraining, BindingResult result, Model model) {
+        Authentication auth =SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        proTraining.setUser(user);
         this.proTrainingsRepo.save(proTraining);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.proTrainingsRepo.findAll());
@@ -147,6 +150,9 @@ public class ApplicantController {
 
     @PostMapping(value = "/skills/add")
     public String addTechnicalSkills(@Valid Technical technical, BindingResult result, Model model) {
+        Authentication auth =SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        technical.setUser(user);
         this.technicalRepo.save(technical);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.technicalRepo.findAll());
@@ -173,6 +179,9 @@ public class ApplicantController {
 
     @PostMapping(value = "/app/addEx")
     public String addExtraActivity(@Valid Extracurricular extracurricular, BindingResult result, Model model) {
+        Authentication auth =SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        extracurricular.setUser(user);
         this.extracurricularRepo.save(extracurricular);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.extracurricularRepo.findAll());
@@ -199,6 +208,9 @@ public class ApplicantController {
 
     @PostMapping(value = "/app/ref")
     public String addReference(@Valid Reference reference, BindingResult result, Model model) {
+        Authentication auth =SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        reference.setUser(user);
         this.referenceRepo.save(reference);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.referenceRepo.findAll());
@@ -225,6 +237,9 @@ public class ApplicantController {
 
     @PostMapping(value = "/ms/add")
     public String statusAdd(@Valid MaritalStatus statusType, BindingResult result, Model model) {
+        Authentication auth =SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        statusType.setUser(user);
         this.marriageRepo.save(statusType);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("statusType", new MaritalStatus());
@@ -248,6 +263,9 @@ public class ApplicantController {
 
     @PostMapping(value = "/rn/add")
     public String religionAdd(@Valid Religion religion, BindingResult bindingResult, Model model) {
+        Authentication auth =SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        religion.setUser(user);
         this.religionRepo.save(religion);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("religion", new Religion());
@@ -271,6 +289,9 @@ public class ApplicantController {
 
     @PostMapping(value = "/bg/add")
     public String bloodAdd(@Valid BloodGroup bloodGroup, BindingResult bindingResult, Model model) {
+        Authentication auth =SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        bloodGroup.setUser(user);
         this.bloodRepo.save(bloodGroup);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("bloodGroup", new BloodGroup());
@@ -284,25 +305,5 @@ public class ApplicantController {
         return "bloodGroups/list";
     }
 
-    //Degree
-    @GetMapping(value = "/dr/add")
-    public String addDegree(Model model) {
-        model.addAttribute("degree", new Degree());
-        return "degrees/add";
-    }
-
-    @PostMapping(value = "/dr/add")
-    public String addDegree(@Valid Degree degree, BindingResult bindingResult, Model model) {
-        this.degreeRepo.save(degree);
-        model.addAttribute("degree", new Degree());
-        model.addAttribute("sucMsg", "Success !");
-        return "degrees/add";
-    }
-
-    @GetMapping(value = "/dr/list")
-    public String degreeList(Model model) {
-        model.addAttribute("list", this.degreeRepo.findAll());
-        return "degrees/list";
-    }
 
 }

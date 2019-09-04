@@ -29,18 +29,10 @@
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
                                 <th>Technical Skills</th>
                             </tr>
 
                             <tr th:each="ts : ${list}">
-                                <td th:text="${ts.id}"></td>
-                                <td>
-                <span th:each="u: ${ts.user.username}">
-                    <span th:text="${u}"></span>
-                </span>
-                                </td>
                                 <td th:text="${ts.name}"></td>
                             </tr>
                         </table>
