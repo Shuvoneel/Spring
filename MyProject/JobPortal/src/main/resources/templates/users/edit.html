@@ -11,7 +11,7 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <div class="row">
-        <span th:text="${sucMsg}" style="color: green"></span>
+        <span th:text="${sucMsg}" class="text-success"></span>
         <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST" enctype="multipart/form-data">
             <table class="table-hover">
                 <tr>

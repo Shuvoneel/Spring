@@ -35,6 +35,7 @@ public class LanguageController {
     public String addLanguage(Model model) {
         model.addAttribute("language", new LanguageDetails());
         model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("sucMsg", "Language Added !");
         return "language/add";
     }
 
@@ -47,7 +48,7 @@ public class LanguageController {
         model.addAttribute("language", new LanguageDetails());
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.languageRepo.findAll());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Language Added !");
         return "language/list";
     }
 

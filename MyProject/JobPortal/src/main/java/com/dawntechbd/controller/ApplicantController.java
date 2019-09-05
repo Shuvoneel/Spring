@@ -59,6 +59,7 @@ public class ApplicantController {
         model.addAttribute("comList", this.companyRepo.findAll());
         model.addAttribute("postList", this.jobPostingRepo.findAll());
         model.addAttribute("applicant", new Applicant());
+        model.addAttribute("sucMsg", "Application Successful !");
         return "applicant/add";
     }
 
@@ -73,7 +74,7 @@ public class ApplicantController {
         model.addAttribute("postList", this.jobPostingRepo.findAll());
         model.addAttribute("list", this.applicantRepo.findAll());
         model.addAttribute("applicant", new Applicant());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Application Successful !");
         return "applicant/list";
     }
 
@@ -88,6 +89,7 @@ public class ApplicantController {
     @GetMapping(value = "/app/history")
     public String addJobHistory(Model model) {
         model.addAttribute("jobHistory", new JobHistory());
+        model.addAttribute("sucMsg", "Job History Added !");
         return "applicant/jobHistory";
     }
 
@@ -99,7 +101,7 @@ public class ApplicantController {
         this.jobHistoryRepo.save(jobHistory);
         model.addAttribute("jobHistory", new JobHistory());
         model.addAttribute("list", this.jobHistoryRepo.findAll());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Job History Added !");
         return "applicant/historyList";
     }
 
@@ -116,6 +118,7 @@ public class ApplicantController {
     public String addProTraining(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("proTraining", new ProfessionalTrainings());
+        model.addAttribute("sucMsg", "Professional Trainings Added !");
         return "applicant/proTraining";
     }
 
@@ -128,7 +131,7 @@ public class ApplicantController {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.proTrainingsRepo.findAll());
         model.addAttribute("proTraining", new ProfessionalTrainings());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Professional Trainings Added !");
         return "applicant/trainingList";
     }
 
@@ -145,6 +148,7 @@ public class ApplicantController {
     public String addTechnicalSkills(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("technical", new Technical());
+        model.addAttribute("sucMsg", "Technical Skills Added !");
         return "skills/add";
     }
 
@@ -157,7 +161,7 @@ public class ApplicantController {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.technicalRepo.findAll());
         model.addAttribute("technical", new Technical());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Technical Skills Added !");
         return "skills/list";
     }
 
@@ -174,6 +178,7 @@ public class ApplicantController {
     public String addExtraActivity(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("extraActivity", new Extracurricular());
+        model.addAttribute("sucMsg", "Extracurricular Activities Added !");
         return "applicant/addExtraAct";
     }
 
@@ -186,7 +191,7 @@ public class ApplicantController {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.extracurricularRepo.findAll());
         model.addAttribute("extraActivity", new Extracurricular());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Extracurricular Activities Added !");
         return "applicant/extraActList";
     }
 
@@ -203,6 +208,7 @@ public class ApplicantController {
     public String addReference(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("reference", new Reference());
+        model.addAttribute("sucMsg", "Reference Added !");
         return "applicant/addReference";
     }
 
@@ -215,7 +221,7 @@ public class ApplicantController {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.referenceRepo.findAll());
         model.addAttribute("reference", new Reference());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Reference Added !");
         return "applicant/referenceList";
     }
 
@@ -232,6 +238,7 @@ public class ApplicantController {
     public String statusAdd(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("statusType", new MaritalStatus());
+        model.addAttribute("sucMsg", "Marital Status Added !");
         return "marriages/add";
     }
 
@@ -243,7 +250,7 @@ public class ApplicantController {
         this.marriageRepo.save(statusType);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("statusType", new MaritalStatus());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Marital Status Added !");
         return "marriages/add";
     }
 
@@ -258,6 +265,7 @@ public class ApplicantController {
     public String religionAdd(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("religion", new Religion());
+        model.addAttribute("sucMsg", "Religion Added !");
         return "religions/add";
     }
 
@@ -269,7 +277,7 @@ public class ApplicantController {
         this.religionRepo.save(religion);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("religion", new Religion());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Religion Added !");
         return "religions/add";
     }
 
@@ -284,6 +292,7 @@ public class ApplicantController {
     public String bloodAdd(Model model) {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("bloodGroup", new BloodGroup());
+        model.addAttribute("sucMsg", "Blood Group Added !");
         return "bloodGroups/add";
     }
 
@@ -295,7 +304,7 @@ public class ApplicantController {
         this.bloodRepo.save(bloodGroup);
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("bloodGroup", new BloodGroup());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Blood Group Added !");
         return "bloodGroups/add";
     }
 

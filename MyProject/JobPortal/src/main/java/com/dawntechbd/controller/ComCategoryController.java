@@ -21,6 +21,7 @@ public class ComCategoryController {
     @GetMapping(value = "add")
     public String categoryAdd(Model model) {
         model.addAttribute("category", new Category());
+        model.addAttribute("sucMsg", "Company Category Added !");
         return "company/addCategory";
     }
 
@@ -29,7 +30,7 @@ public class ComCategoryController {
 
         this.categoryRepo.save(category);
         model.addAttribute("category", new Category());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Company Category Added !");
         model.addAttribute("list", this.categoryRepo.findAll());
 
         return "company/catList";

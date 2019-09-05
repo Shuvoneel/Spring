@@ -1,4 +1,4 @@
-	Software Requirements System
+Software Requirements System
 
 		1. Project Title
 		2. Project Story
@@ -14,3 +14,6 @@
 		7. Deployment
 
 Dependencies: spring boot, spring mvc, spring data jpa, hibernate, mysql, spring security, thymeleaf
+
+Configure DataSources: search "data sources and drivers"
+Configure SQL dialects: search "sql dialects"

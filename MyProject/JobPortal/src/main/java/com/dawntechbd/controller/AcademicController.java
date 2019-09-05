@@ -34,6 +34,7 @@ public class AcademicController {
     public String addEducation(Model model) {
         model.addAttribute("education", new AcademicDetails());
         model.addAttribute("degreeList", this.degreeRepo.findAll());
+        model.addAttribute("sucMsg", "Added Successfully !");
         return "education/add";
     }
 
@@ -46,7 +47,7 @@ public class AcademicController {
         this.academicRepo.save(education);
         model.addAttribute("education", new AcademicDetails());
         model.addAttribute("list", this.academicRepo.findAll());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Added Successfully !");
         return "education/list";
     }
 
@@ -69,6 +70,7 @@ public class AcademicController {
     @GetMapping(value = "/dr/add")
     public String addDegree(Model model) {
         model.addAttribute("degree", new Degree());
+        model.addAttribute("sucMsg", "Added Successfully !");
         return "degrees/add";
     }
 
@@ -76,7 +78,7 @@ public class AcademicController {
     public String addDegree(@Valid Degree degree, BindingResult bindingResult, Model model) {
         this.degreeRepo.save(degree);
         model.addAttribute("degree", new Degree());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Added Successfully !");
         return "degrees/add";
     }
 

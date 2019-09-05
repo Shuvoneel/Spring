@@ -38,6 +38,7 @@ public class JobController {
         model.addAttribute("cityList", this.cityRepo.findAll());
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("jobTypeList", this.repo.findAll());
+        model.addAttribute("sucMsg", "Posted Successfully !");
         return "jobs/addPost";
     }
 
@@ -49,7 +50,7 @@ public class JobController {
         model.addAttribute("cityList", this.cityRepo.findAll());
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("jobTypeList", this.repo.findAll());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Posted Successfully !");
         model.addAttribute("list", this.jobPostingRepo.findAll());
 
         return "jobs/postList";
@@ -71,6 +72,7 @@ public class JobController {
     @GetMapping(value = "add")
     public String JobTypeAdd(Model model) {
         model.addAttribute("jobType", new JobType());
+        model.addAttribute("sucMsg", "Successfully Added !");
         return "jobs/add";
     }
 
@@ -78,7 +80,7 @@ public class JobController {
     public String JobTypeAdd(@Valid JobType jobType, BindingResult result, Model model) {
         this.repo.save(jobType);
         model.addAttribute("jobType", new JobType());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Successfully Added !");
         model.addAttribute("list", this.repo.findAll());
 
         return "jobs/list";

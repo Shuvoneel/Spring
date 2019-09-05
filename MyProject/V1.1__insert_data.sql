@@ -1,9 +1,8 @@
 # ROLE table
 INSERT INTO role (role_name) VALUES ('ADMIN');
-INSERT INTO role (role_name) VALUES ('APPLICANT');
+INSERT INTO role (role_name) VALUES ('USER');
 INSERT INTO role (role_name) VALUES ('EMPLOYER');
 INSERT INTO role (role_name) VALUES ('DEVELOPER');
-INSERT INTO role (role_name) VALUES ('MANAGER');
 
 # DEGREE table
 INSERT INTO degree (name) VALUES ('SSC');

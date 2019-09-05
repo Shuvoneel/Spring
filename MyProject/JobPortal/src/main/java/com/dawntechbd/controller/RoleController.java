@@ -21,6 +21,7 @@ public class RoleController {
     @GetMapping(value = "add")
     public String roleAdd(Model model) {
         model.addAttribute("role", new Role());
+        model.addAttribute("sucMsg", "Role Added Successfully !");
         return "roles/add";
     }
 
@@ -32,12 +33,12 @@ public class RoleController {
             if (role != null) {
                 Role role1 = this.repo.findByRoleName(role.getRoleName());
                 if (role1 != null) {
-                    model.addAttribute("existMsg", "RoleName is already exist");
+                    model.addAttribute("existMsg", "Role already exists");
                 } else {
                     this.repo.save(role);
                     model.addAttribute("role", new Role());
                     model.addAttribute("list", this.repo.findAll());
-                    model.addAttribute("successMsg", "Success !");
+                    model.addAttribute("sucMsg", "Role Added Successfully !");
                 }
             }
         }
@@ -54,6 +55,7 @@ public class RoleController {
     @GetMapping(value = "edit/{id}")
     public String roleEdit(@PathVariable("id") Long id, Model model) {
         model.addAttribute("role", this.repo.getOne(id));
+        model.addAttribute("sucMsg", "Successfully Updated !");
         return "roles/edit";
     }
 
@@ -65,13 +67,13 @@ public class RoleController {
             if (role != null) {
                Role role1 = this.repo.findByRoleName(role.getRoleName());
                 if (role1 != null) {
-                    model.addAttribute("existMsg", "RoleName is already exist");
+                    model.addAttribute("existMsg", "Role already exists");
                     return "roles/edit";
                 } else {
                     this.repo.save(role);
                     model.addAttribute("role", new Role());
                     model.addAttribute("list", this.repo.findAll());
-                    model.addAttribute("successMsg", "Success !");
+                    model.addAttribute("sucMsg", "Successfully Updated !");
                 }
             }
         }

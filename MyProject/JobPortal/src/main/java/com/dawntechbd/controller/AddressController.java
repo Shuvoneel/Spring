@@ -34,6 +34,7 @@ public class AddressController {
     @GetMapping(value = "/ctr/add")
     public String addCountry(Model model) {
         model.addAttribute("country", new Country());
+        model.addAttribute("sucMsg", "Country Added !");
         return "address/add";
     }
 
@@ -41,7 +42,7 @@ public class AddressController {
     public String addCountry(@Valid Country country, BindingResult bindingResult, Model model) {
         this.countryRepo.save(country);
         model.addAttribute("country", new Country());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Country Added !");
         return "address/add";
     }
 
@@ -56,6 +57,7 @@ public class AddressController {
     public String addDivision(Model model) {
         model.addAttribute("division", new Division());
         model.addAttribute("list", this.countryRepo.findAll());
+        model.addAttribute("sucMsg", "Division Added !");
         return "address/division";
     }
 
@@ -64,7 +66,7 @@ public class AddressController {
         this.divisionRepo.save(division);
         model.addAttribute("list", this.countryRepo.findAll());
         model.addAttribute("division", new Division());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Division Added !");
         return "address/division";
     }
 
@@ -79,6 +81,7 @@ public class AddressController {
     public String addDistrict(Model model) {
         model.addAttribute("district", new District());
         model.addAttribute("list", this.divisionRepo.findAll());
+        model.addAttribute("sucMsg", "District Added !");
         return "address/district";
     }
 
@@ -87,7 +90,7 @@ public class AddressController {
         this.districtRepo.save(district);
         model.addAttribute("list", this.divisionRepo.findAll());
         model.addAttribute("district", new District());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "District Added !");
         return "address/district";
     }
 
@@ -102,6 +105,7 @@ public class AddressController {
     public String addCity(Model model) {
         model.addAttribute("city", new City());
         model.addAttribute("list", this.districtRepo.findAll());
+        model.addAttribute("sucMsg", "City Added !");
         return "address/city";
     }
 
@@ -109,8 +113,8 @@ public class AddressController {
     public String addCity(@Valid City city, BindingResult bindingResult, Model model) {
         this.cityRepo.save(city);
         model.addAttribute("list", this.districtRepo.findAll());
-        model.addAttribute("sucMsg", "Success !");
         model.addAttribute("city", new City());
+        model.addAttribute("sucMsg", "City Added !");
         return "address/city";
     }
 
@@ -120,7 +124,7 @@ public class AddressController {
         return "address/cityList";
     }
 
-    // Chaining Address Details
+    // Chaining Details
     @GetMapping(value = "/chain")
     public String testChain(Model model) {
         model.addAttribute("address", new AddressDetails());
@@ -132,7 +136,6 @@ public class AddressController {
     public String testChain(@Valid AddressDetails address, BindingResult bindingResult, Model model) {
         this.addressRepo.save(address);
         model.addAttribute("countryList", this.countryRepo.findAll());
-        model.addAttribute("sucMsg", "Success !");
         model.addAttribute("address", new AddressDetails());
         return "address/chain";
     }
@@ -148,6 +151,7 @@ public class AddressController {
     public String addAddress(Model model) {
         model.addAttribute("address", new AddressDetails());
         model.addAttribute("cityList", this.cityRepo.findAll());
+        model.addAttribute("sucMsg", "Address Added !");
         return "address/addressAdd";
     }
 
@@ -158,9 +162,9 @@ public class AddressController {
         address.setUser(user);
         this.addressRepo.save(address);
         model.addAttribute("cityList", this.cityRepo.findAll());
-        model.addAttribute("sucMsg", "Success !");
         model.addAttribute("address", new AddressDetails());
         model.addAttribute("list", this.addressRepo.findAll());
+        model.addAttribute("sucMsg", "Address Added !");
         return "address/addressList";
     }
 

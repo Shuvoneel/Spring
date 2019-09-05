@@ -35,6 +35,7 @@ public class CompanyController {
         model.addAttribute("cityList", this.cityRepo.findAll());
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("catList", this.categoryRepo.findAll());
+        model.addAttribute("sucMsg", "Company Added !");
 
         return "company/add";
     }
@@ -50,7 +51,7 @@ public class CompanyController {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("catList", this.categoryRepo.findAll());
         model.addAttribute("list", this.companyRepo.findAll());
-        model.addAttribute("sucMsg", "Success !");
+        model.addAttribute("sucMsg", "Company Added !");
         return "company/list";
     }
 
