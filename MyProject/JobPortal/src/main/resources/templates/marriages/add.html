@@ -12,7 +12,6 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Add Marital Status..........!</h2>
-    <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${statusType}" th:action="@{/ms/add}" th:method="post">
 
         <label>Select Status</label>

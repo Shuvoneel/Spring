@@ -136,7 +136,7 @@
                     </a>
                     <h6 sec:authorize="isAuthenticated()">
                         <i class="ti-face-smile text-danger "></i>
-                        Logged in as <span class="text-danger" th:text="${global?.username}"></span>
+                        <span class="text-danger" th:text="${global?.username}"></span>
                     </h6>
 
                     <a class="dropdown-item" th:href="@{/signup}" sec:authorize="!isAuthenticated()">

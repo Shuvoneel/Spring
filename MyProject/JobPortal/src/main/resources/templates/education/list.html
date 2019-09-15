@@ -41,14 +41,14 @@
                             <tr th:each="edu : ${list}">
                                 <td th:text="${edu.id}"></td>
                                 <td>
-                <span th:each="u: ${edu?.user?.username}">
-                    <span th:text="${u}"></span>
-                </span>
+                                    <span th:each="u: ${edu?.user?.username}">
+                                        <span th:text="${u}"></span>
+                                    </span>
                                 </td>
                                 <td>
-                <span th:each="u: ${edu.degree.name}">
-                    <span th:text="${u}"></span>
-                </span>
+                                    <span th:each="u: ${edu.degree.name}">
+                                        <span th:text="${u}"></span>
+                                    </span>
                                 </td>
                                 <td th:text="${edu.groupOrDept}"></td>
                                 <td th:text="${edu.institute}"></td>

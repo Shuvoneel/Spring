@@ -55,6 +55,10 @@ public class Company {
         return id;
     }
 
+    public Company (Long id) {
+        this.id = id;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

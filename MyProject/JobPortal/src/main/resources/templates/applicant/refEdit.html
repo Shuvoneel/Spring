@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Reference Details</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Reference..........!</h2>
+    <form th:object="${reference}" th:action="@{/app/ref/edit/} +${id}" th:method="post">
+        <table class="table-hover">
+                        <tr>
+                <td>Reference Name</td>
+                <td><input th:field="*{referenceName}"/></td>
+            </tr>
+            <tr>
+                <td>Designation</td>
+                <td><input th:field="*{designation}"/></td>
+            </tr>
+            <tr>
+                <td>Organization</td>
+                <td><input th:field="*{organization}"/></td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td><input th:field="*{mobile}"/></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input th:field="*{email}"/></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input th:field="*{address}"/></td>
+            </tr>
+            <tr>
+                <td>Relation</td>
+                <td><input th:field="*{relation}"/></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Update</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+
+</html>
+

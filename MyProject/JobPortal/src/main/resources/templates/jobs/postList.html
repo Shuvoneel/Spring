@@ -46,24 +46,24 @@
                                 <td th:text="${jp.id}"></td>
                                 <td th:text="${jp.position}"></td>
                                 <td>
-                    <span th:each="cmp : ${jp.company.companyName}">
-                    <span th:text="${cmp}"></span>
-                </span>
+                                    <span th:each="cmp : ${jp.company.companyName}">
+                                        <span th:text="${cmp}"></span>
+                                    </span>
                                 </td>
                                 <td th:text="${jp.vacancy}"></td>
                                 <td th:text="${jp.jobDescriptions}"></td>
                                 <td>
-                    <span th:each="jt : ${jp.jobType.type}">
-                    <span th:text="${jt}"></span>
-                        </span>
+                                    <span th:each="jt : ${jp.jobType.type}">
+                                        <span th:text="${jt}"></span>
+                                    </span>
                                 </td>
                                 <td th:text="${jp.educationalRequirements}"></td>
                                 <td th:text="${jp.experience}"></td>
                                 <td th:text="${jp.additionalRequirements}"></td>
                                 <td>
-                    <span th:each="ct : ${jp.cities}">
-                    <span th:text="${ct.name}"></span>
-                        </span>
+                                    <span th:each="ct : ${jp.cities}">
+                                        <span th:text="${ct.name}"></span>
+                                    </span>
                                 </td>
                                 <td th:text="${jp.salary}"></td>
                             </tr>

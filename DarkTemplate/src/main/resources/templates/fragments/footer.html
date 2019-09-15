@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer</title>
+</head>
+<body>
+
+<!-- Footer -->
+<footer th:fragment="footer" class="footer">
+    <div class="container-fluid">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a th:href="@{https://www.facebook.com/hellodhaka16}">
+                  HelloDhaka16
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, made with <i class="material-icons">favorite</i> by
+            <a th:href="@{https://www.facebook.com/hellodhaka16}" th:target="_blank">HelloDhaka16</a> for a better web.
+          </div>
+          <!-- your footer here -->
+        </div>
+</footer>
+</body>
+</html>

@@ -11,75 +11,85 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <div class="row">
-        <span th:text="${sucMsg}" class="text-success"></span>
         <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST" enctype="multipart/form-data">
-            <table class="table-hover">
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" required th:field="*{username}"></td>
-                </tr>
-                <tr>
-                    <td>First Name:</td>
-                    <td><input type="text" required th:field="*{firstName}"></td>
-                </tr>
-                <tr>
-                    <td>Last Name:</td>
-                    <td><input type="text" required th:field="*{lastName}"></td>
-                </tr>
-                <tr>
-                    <td>Father's Name:</td>
-                    <td><input type="text" required th:field="*{fatherName}"></td>
-                </tr>
-                <tr>
-                    <td>Mother's Name:</td>
-                    <td><input type="text" required th:field="*{motherName}"></td>
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td><input type="radio" required th:field="*{gender}" th:value="Male">Male
-                        <input type="radio" required th:field="*{gender}" th:value="Female">Female
-                    </td>
-                </tr>
-                <tr>
-                    <td>Birth Date:</td>
-                    <td><input type="date" required th:field="*{birthDate}"></td>
-                </tr>
-                <tr>
-                    <td>NID No:</td>
-                    <td><input type="text" required th:field="*{nid}"></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="text" required th:field="*{email}"></td>
-                </tr>
-                <tr>
-                    <td>Mobile:</td>
-                    <td><input type="text" required th:field="*{mobile}"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="text" required th:field="*{password}"></td>
-                </tr>
-                <tr>
-                <td>Assigned Role:</td>
-                <td><select th:field="*{roles}" multiple>
-                    <option th:each="role : ${roleList}" th:value="${role.id}">
-                        <span th:text="${role.roleName}"></span>
-                    </option>
-                </select>
-                </td>
-            </tr>
-                <tr>
-                    <td>Upload Photo:</td>
-                    <td><input type="file" required name="file"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <button type="submit">Update</button>
-                    </td>
-                </tr>
-            </table>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table-hover">
+                        <tr>
+                            <th>Username:</th>
+                            <td><input type="text" required th:field="*{username}"></td>
+                        </tr>
+                        <tr>
+                            <th>First Name:</th>
+                            <td><input type="text" required th:field="*{firstName}"></td>
+                        </tr>
+                        <tr>
+                            <th>Last Name:</th>
+                            <td><input type="text" required th:field="*{lastName}"></td>
+                        </tr>
+                        <tr>
+                            <th>Father's Name:</th>
+                            <td><input type="text" required th:field="*{fatherName}"></td>
+                        </tr>
+                        <tr>
+                            <th>Mother's Name:</th>
+                            <td><input type="text" required th:field="*{motherName}"></td>
+                        </tr>
+                        <tr>
+                            <th>Gender:</th>
+                            <td><input type="radio" required th:field="*{gender}" th:value="Male">Male
+                                <input type="radio" required th:field="*{gender}" th:value="Female">Female
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>NID:</th>
+                            <td><input type="text" required th:field="*{nid}"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-md-6">
+                    <table class="table-hover">
+                        <tr>
+                            <th>Email:</th>
+                            <td><input type="text" required th:field="*{email}"></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile:</th>
+                            <td><input type="text" required th:field="*{mobile}"></td>
+                        </tr>
+                        <tr>
+                            <th>Birthdate:</th>
+                            <td><input type="date" required th:field="*{birthDate}"></td>
+                        </tr>
+                        <tr>
+                            <th>Password:</th>
+                            <td><input type="text" required th:field="*{password}"></td>
+                        </tr>
+                        <tr>
+                            <th>Photo:</th>
+                            <td><input type="file" required name="file"></td>
+                        </tr>
+                        <tr>
+                            <th>Assign Role:</th>
+                            <td><select th:field="*{roles}">
+                                <option th:each="role : ${roleList}" th:value="${role.id}">
+                                    <span th:text="${role.roleName}"></span>
+                                </option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button type="submit" class="text-primary">Update</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
         </form>
     </div>
 </div>

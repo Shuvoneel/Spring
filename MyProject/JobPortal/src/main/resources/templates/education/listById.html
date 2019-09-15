@@ -31,22 +31,28 @@
                             <tr>
                                 <th>Degree</th>
                                 <th>Group or Department</th>
-                                <th>Institute</th>
+                                <th>Institute/University</th>
                                 <th>GPA or Grade</th>
                                 <th>Passing Year</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
 
                             <tr th:each="edu : ${listById}">
-
                                 <td>
-                <span th:each="u: ${edu.degree.name}">
-                    <span th:text="${u}"></span>
-                </span>
+                                    <span th:each="u: ${edu?.degree?.name}">
+                                        <span th:text="${u}"></span>
+                                    </span>
                                 </td>
-                                <td th:text="${edu.groupOrDept}"></td>
-                                <td th:text="${edu.institute}"></td>
-                                <td th:text="${edu.gpa}"></td>
-                                <td th:text="${edu.passingYear}"></td>
+                                <td th:text="${edu?.groupOrDept}"></td>
+                                <td th:text="${edu?.institute}"></td>
+                                <td th:text="${edu?.gpa}"></td>
+                                <td th:text="${edu?.passingYear}"></td>
+                                <td><a th:href="@{'/edu/edit/'+${edu.id}}">Update</a></td>
+                                <td><a th:href="@{'/edu/del/'+${edu.id}}">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td><a th:href="@{/edu/add}">Add More</a></td>
                             </tr>
                         </table>
                     </div>

@@ -10,8 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -29,6 +28,87 @@ public class AddressController {
     private CityRepo cityRepo;
     @Autowired
     private UserRepo userRepo;
+
+    // ADD Address Details
+    @GetMapping(value = "/address")
+    public String addAddress(Model model) {
+        model.addAttribute("address", new AddressDetails());
+        model.addAttribute("countryList", this.countryRepo.findAll());
+        model.addAttribute("divList", this.divisionRepo.findAll());
+        model.addAttribute("distList", this.districtRepo.findAll());
+        model.addAttribute("cityList", this.cityRepo.findAll());
+        return "address/addressAdd";
+    }
+
+    @PostMapping(value = "/address")
+    public String addAddress(@Valid AddressDetails address, BindingResult bindingResult, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        address.setUser(user);
+        this.addressRepo.save(address);
+        model.addAttribute("countryList", this.countryRepo.findAll());
+        model.addAttribute("divList", this.divisionRepo.findAll());
+        model.addAttribute("distList", this.districtRepo.findAll());
+        model.addAttribute("cityList", this.cityRepo.findAll());
+        model.addAttribute("address", new AddressDetails());
+        model.addAttribute("list", this.addressRepo.findAll());
+
+        return "redirect:/adrsListById";
+    }
+
+
+    // EDIT Address Details
+    @GetMapping(value = "/address/edit/{id}")
+    public String editAddress(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("address", this.addressRepo.getOne(id));
+        model.addAttribute("countryList", this.countryRepo.findAll());
+        model.addAttribute("divList", this.divisionRepo.findAll());
+        model.addAttribute("distList", this.districtRepo.findAll());
+        model.addAttribute("cityList", this.cityRepo.findAll());
+
+        return "address/edit";
+    }
+
+    @PostMapping(value = "/address/edit/{id}")
+    public String editAddress(@Valid AddressDetails address, BindingResult bindingResult, Model model, @PathVariable("id") Long id) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        address.setUser(user);
+        this.addressRepo.save(address);
+        model.addAttribute("countryList", this.countryRepo.findAll());
+        model.addAttribute("divList", this.divisionRepo.findAll());
+        model.addAttribute("distList", this.districtRepo.findAll());
+        model.addAttribute("cityList", this.cityRepo.findAll());
+        model.addAttribute("address", new AddressDetails());
+        model.addAttribute("list", this.addressRepo.findAll());
+
+        return "redirect:/adrsListById";
+    }
+
+
+    // DELETE Address
+    @RequestMapping(value = "/address/del/{id}", method = RequestMethod.GET)
+    public String delAddress(@PathVariable("id") Long id) {
+        this.addressRepo.deleteById(id);
+
+        return "redirect:/adrsListById";
+    }
+
+    // Address List
+    @GetMapping(value = "/addressList")
+    public String addressList(Model model) {
+        model.addAttribute("list", this.addressRepo.findAll());
+        return "address/addressList";
+    }
+
+    // Address ListById
+    @GetMapping(value = "/adrsListById")
+    public String adrsListById(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(authentication.getName());
+        model.addAttribute("listById", this.addressRepo.findAllByUser(user));
+        return "address/adrsListById";
+    }
 
     //Country
     @GetMapping(value = "/ctr/add")
@@ -53,7 +133,7 @@ public class AddressController {
     }
 
     //Division
-    @GetMapping(value = "/div/add")
+    @GetMapping(value = "/division/add")
     public String addDivision(Model model) {
         model.addAttribute("division", new Division());
         model.addAttribute("list", this.countryRepo.findAll());
@@ -61,7 +141,7 @@ public class AddressController {
         return "address/division";
     }
 
-    @PostMapping(value = "/div/add")
+    @PostMapping(value = "/division/add")
     public String addDivision(@Valid Division division, BindingResult bindingResult, Model model) {
         this.divisionRepo.save(division);
         model.addAttribute("list", this.countryRepo.findAll());
@@ -70,7 +150,7 @@ public class AddressController {
         return "address/division";
     }
 
-    @GetMapping(value = "/div/list")
+    @GetMapping(value = "/division/list")
     public String divList(Model model) {
         model.addAttribute("list", this.divisionRepo.findAll());
         return "address/divList";
@@ -146,31 +226,4 @@ public class AddressController {
         return "address/chainList";
     }
 
-    // Address Details
-    @GetMapping(value = "/address")
-    public String addAddress(Model model) {
-        model.addAttribute("address", new AddressDetails());
-        model.addAttribute("cityList", this.cityRepo.findAll());
-        model.addAttribute("sucMsg", "Address Added !");
-        return "address/addressAdd";
-    }
-
-    @PostMapping(value = "/address")
-    public String addAddress(@Valid AddressDetails address, BindingResult bindingResult, Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = this.userRepo.findByUsername(auth.getName());
-        address.setUser(user);
-        this.addressRepo.save(address);
-        model.addAttribute("cityList", this.cityRepo.findAll());
-        model.addAttribute("address", new AddressDetails());
-        model.addAttribute("list", this.addressRepo.findAll());
-        model.addAttribute("sucMsg", "Address Added !");
-        return "address/addressList";
-    }
-
-    @GetMapping(value = "/addressList")
-    public String addressList(Model model) {
-        model.addAttribute("list", this.addressRepo.findAll());
-        return "address/addressList";
-    }
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <title>User List</title>
+    <style>
+        .table {
+            width: auto;
+            height: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="cus-content">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title mt-0">Users</h4>
+                            <p class="card-category">List of the Users</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <tr style="color: green">
+                                    <th>Username</th>
+                                    <th>Fullname</th>
+                                    <th>Gender</th>
+                                    <th>Birth Date</th>
+                                    <th>NID</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Photo</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                    </tr>
+                                    <tr th:each="s : ${list}">
+                                        <td th:text="${s.username}"></td>
+                                        <td th:text="${s.firstName}+' '+${s.lastName}"></td>
+                                        <td th:text="${s.gender}"></td>
+                                        <td th:text="${s.birthDate}"></td>
+                                        <td th:text="${s.nid}"></td>
+                                        <td th:text="${s.email}"></td>
+                                        <td th:text="${s.mobile}"></td>
+                                        <td><img th:src="@{'/'+${s.photo}}" width="100" height="100"/></td>
+                                        <td><a th:href="@{'/user/edit/' + ${s.id}}">Update</a></td>
+                                        <td><a th:href="@{'/user/del/' + ${s.id}}">Delete</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

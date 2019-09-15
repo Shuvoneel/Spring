@@ -11,7 +11,6 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Add Job History..........!</h2>
-    <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${jobHistory}" th:action="@{/app/history}" th:method="post">
         <table class="table-hover">
             <tr>

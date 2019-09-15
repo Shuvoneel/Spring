@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Professional Training</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Professional Training..........!</h2>
+    <form th:object="${proTraining}" th:action="@{/app/pt/edit/} + ${id}" th:method="post">
+        <table class="table-hover">
+            <tr>
+                <td>Title</td>
+                <td><input type="text" required th:field="*{title}"></td>
+            </tr>
+            <tr>
+                <td>Duration</td>
+                <td><input type="text" required th:field="*{duration}"></td>
+            </tr>
+            <tr>
+                <td>Topics Covered</td>
+                <td><input type="text" required th:field="*{topicsCovered}"></td>
+            </tr>
+            <tr>
+                <td>Institute</td>
+                <td><input type="text" required th:field="*{institute}"></td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td><textarea type="text" required th:field="*{location}"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Update</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+
+</html>
+

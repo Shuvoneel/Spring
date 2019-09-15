@@ -14,9 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -31,6 +29,7 @@ public class LanguageController {
     private UserRepo userRepo;
 
 
+    // ADD Language
     @GetMapping(value = "add")
     public String addLanguage(Model model) {
         model.addAttribute("language", new LanguageDetails());
@@ -49,13 +48,53 @@ public class LanguageController {
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("list", this.languageRepo.findAll());
         model.addAttribute("sucMsg", "Language Added !");
-        return "language/list";
+        return "redirect:/lan/listById";
+    }
+
+
+    // EDIT Language
+    @GetMapping(value = "edit/{id}")
+    public String editLanguage(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("language", this.languageRepo.getOne(id));
+        model.addAttribute("userList", this.userRepo.findAll());
+
+        return "language/edit";
+    }
+
+    @PostMapping(value = "edit/{id}")
+    public String editLanguage(@Valid LanguageDetails language, BindingResult bindingResult, Model model, @PathVariable("id") Long id) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        language.setUser(user);
+        this.languageRepo.save(language);
+        model.addAttribute("language", new LanguageDetails());
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("list", this.languageRepo.findAll());
+
+        return "redirect:/lan/listById";
     }
 
     @GetMapping(value = "list")
     public String languageList(Model model) {
         model.addAttribute("list", this.languageRepo.findAll());
         return "language/list";
+    }
+
+    // DELETE Language
+    @RequestMapping(value = "del/{id}", method = RequestMethod.GET)
+    public String delLanguage(@PathVariable("id") Long id) {
+        this.languageRepo.deleteById(id);
+
+        return "redirect:/lan/listById";
+    }
+
+    // Language ListById
+    @GetMapping(value = "listById")
+    public String lanListById(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        model.addAttribute("listById", this.languageRepo.findAllByUser(user));
+        return "language/listById";
     }
 
 }

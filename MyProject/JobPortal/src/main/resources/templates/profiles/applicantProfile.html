@@ -29,7 +29,7 @@
                 <div class="col-md-10">
                     <h4 style="padding-top: 100px; padding-left: 5px">Personal Information</h4>
                 </div>
-                <div class="col-md-2"><img class="pic" th:src="@{'/'+${applicantDetails.getPhoto()}}"></div>
+                <div class="col-md-2"><img class="pic" th:src="@{${applicantDetails.getPhoto()}}"></div>
             </div>
             <div class="row" style="padding-left: 25px">
                 <div class="col-md-2">
@@ -227,7 +227,6 @@
                 </tr>
             </table>
         </div>
-
 
     </div>
 </div>

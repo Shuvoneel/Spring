@@ -9,161 +9,96 @@
 <nav th:fragment="leftnav" class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" th:href="home.html">
+            <a class="nav-link" th:href="@{/}">
                 <i class="ti-server menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#role" aria-expanded="false" aria-controls="role">
-                <i class="ti-face-smile menu-icon"></i>
-                <span class="menu-title">Roles</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="role">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/role/add}"> Add Role</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/role/list}">List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#profile" aria-expanded="false" aria-controls="profile">
-                <i class="ti-user menu-icon"></i>
-                <span class="menu-title">Profile</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="profile">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/app/list}">Applicant Profile</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
+
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
             <a class="nav-link" data-toggle="collapse" href="#user" aria-expanded="false" aria-controls="user">
                 <i class="ti-user menu-icon"></i>
-                <span class="menu-title">Users</span>
+                <span class="menu-title">General Menu </span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="user">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/user/add}"> Add User</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/user/list}">List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/signup}">Create Account</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/login}">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/job/home}">View Jobs</a></li>
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#applicant" aria-expanded="false"
-               aria-controls="applicant">
+
+        <li class="nav-item" sec:authorize="hasAnyRole('ADMIN')">
+            <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="admin">
                 <i class="ti-user menu-icon"></i>
-                <span class="menu-title">Applicants</span>
+                <span class="menu-title">Admin Panel</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="admin">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/role/add}"> Add Role</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/role/list}">List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/user/list}">User List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/list}"> Applicants List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/job/add}">Add Job Type</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/cat/add}">Add Company Category</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/cat/list}">Category List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/job/postList}">Posted Job List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/com/list}">Company List</a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item" sec:authorize="hasAnyRole('USER')">
+            <a class="nav-link" data-toggle="collapse" href="#applicant" aria-expanded="false" aria-controls="applicant">
+                <i class="ti-user menu-icon"></i>
+                <span class="menu-title">Applicant Menu</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="applicant">
                 <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/user/list/{id}}">Information Details</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/add}"> Apply</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/app/list}"> Applicants List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/listByID}"> Application List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/address}"> Add Address</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/adrsListById}">Address Details</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/add}"> Add Education</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/listById}">Education Details</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/lan/add}"> Add language</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/lan/listById}">Language Details</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/history}"> Add Job History</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/app/historyList}"> Job History List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/jhListById}"> Job History List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/training}"> Add Professional Training</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/app/trainingList}"> Professional Training List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/skills/add}"> Add Technical Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/skills/list}"> Technical Skills List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/ptListById}"> Professional Training List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/tech}"> Add Technical Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/techListById}"> Technical Skills List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/addEx}"> Add Extracurricular Activity</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/app/exList}"> Extracurricular List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/eaListById}"> Extracurricular List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/app/ref}"> Add Reference</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/app/refList}"> Reference List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/app/refListById}"> Reference List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/ms/add}"> Add Marital Status</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/rn/add}"> Add Religion</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/bg/add}"> Add Blood Group</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/dr/add}"> Add Degree</a></li>
                 </ul>
             </div>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#address" aria-expanded="false"
-               aria-controls="address">
-                <i class="ti-home menu-icon"></i>
-                <span class="menu-title">Address</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="address">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/address}"> Add Address Details</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/addressList}"> Address Details List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/ctr/add}"> Add Country</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/ctr/list}">Country List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/div/add}"> Add Division</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/div/list}">Division List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/dist/add}"> Add District</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/dist/list}">District List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/city/add}"> Add City</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/city/list}">City List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#education" aria-expanded="false"
-               aria-controls="education">
-                <i class="ti-book menu-icon"></i>
-                <span class="menu-title">Education Details</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="education">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/add}"> Add Education</a></li>
-                    <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" th:href="@{/edu/list}">Education List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/lan/add}"> Add language</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/lan/list}">Language List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/edu/list/{id}}">Your List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#jobs" aria-expanded="false"
-               aria-controls="jobs">
+        <li class="nav-item" sec:authorize="hasAnyRole('EMPLOYER')">
+            <a class="nav-link" data-toggle="collapse" href="#employer" aria-expanded="false" aria-controls="employer">
                 <i class="ti-world menu-icon"></i>
-                <span class="menu-title">Job Details</span>
+                <span class="menu-title">Employer Menu</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="jobs">
+            <div class="collapse" id="employer">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/job/add}">Add Job Type</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/job/list}">Job Type List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/emp/list/{id}}">Personal Information</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/job/post}">Post a Job</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/job/postList}">Posted Job List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/job/home}">Job Dashboard</a></li>
-
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#company" aria-expanded="false"
-               aria-controls="company">
-                <i class="ti-wallet menu-icon"></i>
-                <span class="menu-title">Company</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="company">
-                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/job/listById}">Posted Job List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/emp/listByComId}"> Applicants List</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/com/add}">Add Company</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/com/list}">Company List</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/cat/add}">Add Company Category</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/cat/list}">Category List</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#chain" aria-expanded="false"
-               aria-controls="chain">
-                <i class="ti-palette menu-icon"></i>
-                <span class="menu-title">Chaining</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="chain">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/chain}">Chaining Test</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/com/listById}">Company Details</a></li>
                 </ul>
             </div>
         </li>

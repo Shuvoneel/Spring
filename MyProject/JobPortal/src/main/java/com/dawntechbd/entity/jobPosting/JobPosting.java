@@ -1,5 +1,6 @@
 package com.dawntechbd.entity.jobPosting;
 
+import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.addressDetails.City;
 
 import javax.persistence.*;
@@ -31,11 +32,14 @@ public class JobPosting {
     )
     private Set<City> cities;
     private int salary;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public JobPosting() {
     }
 
-    public JobPosting(String position, Company company, int vacancy, String jobDescriptions, JobType jobType, String educationalRequirements, String experience, String additionalRequirements, Set<City> cities, int salary) {
+    public JobPosting(String position, Company company, int vacancy, String jobDescriptions, JobType jobType, String educationalRequirements, String experience, String additionalRequirements, Set<City> cities, int salary, User user) {
         this.position = position;
         this.company = company;
         this.vacancy = vacancy;
@@ -46,6 +50,7 @@ public class JobPosting {
         this.additionalRequirements = additionalRequirements;
         this.cities = cities;
         this.salary = salary;
+        this.user = user;
     }
 
     public Long getId() {
@@ -134,5 +139,13 @@ public class JobPosting {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

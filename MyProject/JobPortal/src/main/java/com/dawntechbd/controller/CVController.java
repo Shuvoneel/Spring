@@ -22,13 +22,9 @@ import java.util.Optional;
 @RequestMapping(value = "/cv/")
 public class CVController {
     @Autowired
-    private UserRepo userRepo;
-    @Autowired
     private ApplicantRepo applicantRepo;
     @Autowired
     private AcademicRepo academicRepo;
-    @Autowired
-    private AddressRepo addressRepo;
     @Autowired
     private JobHistoryRepo jobHistoryRepo;
     @Autowired
@@ -52,7 +48,6 @@ public class CVController {
     @GetMapping(value = "{id}")
     public String applicantProfileByApplicant(Model model, @PathVariable("id") Long id) {
         Optional<Applicant>  applicant = this.applicantRepo.findById(id);
-        User user = this.userRepo.getOne(id);
         UserDto userDto = new UserDto();
         userDto.setFirstName(applicant.get().getUser().getFirstName());
         userDto.setLastName(applicant.get().getUser().getLastName());
@@ -75,45 +70,9 @@ public class CVController {
         userDto.setExtracurricularList(this.extracurricularRepo.findAllByUser(applicant.get().getUser()));
         userDto.setReferenceList(this.referenceRepo.findAllByUser(applicant.get().getUser()));
 
-
-
         model.addAttribute("applicantDetails", userDto);
 
-
         return "profiles/applicantProfile";
     }
 
-    @GetMapping
-    public String applicantProfile(Model model) {
-//
-//        User user = this.userRepo.getOne(id);
-//        UserDto userDto = new UserDto();
-//        userDto.setFirstName(applicant.get().getUser().getFirstName());
-//        userDto.setLastName(applicant.get().getUser().getLastName());
-//        userDto.setFatherName(applicant.get().getUser().getFatherName());
-//        userDto.setMotherName(applicant.get().getUser().getMotherName());
-//        userDto.setGender(applicant.get().getUser().getGender());
-//        userDto.setBirthDate(applicant.get().getUser().getBirthDate());
-//        userDto.setNid(applicant.get().getUser().getNid());
-//        userDto.setEmail(applicant.get().getUser().getEmail());
-//        userDto.setMobile(applicant.get().getUser().getMobile());
-//        userDto.setPhoto(applicant.get().getUser().getPhoto());
-//        userDto.setAcademicDetailsList(this.academicRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setJobHistoryList(this.jobHistoryRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setMaritalStatus(this.marriageRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setReligion(this.religionRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setBloodGroup(this.bloodRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setProfessionalTrainingsList(this.proTrainingsRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setLanguageDetailsList(this.languageRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setTechnicalList(this.technicalRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setExtracurricularList(this.extracurricularRepo.findAllByUser(applicant.get().getUser()));
-//        userDto.setReferenceList(this.referenceRepo.findAllByUser(applicant.get().getUser()));
-//
-//
-//
-//        model.addAttribute("applicantDetails", userDto);
-
-
-        return "profiles/applicantProfile";
-    }
 }

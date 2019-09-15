@@ -12,7 +12,6 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Add Education..........!</h2>
-    <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${education}" th:action="@{/edu/add}" th:method="post">
         <table class="table-hover">
             <tr>
@@ -30,7 +29,7 @@
                 <td><input type="text" th:field="*{groupOrDept}" required></td>
             </tr>
             <tr>
-                <td>Institute</td>
+                <td>Institute/University</td>
                 <td><input type="text" th:field="*{institute}" required></td>
             </tr>
             <tr>

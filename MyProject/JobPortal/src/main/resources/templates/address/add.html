@@ -12,7 +12,6 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Add Country..........!</h2>
-    <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${country}" th:action="@{/ctr/add}" th:method="post">
         <input type="text" required th:field="*{name}">
         <button type="submit">Save</button>

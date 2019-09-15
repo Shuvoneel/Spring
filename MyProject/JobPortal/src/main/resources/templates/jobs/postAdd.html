@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Job Type</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Job Type..........!</h2>
+    <form th:object="${jobPosting}" th:action="@{/job/post}" th:method="post">
+        <table class="table-hover">
+            <tr>
+                <td>Position</td>
+                <td><input type="text" th:field="*{position}" required></td>
+            </tr>
+            <tr>
+                <td>No of Vacancies</td>
+                <td><input type="number" th:field="*{vacancy}" required></td>
+            </tr>
+            <tr>
+                <td>Job Descriptions</td>
+                <td><textarea type="text" th:field="*{jobDescriptions}" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Job Type</td>
+                <td>
+                    <select th:field="*{jobType}">
+                        <option th:each="jt : ${jobTypeList}" th:value="${jt.id}">
+                            <span th:text="${jt.type}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Educational Requirements</td>
+                <td><input type="text" th:field="*{educationalRequirements}" required></td>
+            </tr>
+            <tr>
+                <td>Required Experiences</td>
+                <td><input type="text" th:field="*{experience}" required></td>
+            </tr>
+            <tr>
+                <td>Additional Requirements</td>
+                <td><input type="text" th:field="*{additionalRequirements}" required></td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td>
+                    <select th:field="*{cities}">
+                        <option th:each="ct : ${cityList}" th:value="${ct.id}">
+                            <span th:text="${ct.name}"></span>
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Remuneration</td>
+                <td><input type="number" th:field="*{salary}" required></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Post Job</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+
+</html>
+

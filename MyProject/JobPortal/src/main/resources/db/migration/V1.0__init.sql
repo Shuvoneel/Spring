@@ -1,4 +1,5 @@
 # Create ROLE table
+
 CREATE TABLE IF NOT EXISTS role (
                        id bigint(20) NOT NULL AUTO_INCREMENT,
                        role_name varchar(50) NOT NULL UNIQUE,
@@ -6,6 +7,7 @@ CREATE TABLE IF NOT EXISTS role (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # INSERT data into ROLE table
+
 INSERT INTO role (role_name) VALUES ('ADMIN');
 INSERT INTO role (role_name) VALUES ('USER');
 INSERT INTO role (role_name) VALUES ('EMPLOYER');
@@ -13,7 +15,56 @@ INSERT INTO role (role_name) VALUES ('DEVELOPER');
 
 # -----------------------------------------------------------------------------------------------------------
 
+# Create USER table
+
+CREATE TABLE IF NOT EXISTS user (
+									id          bigint(20) auto_increment primary key,
+									username    varchar(255) null,
+									first_name  varchar(255) null,
+									last_name   varchar(255) null,
+									father_name varchar(255) null,
+									mother_name varchar(255) null,
+									gender      varchar(255) null,
+									birth_date  date         null,
+									nid         varchar(255) null,
+									email       varchar(255) null,
+									mobile      varchar(255) null,
+									password    varchar(255) null,
+									photo       varchar(255) null
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# INSERT data into USER table
+
+INSERT INTO user (id, username, first_name, last_name, father_name, mother_name, gender, birth_date, nid, email, mobile, password, photo) VALUES (1, 'shuvo', 'Mehedi', 'Hasan', 'Ataur Rahman', 'Mouluda Akhtar', 'Male', '1990-11-20', '8524912147922', 'shuvo@gmail.com', '01717677451', '1234',  '/upload/Portrait-02.jpg');
+INSERT INTO user (id, username, first_name, last_name, father_name, mother_name, gender, birth_date, nid, email, mobile, password, photo) VALUES (2, 'sneho', 'Mainul', 'Hasan', 'Ataur Rahman', 'Mouluda Akhtar', 'Male', '1994-11-20', '8524912147921', 'sneho@gmail.com', '01918629865', '1234',  '/upload/Portrait-07.jpg');
+INSERT INTO user (id, username, first_name, last_name, father_name, mother_name, gender, birth_date, nid, email, mobile, password, photo) VALUES (3, 'neelima', 'Moriom', 'Begum', 'Hafizul Islam', 'Momotaj Begum', 'Female', '1980-12-18', '8524912147923', 'neelima@gmail.com', '01717545274', '1234',  '/upload/Convo-03.jpg');
+INSERT INTO user (id, username, first_name, last_name, father_name, mother_name, gender, birth_date, nid, email, mobile, password, photo) VALUES (4, 'shawon', 'Mahmudul', 'Hasan', 'Ataur Rahman', 'Mouluda Akhtar', 'Male', '1985-11-20', '8524912147920', 'shawon@gmail.com', '01521252064', '1234',  '/upload/Portrait-03.jpg');
+INSERT INTO user (id, username, first_name, last_name, father_name, mother_name, gender, birth_date, nid, email, mobile, password, photo) VALUES (5, 'olive', 'Suad', 'Rifat', 'Mahfuzur Rahman', 'Shahnaj Akhtar', 'Male', '1987-10-29', '8524912147924', 'olive@gmail.com', '01670768207', '1234',  '/upload/Portrait-05.jpg');
+INSERT INTO user (id, username, first_name, last_name, father_name, mother_name, gender, birth_date, nid, email, mobile, password, photo) VALUES (6, 'reemu', 'Farzana', 'Akter', 'Ahsanullah', 'Baby Naznin', 'Female', '1991-8-17', '8524912147925', 'reemu@gmail.com', '01922272993', '1234',  '/upload/IndGate-08.jpg');
+
+# -----------------------------------------------------------------------------------------------------------
+
+# Create USER_ROLE table
+
+CREATE TABLE IF NOT EXISTS user_role (
+										user_id bigint(20) not null,
+										role_id bigint(20) not null,
+										primary key (user_id, role_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# INSERT data into USER_ROLE table
+
+INSERT INTO user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO user_role (user_id, role_id) VALUES (2, 2);
+INSERT INTO user_role (user_id, role_id) VALUES (3, 2);
+INSERT INTO user_role (user_id, role_id) VALUES (4, 3);
+INSERT INTO user_role (user_id, role_id) VALUES (5, 3);
+INSERT INTO user_role (user_id, role_id) VALUES (6, 4);
+
+# -----------------------------------------------------------------------------------------------------------
+
 # Create DEGREE table
+
 CREATE TABLE IF NOT EXISTS degree (
                                        id bigint(20) NOT NULL AUTO_INCREMENT,
                                        name varchar(50) NOT NULL UNIQUE,
@@ -21,6 +72,7 @@ CREATE TABLE IF NOT EXISTS degree (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # INSERT data into DEGREE table
+
 INSERT INTO degree (name) VALUES ('SSC');
 INSERT INTO degree (name) VALUES ('HSC');
 INSERT INTO degree (name) VALUES ('Honors');
@@ -30,7 +82,47 @@ INSERT INTO degree (name) VALUES ('Diploma');
 
 # -----------------------------------------------------------------------------------------------------------
 
+# Create CATEGORY table for Company
+
+CREATE TABLE IF NOT EXISTS category (
+                                    id bigint(20) NOT NULL AUTO_INCREMENT,
+                                    name varchar(255) NOT NULL UNIQUE,
+                                    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# INSERT data into CATEGORY table
+
+INSERT INTO category (name) VALUES ('IT & Telecommunication');
+INSERT INTO category (name) VALUES ('Research & Development');
+INSERT INTO category (name) VALUES ('NGO');
+INSERT INTO category (name) VALUES ('Agro Business');
+INSERT INTO category (name) VALUES ('Software Company');
+INSERT INTO category (name) VALUES ('Bank/Financial Institution');
+INSERT INTO category (name) VALUES ('Media & Advertisement');
+INSERT INTO category (name) VALUES ('Law Farm');
+INSERT INTO category (name) VALUES ('Organisational Development');
+INSERT INTO category (name) VALUES ('Garments & Textiles');
+
+# -----------------------------------------------------------------------------------------------------------
+
+# Create JOB_TYPE table for Job Posting
+
+CREATE TABLE IF NOT EXISTS job_type (
+                                        id bigint(20) NOT NULL AUTO_INCREMENT,
+                                        type varchar(255) NOT NULL UNIQUE,
+                                        PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# INSERT data into JOB_TYPE table
+
+INSERT INTO job_type (type) VALUES ('Full-time');
+INSERT INTO job_type (type) VALUES ('Contractual');
+INSERT INTO job_type (type) VALUES ('Part-time');
+
+# -----------------------------------------------------------------------------------------------------------
+
 # Create COUNTRY table
+
 CREATE TABLE IF NOT EXISTS country (
                                     id bigint(20) NOT NULL AUTO_INCREMENT,
                                     name varchar(50) NOT NULL UNIQUE,
@@ -38,6 +130,7 @@ CREATE TABLE IF NOT EXISTS country (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # INSERT data into COUNTRY table
+
 INSERT INTO country (name) VALUES ('Argentina');
 INSERT INTO country (name) VALUES ('Bangladesh');
 INSERT INTO country (name) VALUES ('France');

@@ -1,9 +1,10 @@
 package com.dawntechbd.controller;
 
-import com.dawntechbd.entity.Role;
 import com.dawntechbd.entity.User;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +19,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Controller
-@RequestMapping(value = "/user/")
 public class UserController {
     @Autowired
-    private UserRepo repo;
+    private UserRepo userRepo;
     @Autowired
     private RoleRepo roleRepo;
     @Autowired
@@ -29,20 +29,12 @@ public class UserController {
     @Autowired
     private ReligionRepo religionRepo;
     @Autowired
-    private CountryRepo countryRepo;
-    @Autowired
-    private DivisionRepo divisionRepo;
-    @Autowired
-    private DistrictRepo districtRepo;
-    @Autowired
-    private CityRepo cityRepo;
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     private final String UPLOAD_FOLDER = "src/main/resources/static/upload/";
 
-    // User Add
-    @GetMapping(value = "add")
+    // Add USER
+    @GetMapping(value = "/user/add")
     public String userAdd(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("roleList", this.roleRepo.findAll());
@@ -51,7 +43,7 @@ public class UserController {
         return "users/add";
     }
 
-    @PostMapping(value = "add")
+    @PostMapping(value = "/user/add")
     public String userAdd(@Valid User user, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
 
         if (result.hasErrors()) {
@@ -66,8 +58,8 @@ public class UserController {
             Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            this.repo.save(user);
-            model.addAttribute("list", this.repo.findAll());
+            this.userRepo.save(user);
+            model.addAttribute("list", this.userRepo.findAll());
             model.addAttribute("user", new User());
             model.addAttribute("sucMsg", "User Saved !");
         } catch (IOException e) {
@@ -76,30 +68,30 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping(value = "list")
+    @GetMapping(value = "/user/list")
     public String userList(Model model) {
-        model.addAttribute("list", this.repo.findAll());
+        model.addAttribute("list", this.userRepo.findAll());
         return "users/list";
     }
 
     // USER Edit
-    @GetMapping(value = "edit/{id}")
+    @GetMapping(value = "/user/edit/{id}")
     public String userEdit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", this.repo.getOne(id));
+        model.addAttribute("user", this.userRepo.getOne(id));
         model.addAttribute("roleList", this.roleRepo.findAll());
         model.addAttribute("marriageList", this.marriageRepo.findAll());
         model.addAttribute("religionList", this.religionRepo.findAll());
         return "users/edit";
     }
 
-    @PostMapping(value = "edit/{id}")
+    @PostMapping(value = "/user/edit/{id}")
     public String userEdit(@Valid User user, @PathVariable("id") Long id, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
 
         if (result.hasErrors()) {
             return "users/edit";
         }
         try {
-            user.setPhoto("upload/" + file.getOriginalFilename());
+            user.setPhoto("/upload/" + file.getOriginalFilename());
             model.addAttribute("roleList", this.roleRepo.findAll());
             model.addAttribute("marriageList", this.marriageRepo.findAll());
             model.addAttribute("religionList", this.religionRepo.findAll());
@@ -107,9 +99,8 @@ public class UserController {
             Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            this.repo.save(user);
-            model.addAttribute("sucMsg", "Success !");
-            model.addAttribute("list", this.repo.findAll());
+            this.userRepo.save(user);
+            model.addAttribute("list", this.userRepo.findAll());
             model.addAttribute("user", new User());
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,11 +109,105 @@ public class UserController {
     }
 
     // DELETE User
-    @RequestMapping(value = "del/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/del/{id}", method = RequestMethod.GET)
     public String delUser(@PathVariable("id") Long id) {
-        this.repo.deleteById(id);
+        this.userRepo.deleteById(id);
         return "users/list";
 
     }
 
+    // Add EMPLOYER
+    @GetMapping(value = "/emp/add")
+    public String empAdd(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("roleList", this.roleRepo.findAll());
+        model.addAttribute("marriageList", this.marriageRepo.findAll());
+        model.addAttribute("religionList", this.religionRepo.findAll());
+        return "employers/add";
+    }
+
+    @PostMapping(value = "/emp/add")
+    public String empAdd(@Valid User user, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
+
+        if (result.hasErrors()) {
+            return "employers/add";
+        }
+        try {
+            user.setPhoto("/upload/" + file.getOriginalFilename());
+            model.addAttribute("roleList", this.roleRepo.findAll());
+            model.addAttribute("marriageList", this.marriageRepo.findAll());
+            model.addAttribute("religionList", this.religionRepo.findAll());
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
+            Files.write(path, bytes);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            this.userRepo.save(user);
+            model.addAttribute("list", this.userRepo.findAll());
+            model.addAttribute("user", new User());
+            model.addAttribute("sucMsg", "User Saved !");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "index";
+    }
+
+    @GetMapping(value = "/emp/list")
+    public String employerList(Model model) {
+        model.addAttribute("list", this.userRepo.findAll());
+        return "employers/list";
+    }
+
+
+    // EMPLOYER Edit
+    @GetMapping(value = "/emp/edit/{id}")
+    public String employerEdit(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("user", this.userRepo.getOne(id));
+        model.addAttribute("roleList", this.roleRepo.findAll());
+        model.addAttribute("marriageList", this.marriageRepo.findAll());
+        model.addAttribute("religionList", this.religionRepo.findAll());
+        return "employers/edit";
+    }
+
+    @PostMapping(value = "/emp/edit/{id}")
+    public String employerEdit(@Valid User user, @PathVariable("id") Long id, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
+
+        if (result.hasErrors()) {
+            return "employers/edit";
+        }
+        try {
+            user.setPhoto("/upload/" + file.getOriginalFilename());
+            model.addAttribute("roleList", this.roleRepo.findAll());
+            model.addAttribute("marriageList", this.marriageRepo.findAll());
+            model.addAttribute("religionList", this.religionRepo.findAll());
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
+            Files.write(path, bytes);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            this.userRepo.save(user);
+            model.addAttribute("list", this.userRepo.findAll());
+            model.addAttribute("user", new User());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/emp/list";
+    }
+
+
+    // USER List By ID
+    @GetMapping(value = "/user/list/{id}")
+    public String userListById(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        model.addAttribute("listById", this.userRepo.findByUsername(user.getUsername()));
+        return "users/listById";
+    }
+
+    // EMPLOYER List By ID
+    @GetMapping(value = "/emp/list/{id}")
+    public String empListById(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        model.addAttribute("listById", this.userRepo.findByUsername(user.getUsername()));
+        return "employers/listById";
+    }
 }

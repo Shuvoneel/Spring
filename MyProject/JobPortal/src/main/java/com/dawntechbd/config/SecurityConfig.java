@@ -59,13 +59,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/js/**",
                         "/upload/**",
                         "/vendors/**",
-                        "/", "/login", "/job/home", "/signup", "/user/add"
+                        "/", "/login", "/job/home", "/signup", "/user/add", "/emp/add"
                 ).permitAll()
                 .antMatchers(
-                        "/user/edit/{id}",
-                        "/edu/add", "/edu/list/{id}",
-                        "/address", "/addressList",
-                        "/app/add", "   /app/list",
+                        "/edu/add", "/edu/listById",
+                        "/address",
+                        "/app/add",
                         "/app/history", "/app/historyList",
                         "/app/training", "/app/trainingList",
                         "/skills/add", "/skills/list",
@@ -75,45 +74,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/rn/add", "/rn/list",
                         "/bg/add", "/bg/list",
                         "/dr/add", "/dr/list",
-                        "/cv/{id}",
-                        "/lan/add", "/lan/list",
-                        "/profile/applicant/{id}"
+                        "/lan/add", "/lan/listById"
                 ).hasAnyRole("USER")
                 .antMatchers(
-                        "/com/add", "/com/list",
-                        "/cv/{id}",
-                        "/job/post", "/job/postList",
-                        "/job/add", "/job/list",
-                        "/profile/applicant"
+                        "/app/listByComId", "/job/listById",
+                        "/com/add", "/com/listById",
+                        "/job/post", "/job/postList/{id}"
                 ).hasAnyRole("EMPLOYER")
                 .antMatchers(
-
-                        "/user/list", "/user/edit/{id}", "/user/del/{id}",
-                        "/role/add", "/role/list", "/role/edit/{id}", "/role/del/{id}",
-                        "/edu/list",
+                        "/emp/list", "/emp/del/{id}",
+                        "/role/**",
                         "/ctr/add", "/ctr/list",
                         "/div/add", "/div/list",
                         "/dist/add", "/dist/list",
                         "/city/add", "/city/list",
-                        "/address", "/addressList",
                         "/app/list",
-                        "/app/historyList",
-                        "/app/trainingList",
-                        "/skills/list",
-                        "/app/exList",
-                        "/app/refList",
-                        "/ms/list",
-                        "/rn/list",
-                        "/bg/list",
-                        "/dr/add", "/dr/list",
                         "/cat/add", "/cat/list",
-                        "/com/list",
-                        "/cv/{id}",
-                        "/job/postList",
-                        "/job/add", "/job/list",
-                        "/lan/list",
-                        "/profile/applicant", "/profile/applicant/{id}"
-                ).hasAnyRole("ADMIN", "DEVELOPER")
+                        "/job/add", "/job/list", "/job/postList"
+                ).hasAnyRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()

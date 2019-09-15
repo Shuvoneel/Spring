@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+<div layout:fragment="cus-content">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-success">Choose a link to create your account.</h2>
+                    <a th:href="@{/user/add}">User</a>
+                    or
+                    <a th:href="@{/user/add}">Employer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

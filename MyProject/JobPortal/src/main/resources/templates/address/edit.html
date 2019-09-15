@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Address</title>
+
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h2>Add Address</h2>
+    <form th:object="${address}" th:action="@{/address/edit/} + ${id}" th:method="post">
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Address Type</label>
+                <input type="text" required th:field="*{addressType}">
+            </div>
+            <div class="col-md-6">
+                <label>Village</label>
+                <input type="text" required th:field="*{village}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Select City</label>
+                <select th:field="*{city}">
+                    <option th:each="c : ${cityList}" th:value="${c.id}">
+                        <span th:text="${c.name}"></span>
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label>Postcode</label>
+                <input type="number" required th:field="*{postcode}">
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit">Update</button>
+        </div>
+
+    </form>
+</div>
+
+
+</body>
+
+</html>
+

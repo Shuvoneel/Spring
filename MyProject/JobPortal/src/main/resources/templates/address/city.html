@@ -12,7 +12,6 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Add City..........!</h2>
-    <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${city}" th:action="@{/city/add}" th:method="post">
         <label>Select A District: </label>
         <select th:field="*{district}">

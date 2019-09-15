@@ -1,11 +1,15 @@
 package com.dawntechbd.repo;
 
+import com.dawntechbd.entity.User;
 import com.dawntechbd.entity.academicDetails.AcademicDetails;
 import com.dawntechbd.entity.jobPosting.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CompanyRepo extends JpaRepository<Company, Long> {
-
+    List<Company> findAllByUser(User user);
+    Company findByUser(User user);
 }

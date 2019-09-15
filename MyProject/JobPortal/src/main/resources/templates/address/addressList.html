@@ -24,7 +24,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header-panel">
-                    <h1>Address Details of the Users</h1>
+                    <h1>Address Details</h1>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -38,9 +38,9 @@
                             <tr th:each="ad : ${list}">
                                 <td th:text="${ad.addressType}"></td>
                                 <td>
-                <span th:each="c : ${ad.city.name}">
-                    <span th:text="${c}"></span>
-                </span>
+                                    <span th:each="c : ${ad.city.name}">
+                                        <span th:text="${c}"></span>
+                                    </span>
                                 </td>
                                 <td th:text="${ad.village}"></td>
                                 <td th:text="${ad.postcode}"></td>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Company</title>
+    <style>
+        .table {
+            text-align: center;
+        }
+
+        th {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <section class="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header-panel">
+                    <h1>Your Company Details</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Company Name</th>
+                                <th>Company Address</th>
+                                <th>Category</th>
+                                <th>Year of Establishment</th>
+                                <th>Trade License</th>
+                                <th>Contact Person Name</th>
+                                <th>Contact Person Designation</th>
+                                <th>Contact Person Mobile</th>
+                                <th>Contact Person Email</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+
+                            <tr th:each="cmp : ${listById}">
+                                
+                                <td th:text="${cmp.companyName}"></td>
+                                <td th:text="${cmp.address}"></td>
+                                <td>
+                <span th:each="cr : ${cmp.categories}">
+                    <span th:text="${cr.name}"></span>
+                </span>
+                                </td>
+                                <td th:text="${cmp.establishment}"></td>
+                                <td th:text="${cmp.tradeLicense}"></td>
+                                <td th:text="${cmp.cpName}"></td>
+                                <td th:text="${cmp.cpDesignation}"></td>
+                                <td th:text="${cmp.cpMobile}"></td>
+                                <td th:text="${cmp.cpEmail}"></td>
+                                <td><a th:href="@{'/com/edit/'+ ${cmp.id}}">Update</a></td>
+                                <td><a th:href="@{'/com/del/'+ ${cmp.id}}">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td><a th:href="@{/com/add}">Add More</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>
+

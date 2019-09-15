@@ -12,9 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -29,7 +27,7 @@ public class AcademicController {
     @Autowired
     private UserRepo userRepo;
 
-    // Academic Details
+    // ADD Education
     @GetMapping(value = "/edu/add")
     public String addEducation(Model model) {
         model.addAttribute("education", new AcademicDetails());
@@ -48,7 +46,7 @@ public class AcademicController {
         model.addAttribute("education", new AcademicDetails());
         model.addAttribute("list", this.academicRepo.findAll());
         model.addAttribute("sucMsg", "Added Successfully !");
-        return "education/list";
+        return "redirect:/edu/listById";
     }
 
     @GetMapping(value = "/edu/list")
@@ -58,12 +56,39 @@ public class AcademicController {
     }
 
     // Lists By ID
-    @GetMapping(value = "/edu/list/{id}")
+    @GetMapping(value = "/edu/listById")
     public String listById( Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = this.userRepo.findByUsername(auth.getName());
         model.addAttribute("listById", this.academicRepo.findAllByUser(user));
         return "education/listById";
+    }
+
+    // EDIT Education
+    @GetMapping(value = "/edu/edit/{id}")
+    public String editEducation(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("education", this.academicRepo.getOne(id));
+        model.addAttribute("degreeList", this.degreeRepo.findAll());
+        return "education/edit";
+    }
+
+    @PostMapping(value = "/edu/edit/{id}")
+    public String editEducation(@Valid AcademicDetails education, BindingResult bindingResult, Model model, @PathVariable("id") Long id) throws IOException {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepo.findByUsername(auth.getName());
+        education.setUser(user);
+        this.academicRepo.save(education);
+        model.addAttribute("education", new AcademicDetails());
+        model.addAttribute("list", this.academicRepo.findAll());
+        return "redirect:/edu/listById";
+    }
+
+    // DELETE Education
+    @RequestMapping(value = "/edu/del/{id}", method = RequestMethod.GET)
+    public String delEducation(@PathVariable("id") Long id){
+        this.academicRepo.deleteById(id);
+
+        return "redirect:/edu/listById";
     }
 
     //Degree

@@ -11,16 +11,13 @@
 <body>
 <div class="content-wrapper" layout:fragment="custom-content">
     <h2>Add Extracurricular Activities..........!</h2>
-    <span th:text="${sucMsg}" style="color: green"></span>
     <form th:object="${extraActivity}" th:action="@{/app/addEx}" th:method="post">
         <table class="table-hover">
 
             <tr>
-                <td>Extracurricular Activities</td>
                 <td><textarea th:field="*{name}"></textarea></td>
             </tr>
             <tr>
-                <td></td>
                 <td>
                     <button type="submit">Add Activity</button>
                 </td>
