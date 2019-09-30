@@ -56,16 +56,5 @@ public class HomeController {
         return "accessDenied";
     }
 
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String signup() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
-            /* The user is logged in :) */
-            return "redirect:/";
-        }
-        return "signup";
-    }
-
 
 }

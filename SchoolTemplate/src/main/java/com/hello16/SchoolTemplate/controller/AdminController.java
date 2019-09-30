@@ -4,7 +4,6 @@ package com.hello16.SchoolTemplate.controller;
 import com.hello16.SchoolTemplate.entity.Admin;
 import com.hello16.SchoolTemplate.entity.User;
 import com.hello16.SchoolTemplate.repo.AdminRepo;
-import com.hello16.SchoolTemplate.repo.RoleRepo;
 import com.hello16.SchoolTemplate.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -23,8 +22,6 @@ import java.nio.file.Paths;
 
 @Controller
 public class AdminController {
-    @Autowired
-    private RoleRepo roleRepo;
     @Autowired
     private UserRepo userRepo;
     @Autowired
@@ -56,7 +53,7 @@ public class AdminController {
             model.addAttribute("admin", new Admin());
             model.addAttribute("list", this.adminRepo.findAll());
         }
-        return "redirect:/adm/list/{id}";
+        return "redirect:/adm/listById";
     }
 
     // Admin List
@@ -68,7 +65,7 @@ public class AdminController {
     }
 
     // Admin ListById
-    @GetMapping(value = "/adm/list/{id}")
+    @GetMapping(value = "/adm/listById")
     public String adminListById(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = this.userRepo.findByUsername(auth.getName());
@@ -99,13 +96,13 @@ public class AdminController {
             model.addAttribute("admin", new Admin());
             model.addAttribute("list", this.adminRepo.findAll());
         }
-        return "redirect:/adm/list/{id}";
+        return "redirect:/adm/listById";
     }
 
     // DELETE Admin
     @RequestMapping(value = "/adm/del/{id}", method = RequestMethod.GET)
     public String adminDelete(@PathVariable("id") Long id) {
-        this.userRepo.deleteById(id);
-        return "admins/list";
+        this.adminRepo.deleteById(id);
+        return "admins/listById";
     }
 }

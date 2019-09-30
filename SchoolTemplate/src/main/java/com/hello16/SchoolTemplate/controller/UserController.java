@@ -54,7 +54,7 @@ public class UserController {
     }
 
     // User ListById
-    @GetMapping(value = "/user/list/{id}")
+    @GetMapping(value = "/user/listById")
     public String userListById(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = this.userRepo.findByUsername(auth.getName());

@@ -4,7 +4,7 @@
       layout:decorate="~{layout.html}">
 
 <head>
-    <title>Teacher</title>
+    <title>Student</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
                 <div class="col-md-12">
                     <div class="card card-plain">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title mt-0">Your Details</h4>
+                            <h4 class="card-title mt-0">List of Students</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -23,29 +23,35 @@
                                     <tr>
                                         <th>Username</th>
                                         <th>Fullname</th>
+                                        <th>Father Name</th>
+                                        <th>Mother Name</th>
+                                        <th>Gender</th>
+                                        <th>Class</th>
+                                        <th>Roll</th>
                                         <th>Email</th>
                                         <th>Mobile</th>
-                                        <th>Assigned Classes</th>
-                                        <th>Gender</th>
                                         <th>Photo</th>
                                         <th>Action</th>
                                     </tr>
 
 
-                                    <tr th:each="tr : ${listById}">
+                                    <tr th:each="st : ${list}">
                                         <td>
-                                            <span th:each="ur : ${tr?.user?.username}">
+                                            <span th:each="ur : ${st?.user?.username}">
                                                 <span th:text="${ur}"></span>
                                             </span>
                                         </td>
-                                        <td th:text="${tr.fullName}"></td>
-                                        <td th:text="${tr.email}"></td>
-                                        <td th:text="${tr.mobile}"></td>
-                                        <td th:text="${tr.assignedClass}"></td>
-                                        <td th:text="${tr.gender}"></td>
-                                        <td><img th:src="@{${tr.photo}}" width="100" height="100"/></td>
+                                        <td th:text="${st.fullName}"></td>
+                                        <td th:text="${st.fatherName}"></td>
+                                        <td th:text="${st.motherName}"></td>
+                                        <td th:text="${st.gender}"></td>
+                                        <td th:text="${st.className}"></td>
+                                        <td th:text="${st.roll}"></td>
+                                        <td th:text="${st.email}"></td>
+                                        <td th:text="${st.mobile}"></td>
+                                        <td><img th:src="@{${st.photo}}" width="100" height="100"/></td>
                                         <td>
-                                            <span><a th:href="@{'/tea/edit/' + ${tr.id}}">Update</a></span>
+                                            <span><a th:href="@{'/tea/edit/' + ${st.id}}">Update</a></span>
                                         </td>
                                     </tr>
 

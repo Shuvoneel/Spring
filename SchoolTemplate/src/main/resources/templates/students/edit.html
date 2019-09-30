@@ -4,7 +4,7 @@
       layout:decorate="~{layout.html}">
 
 <head>
-    <title>Admin</title>
+    <title>Student</title>
 </head>
 
 <body>
@@ -15,11 +15,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title">Admin's Profile</h4>
-                            <p class="card-category">Update Admin Information</p>
+                            <h4 class="card-title">Student's Profile</h4>
+                            <p class="card-category">Update Student Information</p>
                         </div>
                         <div class="card-body">
-                            <form th:object="${admin}" th:action="@{/adm/edit/}+${id}" th:method="POST"
+                            <form th:object="${student}" th:action="@{/std/edit/}+${id}" th:method="POST"
                                   enctype="multipart/form-data">
 
                                 <div class="row">
@@ -33,20 +33,19 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Email</label>
-                                            <input type="text" class="form-control" th:field="*{email}">
+                                            <label class="bmd-label-floating">Father Name</label>
+                                            <input type="text" class="form-control" th:field="*{fatherName}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Mobile</label>
-                                            <input type="text" class="form-control" th:field="*{mobile}">
+                                            <label class="bmd-label-floating">Mother Name</label>
+                                            <input type="text" class="form-control" th:field="*{motherName}">
                                         </div>
                                     </div>
 
                                 </div>
-
 
                                 <div class="row">
 
@@ -58,15 +57,47 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-control">
-                                            <labe style="padding-right: 15px; padding-bottom: 5px; font-size: 15px">Upload Photo</labe>
-                                            <input type="file" name="file">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Class</label>
+                                            <input type="text" class="form-control" th:field="*{className}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Roll</label>
+                                            <input type="text" class="form-control" th:field="*{roll}">
                                         </div>
                                     </div>
 
                                 </div>
 
+                                <div class="row">
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Email</label>
+                                            <input type="text" class="form-control" th:field="*{email}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Mobile</label>
+                                            <input type="text" class="form-control" th:field="*{mobile}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-control">
+                                            <label style="padding-right: 15px; padding-bottom: 5px; font-size: 15px">Upload
+                                                Photo</label>
+                                            <input type="file" name="file">
+                                        </div>
+                                    </div>
+
+                                </div>
                                 <button type="submit" class="btn btn-primary pull-right">Update</button>
                                 <div class="clearfix"></div>
                             </form>

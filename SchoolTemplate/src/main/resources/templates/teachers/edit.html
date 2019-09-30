@@ -4,7 +4,7 @@
       layout:decorate="~{layout.html}">
 
 <head>
-    <title>Admin</title>
+    <title>Teacher</title>
 </head>
 
 <body>
@@ -15,11 +15,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title">Admin's Profile</h4>
-                            <p class="card-category">Update Admin Information</p>
+                            <h4 class="card-title">Teacher's Profile</h4>
+                            <p class="card-category">Update Teacher's Information</p>
                         </div>
                         <div class="card-body">
-                            <form th:object="${admin}" th:action="@{/adm/edit/}+${id}" th:method="POST"
+                            <form th:object="${teacher}" th:action="@{/tea/edit/}+${id}" th:method="POST"
                                   enctype="multipart/form-data">
 
                                 <div class="row">
@@ -47,10 +47,9 @@
 
                                 </div>
 
-
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-control">
                                             <label style="padding-right: 15px; padding-bottom: 5px; font-size: 15px">Gender</label>
                                             <input type="radio" th:field="*{gender}" th:value="Male">Male
@@ -58,16 +57,27 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-3">
+                                        <div class="form-control">
+                                            <label style="padding-right: 15px; padding-bottom: 5px; font-size: 15px">Assigned
+                                                Classes</label>
+                                            <select th:field="*{assignedClass}">
+                                                <option th:each="cl : ${#numbers.sequence(1, 10)}" th:value="${cl}"
+                                                        th:text="${cl}"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-6">
                                         <div class="form-control">
-                                            <labe style="padding-right: 15px; padding-bottom: 5px; font-size: 15px">Upload Photo</labe>
+                                            <label style="padding-right: 15px; padding-bottom: 5px; font-size: 15px">Upload
+                                                Photo</label>
                                             <input type="file" name="file">
                                         </div>
                                     </div>
 
                                 </div>
-
-                                <button type="submit" class="btn btn-primary pull-right">Update Info</button>
+                                <button type="submit" class="btn btn-primary pull-right">Update</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>

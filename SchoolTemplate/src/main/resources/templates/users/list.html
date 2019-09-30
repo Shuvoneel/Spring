@@ -4,7 +4,7 @@
       layout:decorate="~{layout.html}">
 
 <head>
-    <title>Table</title>
+    <title>User</title>
 </head>
 
 <body>
@@ -20,6 +20,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-hover text-center">
+
                                     <tr>
                                         <th>ID</th>
                                         <th>Username</th>
@@ -27,22 +28,20 @@
                                         <th>Action</th>
                                     </tr>
 
-
                                     <tr th:each="ur : ${list}">
                                         <td th:text="${ur.id}"></td>
                                         <td th:text="${ur.username}"></td>
                                         <td><span th:each="role : ${ur.roles}" th:text="${role.roleName}"></span></td>
-                                        <td>
-                                            <span><a th:href="@{'/user/edit/' + ${ur.id}}">Update or </a></span>
-                                            <span><a th:href="@{'/user/del/' + ${ur.id}}">Delete</a></span>
-                                        </td>
+                                        <td><a th:href="@{'/user/edit/' + ${ur.id}}">Update</a></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="7"><button type="submit" class="btn btn-info"><a th:href="@{/user/add}">Add More</a></button></td>
+                                        <td colspan="7">
+                                            <button type="submit" class="btn btn-info"><a th:href="@{/user/add}">Add
+                                                More</a></button>
+                                        </td>
                                     </tr>
 
                                 </table>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -50,6 +49,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </body>
 

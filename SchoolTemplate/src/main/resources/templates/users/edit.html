@@ -24,28 +24,17 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Username</label>
                                             <input type="text" class="form-control" th:field="*{username}">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Password</label>
                                             <input type="text" class="form-control" th:field="*{password}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-control">
-                                            <label style="padding-right: 20px; font-size: 15px">Assign Role</label>
-                                            <select th:field="*{roles}">
-                                                <option th:each="role : ${roleList}" th:value="${role.id}">
-                                                    <span th:text="${role.roleName}"></span>
-                                                </option>
-                                            </select>
                                         </div>
                                     </div>
 

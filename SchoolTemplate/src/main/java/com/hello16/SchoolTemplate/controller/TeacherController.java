@@ -1,11 +1,8 @@
 package com.hello16.SchoolTemplate.controller;
 
 
-import com.hello16.SchoolTemplate.entity.Admin;
 import com.hello16.SchoolTemplate.entity.Teacher;
 import com.hello16.SchoolTemplate.entity.User;
-import com.hello16.SchoolTemplate.repo.AdminRepo;
-import com.hello16.SchoolTemplate.repo.RoleRepo;
 import com.hello16.SchoolTemplate.repo.TeacherRepo;
 import com.hello16.SchoolTemplate.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +22,7 @@ import java.nio.file.Paths;
 
 @Controller
 public class TeacherController {
-    @Autowired
-    private RoleRepo roleRepo;
+
     @Autowired
     private UserRepo userRepo;
     @Autowired
@@ -42,72 +38,72 @@ public class TeacherController {
         return "teachers/add";
     }
 
-    @PostMapping(value = "/adm/add")
-    public String addAdmin(@Valid Admin admin, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
+    @PostMapping(value = "/tea/add")
+    public String addTeacher(@Valid Teacher teacher, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         if (result.hasErrors()) {
-            return "admins/add";
+            return "teachers/add";
         } else {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User user = this.userRepo.findByUsername(auth.getName());
-            admin.setUser(user);
-            admin.setPhoto("/upload/" + file.getOriginalFilename());
+            teacher.setUser(user);
+            teacher.setPhoto("/upload/" + file.getOriginalFilename());
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
-            this.adminRepo.save(admin);
-            model.addAttribute("admin", new Admin());
-            model.addAttribute("list", this.adminRepo.findAll());
+            this.teacherRepo.save(teacher);
+            model.addAttribute("teacher", new Teacher());
+            model.addAttribute("list", this.teacherRepo.findAll());
         }
-        return "redirect:/adm/list/{id}";
+        return "redirect:/tea/listById";
     }
 
-    // Admin List
-    @GetMapping(value = "/adm/list")
-    public String adminList(Model model) {
-        model.addAttribute("list", this.adminRepo.findAll());
+    // Teacher List
+    @GetMapping(value = "/tea/list")
+    public String teacherList(Model model) {
+        model.addAttribute("list", this.teacherRepo.findAll());
 
-        return "admins/list";
+        return "teachers/list";
     }
 
-    // Admin ListById
-    @GetMapping(value = "/adm/list/{id}")
-    public String adminListById(Model model) {
+    // Teacher ListById
+    @GetMapping(value = "/tea/listById")
+    public String teacherListById(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = this.userRepo.findByUsername(auth.getName());
-        model.addAttribute("listById", this.adminRepo.findByUser(user));
-        return "admins/listById";
+        model.addAttribute("listById", this.teacherRepo.findByUser(user));
+        return "teachers/listById";
     }
 
-    // EDIT Admin
-    @GetMapping(value = "/adm/edit/{id}")
-    public String adminEdit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("admin", this.adminRepo.getOne(id));
-        return "admins/edit";
+    // EDIT Teacher
+    @GetMapping(value = "/tea/edit/{id}")
+    public String teacherEdit(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("teacher", this.teacherRepo.getOne(id));
+        return "teachers/edit";
     }
 
-    @PostMapping(value = "/adm/edit/{id}")
-    public String adminEdit(@Valid Admin admin, BindingResult result, @PathVariable("id") Long id, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
+    @PostMapping(value = "/tea/edit/{id}")
+    public String teacherEdit(@Valid Teacher teacher, BindingResult result, @PathVariable("id") Long id, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         if (result.hasErrors()) {
-            return "adm/edit";
+            return "teachers/edit";
         } else {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User user = this.userRepo.findByUsername(auth.getName());
-            admin.setUser(user);
-            admin.setPhoto("/upload/" + file.getOriginalFilename());
+            teacher.setUser(user);
+            teacher.setPhoto("/upload/" + file.getOriginalFilename());
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
-            this.adminRepo.save(admin);
-            model.addAttribute("admin", new Admin());
-            model.addAttribute("list", this.adminRepo.findAll());
+            this.teacherRepo.save(teacher);
+            model.addAttribute("teacher", new Teacher());
+            model.addAttribute("list", this.teacherRepo.findAll());
         }
-        return "redirect:/adm/list/{id}";
+        return "redirect:/tea/listById";
     }
 
-    // DELETE Admin
-    @RequestMapping(value = "/adm/del/{id}", method = RequestMethod.GET)
-    public String adminDelete(@PathVariable("id") Long id) {
-        this.userRepo.deleteById(id);
-        return "admins/list";
+    // DELETE Teacher
+    @RequestMapping(value = "/tea/del/{id}", method = RequestMethod.GET)
+    public String teacherDelete(@PathVariable("id") Long id) {
+        this.teacherRepo.deleteById(id);
+        return "teachers/listById";
     }
 }
