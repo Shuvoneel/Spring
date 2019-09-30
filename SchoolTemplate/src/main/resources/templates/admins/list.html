@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <title>Admin</title>
+</head>
+
+<body>
+<div layout:fragment="cus-content">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title mt-0">List of Admins</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover text-center">
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Fullname</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th>Gender</th>
+                                        <th>Photo</th>
+                                        <th>Action</th>
+                                    </tr>
+
+
+                                    <tr th:each="ad : ${list}">
+                                        <td>
+                                            <span th:each="ur : ${ad?.user?.username}">
+                                                <span th:text="${ur}"></span>
+                                            </span>
+                                        </td>
+                                        <td th:text="${ad.fullName}"></td>
+                                        <td th:text="${ad.email}"></td>
+                                        <td th:text="${ad.mobile}"></td>
+                                        <td th:text="${ad.gender}"></td>
+                                        <td><img th:src="@{${ad.photo}}" width="100" height="100"/></td>
+                                        <td>
+                                            <span><a th:href="@{'/adm/edit/' + ${ad.id}}">Update</a></span>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

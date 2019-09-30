@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" th:href="@{/img/ms-icon-310x310.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/all.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
+
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}"></script>
+    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("topNavbar").style.top = "0";
+                document.getElementById("leftNavBar").style.top = "65px";
+            } else {
+                document.getElementById("topNavbar").style.top = "-70px";
+                document.getElementById("leftNavBar").style.top = "0px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+</head>
+
+<body>
+<div id="demo" class="slider carousel slide" data-ride="carousel" data-interval="5000">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img th:src="@{/img/slider_1.jpg}" alt="Los Angeles" width="100%" height="100%">
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/img/slider_2.jpg}" alt="Chicago" width="100%" height="100%">
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/img/slider_3.jpg}" alt="Chicago" width="100%" height="100%">
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/img/slider_4.jpg}" alt="Chicago" width="100%" height="100%">
+        </div>
+        <div class="carousel-item">
+            <img th:src="@{/img/slider_5.jpg}" alt="Chicago" width="100%" height="100%">
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+
+    <div class="mainBody">
+        <div  th:replace="~{fragments/header.html :: topnav}">
+
+        </div>
+
+        <div class="row" style="margin-top:65px">
+            <div th:replace="~{fragments/leftNavBar.html :: leftNav}">
+
+            </div>
+
+            <div layout:fragment="custom-content">
+
+            </div>
+        </div>
+
+        <div th:replace="~{fragments/footer.html :: footer}">
+
+        </div>
+    </div>
+
+
+</div>
+
+<!--js files will be loaded here-->
+
+
+</body>
+
+
+</html>
+

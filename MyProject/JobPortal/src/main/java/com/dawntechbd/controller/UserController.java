@@ -1,8 +1,10 @@
 package com.dawntechbd.controller;
 
+import com.dawntechbd.entity.Role;
 import com.dawntechbd.entity.User;
 import com.dawntechbd.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +19,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -44,7 +47,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/user/add")
-    public String userAdd(@Valid User user, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
+    public String userAdd(@Valid User user, ContextRefreshedEvent event, BindingResult result, Model model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
 
         if (result.hasErrors()) {
             return "users/add";

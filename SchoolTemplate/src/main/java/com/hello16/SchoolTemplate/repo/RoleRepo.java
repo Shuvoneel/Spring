@@ -1,10 +1,8 @@
-package com.dawntechbd.repo;
+package com.hello16.SchoolTemplate.repo;
 
-import com.dawntechbd.entity.Role;
+import com.hello16.SchoolTemplate.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
 
 @Repository
 public interface RoleRepo extends JpaRepository<Role, Long> {

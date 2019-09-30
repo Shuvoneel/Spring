@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar</title>
+</head>
+<body>
+<div th:fragment="sidebar" class="sidebar" data-color="purple" data-background-color="black"
+     data-image="/images/sidebar-2.jpg">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+    <div class="logo"><a href="https://www.facebook.com/hellodhaka16" class="simple-text logo-normal">
+        HelloDhaka16
+    </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/dash}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#role" aria-expanded="false" aria-controls="person">
+                    <i class="material-icons">person</i>
+                    <span class="menu-title">Roles</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="role">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/role/add}">Add Role</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/role/list}">Role List</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#test" aria-expanded="false" aria-controls="person">
+                    <i class="material-icons">person</i>
+                    <span class="menu-title">Test Menu</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="test">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/user/add}">Add User</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/user/list}">User's List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/adm/add}">Add Admin</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/adm/list/{id}}">Admin Details</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <title>Table</title>
+</head>
+
+<body>
+<div layout:fragment="cus-content">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title mt-0">List of Users</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover text-center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Username</th>
+                                        <th>Role</th>
+                                        <th>Action</th>
+                                    </tr>
+
+
+                                    <tr th:each="ur : ${list}">
+                                        <td th:text="${ur.id}"></td>
+                                        <td th:text="${ur.username}"></td>
+                                        <td><span th:each="role : ${ur.roles}" th:text="${role.roleName}"></span></td>
+                                        <td>
+                                            <span><a th:href="@{'/user/edit/' + ${ur.id}}">Update or </a></span>
+                                            <span><a th:href="@{'/user/del/' + ${ur.id}}">Delete</a></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7"><button type="submit" class="btn btn-info"><a th:href="@{/user/add}">Add More</a></button></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

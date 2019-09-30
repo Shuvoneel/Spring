@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9c174081-90d8-4908-bdf4-4f6884bd529a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/dao/DBFileRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/dao/PostRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/dao/TagRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/entity/DBFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/entity/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/entity/Img.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/entity/Para.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/entity/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/entity/Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/entity/Vdo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/service/NewsPaperService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/service/PostService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/service/TagService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/ExecutionPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/amadersomoy/AmaderSomoy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/banglatribune/BanglaTribune.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/bdNews24/BdNews24.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/bdProtidin/BdProtidinServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/inqilab/InqilabServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/ittefaq/IttefaqServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/jugantor/JugantorServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/kalerKontho/KalerKontho.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/nayaDiganta/NayaDiganta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/prothomalo/ProthomAloServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/serviceImp/somokal/SomoKalServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/java/com/shuvoneel/NewsHack/util/UtilityClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/css/all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/css/fontawesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/css/fontawesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_Samakal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_amader_shomoy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_bangla_tribune.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_bd_pratidin.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_bdnews24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_inquilab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_ittefaq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_jugantor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_kaler_kontho.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_naya_diganta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/logo_prothom_alo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/ms-icon-310x310.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/newsHubLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/slider_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/slider_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/slider_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/slider_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/img/slider_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/static/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/catWise.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/fragments/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/fragments/leftNavBar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/fragments/leftNavBarForSingleCat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/layoutForCatWise.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/newsOfSingleCat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewsHack/src/main/resources/templates/post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RandomUpLowNum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RandomWithCharset.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RandomWithMath.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RandomWithRegExp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/config/CustomUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/config/LoggingAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/entity/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/entity/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/entity/Teacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/repo/AdminRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/repo/UserRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/static/upload/BookFair-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/admins/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/admins/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/admins/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/roles/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/roles/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/roles/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/users/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/users/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/CurrentUserAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/config/CurrentUserAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/AcademicController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/AddressController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/ApplicantController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/CVController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/ChainRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/ComCategoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/CompanyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/JobController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/LanguageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/ProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/java/com/hello16/SchoolTemplate/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/dto/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/academicDetails/AcademicDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/academicDetails/Degree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/applicantDetails/Applicant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/applicantDetails/BloodGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/applicantDetails/MaritalStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/applicantDetails/Religion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/applicantStatus/ApplicantStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/jobHistory/JobHistory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/jobPosting/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/jobPosting/Company.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/jobPosting/JobPosting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/jobPosting/JobType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/languageDetails/LanguageDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/professionalTrainings/ProfessionalTrainings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/references/Reference.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/skills/Extracurricular.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/entity/skills/Technical.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/AcademicRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/ApplicantRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/BloodRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/ComCategoryRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/CompanyRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/DegreeRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/ExtracurricularRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/JobHistoryRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/JobPostingRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/JobTypeRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/LanguageRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/MarriageRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/ProTrainingsRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/ReferenceRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/ReligionRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/DarkTemplate/repo/TechnicalRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/SchoolTemplateApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/config/CustomAuthenticationFailureHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/config/CustomUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/config/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/config/LoggingAccessDeniedHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/entity/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/entity/addressDetails/AddressDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/entity/addressDetails/City.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/entity/addressDetails/Country.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/entity/addressDetails/District.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/entity/addressDetails/Division.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/repo/AddressRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/repo/CityRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/repo/CountryRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/repo/DistrictRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/repo/DivisionRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/repo/RoleRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/java/com/hello16/SchoolTemplate/repo/UserRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/db/migration/V1.0__init.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/css/all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/css/material-dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/css/material-dashboard.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/apple-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/cover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/faces/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/faces/card-profile1-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/faces/card-profile2-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/faces/marc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/image-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/image-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/new_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/sidebar-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/sidebar-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/sidebar-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/img/sidebar-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/core/bootstrap-material-design.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/core/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/core/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/material-dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/material-dashboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/plugins/bootstrap-notify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/plugins/chartist.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/js/plugins/perfect-scrollbar.jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/BookFair-02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Convo-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Cox_sB-01.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Cox_sB-15.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Cox_sB-17.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Cox_sB-22.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Cox_sB-25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/IndGate-03.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/IndGate-08.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/IndGate-09.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/IndGate-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Matarbari-01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/PP.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/static/upload/Portrait-05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/accessDenied.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/fragments/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/fragments/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/fragments/sidebar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/roles/add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/roles/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/table.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/users/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../SchoolTemplate/src/main/resources/templates/users/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/main/resources/templates/users/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DarkTemplate/src/test/java/com/hello16/SchoolTemplate/SchoolTemplateApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyProject/JobPortal/src/main/java/com/dawntechbd/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyProject/JobPortal/src/main/java/com/dawntechbd/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyProject/JobPortal/src/main/java/com/dawntechbd/repo/RoleRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyProject/JobPortal/src/main/java/com/dawntechbd/repo/RoleRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../schoolDemo/src/main/resources/templates/roles/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../schoolDemo/src/main/resources/templates/user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../schoolDemo/src/main/resources/templates/users/add.html" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/RandomString.java" />
+        <option value="$PROJECT_DIR$/src/RandomUpLowNum.java" />
+        <option value="$PROJECT_DIR$/src/RandomWithCharset.java" />
+        <option value="$PROJECT_DIR$/src/RandomWithMath.java" />
+        <option value="$PROJECT_DIR$/src/RandomWithRegExp.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="RandomNumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RandomNumber" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="RandomWithMath" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RandomWithMath" />
+      <module name="RandomNumber" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RandomWithMath" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c174081-90d8-4908-bdf4-4f6884bd529a" name="Default Changelist" comment="" />
+      <created>1569825290981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569825290981</updated>
+      <workItem from="1569825300523" duration="1604000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1604000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43207857" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/RandomWithMath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RandomWithRegExp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RandomWithCharset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RandomUpLowNum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

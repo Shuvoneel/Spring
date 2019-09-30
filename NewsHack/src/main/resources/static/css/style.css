@@ -1,0 +1,328 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 25, 2019, 2:43:51 AM
+    Author     : HP
+*/
+#topNavbar{
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    transition: top 0.3s;
+    width: 69.7%;
+}
+
+#leftNavBar {
+    transition: top 0.8s;
+}
+html{
+    scroll-padding-top: 60px;
+    scroll-behavior: smooth;
+}
+body{
+    background: #F5F5F6;
+    /*background:url('../img/bg.jpeg') fixed;*/
+    background-size: cover;
+    padding-top: 13px;
+    margin-top: -13px;
+}
+
+
+
+a:hover {
+    text-decoration: none;
+}
+
+.ftrImg{
+    border-radius: 4px;
+}
+.custom-card-body{
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.catName{
+    background: white;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+.catName p{
+    margin: 0px;
+    margin-left: 0px;
+    padding: 5px 0 5px 0;
+    margin-left: -7px;
+}
+
+.oneCat{
+    margin-bottom: 15px;
+}
+
+.postInfo{
+    width: 100%;
+    margin-left: 0;
+}
+
+a{
+    color: black;
+}
+.headLine{
+    width: 100%;
+}
+
+.contactForm{
+    background: #FFF;
+    padding: 7px 25px 19px 25px;
+    opacity: 0.8;
+}
+
+
+.header{
+    height: 55px;
+}
+
+.logo{
+}
+
+.header li:hover{
+    background: black;
+}
+.header li a{
+    padding: 14px;
+}
+
+.logo img{
+    height: 39px;
+}
+.slider{
+    position: fixed;
+}
+
+.postDetails{
+    background: #FFF;
+    opacity: 0.7;
+    margin: 0 0 18px 0;
+    color: black;
+}
+@media only screen and (min-width: 768px) {
+    .mainBody{
+        width: 69%;
+        margin: 0 auto;
+    }
+    .postCard{
+        padding: 10px;
+        margin-bottom: 6px;
+        transition: 0.3s;
+    }
+
+    .postCard:hover{
+        color: white;
+        background: #91C9D4;
+    }
+
+    .headLine{
+        height: 78%;
+    }
+    .ftrImg{
+        height: 92px;
+    }
+    .publisherLogo{
+        height: 16px;
+        width: 75px;
+        margin-top:-9px;
+    }
+    .time{
+        font-size: 13px;
+        float: right;
+    }
+    .postInfo{
+
+    }
+
+    .headLineAndPostInfo{
+
+    }
+
+    .catNav{
+        background: black;
+        opacity: 0.8;
+        display: none;
+    }
+
+    .catNav a:hover{
+        background: black;
+        opacity: 0.8;
+    }
+
+    .leftNavBar{
+        z-index: 999;
+        padding-right: 0;
+        transition: 0.5s;
+    }
+
+    .leftNavBar nav{
+        padding:0;
+    }
+    .leftNavBar ul{
+        width: 100%;
+    }
+    .leftNavBar li a{
+        margin-left: 16px;
+    }
+
+    .leftNavBar li:hover{
+        color: white;
+        background: #91C9D4;
+    }
+
+     a:link{
+        color: black;
+    }
+
+    .dropdown{
+        display: none;
+    }
+
+    .publisheAndTime{
+        background: #FFF;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .postPageTime{
+        font-size: 15px;
+    }
+
+    .postPagePublisherLogo{
+        height: 22px;
+        width: 100px;
+        margin: 3px 8px 4px 13px;
+    }
+    .header{
+        padding-right: 4px;
+    }
+
+    .header ul{
+        padding: 0;
+        padding-left: 0px;
+        background: #343A40;
+        padding-left: 14px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .postCard{
+        padding: 10px;
+        margin-bottom: 6px;
+    }
+    .ftrImg{
+        height: 66px;
+    }
+    .headLine{
+        height: 81%;
+        font-size: 13px;
+    }
+
+    .headLineAndPostInfo{
+        margin-left: -5px;
+    }
+
+    .publisherLogo{
+        height: 14px;
+        width: 67px;
+        margin-bottom:12px;
+    }
+    .time{
+        font-size: 11px;
+        float: right;
+    }
+
+    .leftNavBar{
+        display: none;
+    }
+
+    #topNavbar{
+        width: 100%;
+    }
+
+    .postInfo{
+
+    }
+
+    .catNav{
+        background: #111111;
+        margin-left: 7px;
+        padding: 0px 0 0 14px;
+        margin-right: 19px;
+    }
+
+    .catNav a:link:hover{
+        background: #343A40;
+    }
+    .catNav a:link{
+
+    }
+    .slider{
+        display:none;
+    }
+
+    .publisheAndTime{
+        background: #FFF;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .postPageTime{
+        font-size: 15px;
+    }
+
+    .postPagePublisherLogo{
+        height: 22px;
+        margin-right: 8px;
+        margin-bottom: 4px;
+        margin-top: 3px;
+        width: 100px;
+    }
+
+    #topNavbar{
+        padding: 0;
+    }
+
+    .header{
+        padding-right: 17px;
+        padding-top: 0;
+    }
+
+    .header ul{
+        padding: 0;
+        padding-left: 0px;
+        padding-left: 20px;
+        background: #343A40;
+        margin-right: -17px;
+        margin-left: -17px;
+    }
+
+    .publisheAndTime{
+        background: #FFF;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .postPageTime{
+        font-size: 15px;
+    }
+
+    .postPagePublisherLogo{
+        height: 18px;
+        width: 77px;
+        margin: -3px 0 4px 6px;
+    }
+
+    .dateTimeCat{
+        font-size: 13px;
+        padding: 0 4px 0 0;
+    }
+}
