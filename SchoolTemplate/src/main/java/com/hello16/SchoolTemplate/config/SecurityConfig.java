@@ -53,14 +53,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/static/**",
                         "/css/**",
                         "/fonts/**",
-                        "/images/**",
+                        "/img/**",
                         "/js/**",
                         "/upload/**",
-                        "/vendors/**",
-                        "/", "/dash", "/login", "/signup", "/user/**", "/role/**"
+                        "/", "/tab", "/login", "/user/add", "/user/list", "/role/add", "/role/list"
                 ).permitAll()
-                .and()
-                .authorizeRequests().anyRequest().authenticated()
+                .antMatchers(
+                        "/role/edit/**", "/role/del/**", "/user/edit/**", "/user/del/**",
+                        "/adm/list", "/tea/list", "/std/list")
+                .hasRole("SUPERADMIN")
+                .antMatchers(
+                        "/user/edit/{id}",
+                        "/adm/add", "/adm/listById", "/adm/edit/{id}", "/adm/del/{id}",
+                        "/tea/list"
+                )
+                .hasRole("ADMIN")
+                .antMatchers(
+                        "/user/edit/{id}",
+                        "/tea/add", "/tea/listById", "/tea/edit/{id}", "/tea/del/{id}",
+                        "/std/list"
+                )
+                .hasRole("TEACHER")
+                .antMatchers(
+                        "/user/edit/{id}",
+                        "/std/add", "/std/listById", "/std/edit/{id}", "/std/del/{id}"
+                )
+                .hasRole("STUDENT")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")

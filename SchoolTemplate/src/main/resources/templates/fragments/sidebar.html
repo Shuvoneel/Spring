@@ -7,55 +7,97 @@
 </head>
 <body>
 <div th:fragment="sidebar" class="sidebar" data-color="purple" data-background-color="black"
-     data-image="/images/sidebar-2.jpg">
+     data-image="/img/sidebar-2.jpg">
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
       Tip 2: you can also add an image using data-image tag
   -->
     <div class="logo"><a href="https://www.facebook.com/hellodhaka16" class="simple-text logo-normal">
-        HelloDhaka16
+        <img th:src="@{/img/logo.png}" alt="HelloDhaka16"/>
+        <br/>
+        <h6>EIIN-71829</h6>
     </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item active">
-                <a class="nav-link" th:href="@{/dash}">
-                    <i class="material-icons">dashboard</i>
-                    <p>Dashboard</p>
+                <a class="nav-link" th:href="@{/}">
+                    <i class="material-icons">home</i>
+                    <p>Home</p>
                 </a>
             </li>
 
-            <li class="nav-item" sec:authorize="hasRole('SUPERADMIN')">
-                <a class="nav-link" data-toggle="collapse" href="#role" aria-expanded="false" aria-controls="person">
+            <li class="nav-item active">
+                <a class="nav-link" data-toggle="collapse" href="#general" aria-expanded="false" aria-controls="person">
                     <i class="material-icons">person</i>
-                    <span class="menu-title">Roles</span>
-                    <i class="menu-arrow"></i>
+                    <p class="menu-title">General</p>
                 </a>
-                <div class="collapse" id="role">
+                <div class="collapse" id="general">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"><a class="nav-link" th:href="@{/role/add}">Add Role</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/role/list}">Role List</a></li>
+                        <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="nav-link"
+                                                                                   th:href="@{/user/add}">Add User</a>
+                        </li>
                     </ul>
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#test" aria-expanded="false" aria-controls="person">
+            <li class="nav-item active" sec:authorize="hasRole('SUPERADMIN')">
+                <a class="nav-link" data-toggle="collapse" href="#superadmin" aria-expanded="false"
+                   aria-controls="person">
                     <i class="material-icons">person</i>
-                    <span class="menu-title">Test Menu</span>
-                    <i class="menu-arrow"></i>
+                    <p class="menu-title">Super Admin</p>
                 </a>
-                <div class="collapse" id="test">
+                <div class="collapse" id="superadmin">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item" sec:authorize="hasRole('SUPERADMIN')"><a class="nav-link" th:href="@{/user/add}">Add User</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('SUPERADMIN')"><a class="nav-link" th:href="@{/user/list}">User's List</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('ADMIN')"><a class="nav-link" th:href="@{/adm/add}">Add Admin</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('ADMIN')"><a class="nav-link" th:href="@{/adm/listById}">Admin Details</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('TEACHER')"><a class="nav-link" th:href="@{/tea/add}">Add Teacher</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('TEACHER')"><a class="nav-link" th:href="@{/tea/listById}">Teacher Details</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('STUDENT')"><a class="nav-link" th:href="@{/std/add}">Add Student</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('STUDENT')"><a class="nav-link" th:href="@{/std/listById}">Student Details</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/role/list}">Role List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/user/list}">User's List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/adm/list}">Admin's List</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item active" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="person">
+                    <i class="material-icons">person</i>
+                    <p class="menu-title">Admin</p>
+                </a>
+                <div class="collapse" id="admin">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/user/listById}">Account Info</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/adm/add}">Add Details</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/adm/listById}">Information Details</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/tea/list}">Teacher's List</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item active" sec:authorize="hasRole('TEACHER')">
+                <a class="nav-link" data-toggle="collapse" href="#teacher" aria-expanded="false" aria-controls="person">
+                    <i class="material-icons">person</i>
+                    <p class="menu-title">Teacher</p>
+                </a>
+                <div class="collapse" id="teacher">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/user/listById}">Account Info</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/tea/add}">Add Details</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/tea/listById}">Information Details</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/std/list}">Student's List</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item active" sec:authorize="hasRole('STUDENT')">
+                <a class="nav-link" data-toggle="collapse" href="#student" aria-expanded="false" aria-controls="person">
+                    <i class="material-icons">person</i>
+                    <p class="menu-title">Student</p>
+                </a>
+                <div class="collapse" id="student">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/user/listById}">Account Info</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/std/add}">Add Details</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/std/listById}">Information Details</a></li>
                     </ul>
                 </div>
             </li>

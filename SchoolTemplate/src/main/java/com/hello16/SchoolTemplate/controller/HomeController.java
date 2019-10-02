@@ -1,10 +1,8 @@
 package com.hello16.SchoolTemplate.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,29 +11,15 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController {
 
 
-    @GetMapping(value="/tab")
-    public String viewTable() {
-        return "table";
-    }
-
-    @GetMapping(value="/user")
-    public String viewUser() {
-        return "user";
-    }
-
-    @GetMapping(value="/dash")
-    public String dashboard() {
-        return "dashboard";
-    }
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-
-    @GetMapping(value="/")
+    @GetMapping(value = "/")
     public String viewIndex() {
 
         return "index";
+    }
+
+    @GetMapping(value = "/tab")
+    public String header(){
+        return "table";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -50,7 +34,7 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping(value="/access-denied")
+    @GetMapping(value = "/access-denied")
     public String accessDenied() {
 
         return "accessDenied";
