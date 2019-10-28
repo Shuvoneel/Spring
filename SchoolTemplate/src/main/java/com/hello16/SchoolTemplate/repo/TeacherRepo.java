@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TeacherRepo extends JpaRepository<Teacher, Long> {
-
     Teacher findByUser(User user);
 }

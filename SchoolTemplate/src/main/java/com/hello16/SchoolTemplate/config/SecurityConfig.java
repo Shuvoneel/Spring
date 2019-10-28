@@ -59,20 +59,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/", "/tab", "/login", "/user/add", "/user/list", "/role/add", "/role/list"
                 ).permitAll()
                 .antMatchers(
-                        "/role/edit/**", "/role/del/**", "/user/edit/**", "/user/del/**",
                         "/adm/list", "/tea/list", "/std/list")
+                .hasAnyRole("SUPERADMIN", "ADMIN", "TEACHER")
+                .antMatchers(
+                        "/role/edit/**", "/role/del/**", "/user/edit/**", "/user/del/**")
                 .hasRole("SUPERADMIN")
                 .antMatchers(
                         "/user/edit/{id}",
-                        "/adm/add", "/adm/listById", "/adm/edit/{id}", "/adm/del/{id}",
-                        "/tea/list"
-                )
+                        "/adm/add", "/adm/listById", "/adm/edit/{id}", "/adm/del/{id}")
                 .hasRole("ADMIN")
                 .antMatchers(
                         "/user/edit/{id}",
-                        "/tea/add", "/tea/listById", "/tea/edit/{id}", "/tea/del/{id}",
-                        "/std/list"
-                )
+                        "/tea/add", "/tea/listById", "/tea/edit/{id}", "/tea/del/{id}")
                 .hasRole("TEACHER")
                 .antMatchers(
                         "/user/edit/{id}",

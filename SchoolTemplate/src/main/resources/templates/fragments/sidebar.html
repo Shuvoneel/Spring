@@ -28,7 +28,7 @@
                 </a>
             </li>
 
-            <li class="nav-item active">
+            <li class="nav-item active" sec:authorize="!isAuthenticated()">
                 <a class="nav-link" data-toggle="collapse" href="#general" aria-expanded="false" aria-controls="person">
                     <i class="material-icons">person</i>
                     <p class="menu-title">General</p>
@@ -36,9 +36,7 @@
                 <div class="collapse" id="general">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"><a class="nav-link" th:href="@{/role/add}">Add Role</a></li>
-                        <li class="nav-item" sec:authorize="!isAuthenticated()"><a class="nav-link"
-                                                                                   th:href="@{/user/add}">Add User</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/user/add}">Add User</a></li>
                     </ul>
                 </div>
             </li>
@@ -52,8 +50,11 @@
                 <div class="collapse" id="superadmin">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"><a class="nav-link" th:href="@{/role/list}">Role List</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/user/list}">User's List</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/adm/list}">Admin's List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/tea/list}">Teacher's List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/std/list}">Student's List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/evn/list}">Evaluation List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/res/list}">Result List</a></li>
                     </ul>
                 </div>
             </li>
@@ -84,6 +85,8 @@
                         <li class="nav-item"><a class="nav-link" th:href="@{/tea/add}">Add Details</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/tea/listById}">Information Details</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/std/list}">Student's List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/res/add}">Add Result</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/res/listById}">Result List</a></li>
                     </ul>
                 </div>
             </li>
@@ -98,6 +101,9 @@
                         <li class="nav-item"><a class="nav-link" th:href="@{/user/listById}">Account Info</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/std/add}">Add Details</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/std/listById}">Information Details</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/evn/add}">Evaluate</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/evn/listById}">Evaluation List</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/res/listByStd}">Result List</a></li>
                     </ul>
                 </div>
             </li>

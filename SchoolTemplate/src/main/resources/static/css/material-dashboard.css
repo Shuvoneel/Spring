@@ -13777,9 +13777,9 @@ fieldset[disabled] .form-group .form-control {
 }
 
 .navbar .navbar-nav .nav-item .nav-link.profile-photo .profile-photo-small {
-  height: 40px;
-  width: 40px;
-}
+   height: 40px;
+   width: 40px;
+ }
 
 .navbar .navbar-nav .nav-item .nav-link.profile-photo .ripple-container {
   border-radius: 50%;
